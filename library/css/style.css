@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 1440px;
+    margin: 0 auto;
+    font-family: Inter;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-wrapped-nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 20px 0;
+}
+
+.header-wrapped-nav-h1 {
+    text-align: center;
+}
+
+h1 {
+    color: #FFF;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 166.667% */
+    letter-spacing: 0.6px;
+    padding-left: 20px;
+}
+
+.header-ul {
+    list-style: none;
+    display: flex;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 250% */
+    margin-right: 58px;
+}
+
+.header-ul-li {
+    margin-right: 30px;
+}
+
+.header-ul-li-img {
+    width: 28px;
+    height: 28px;
+    padding-top: 7px;
+}
+
+
+.main {
+    background-color: aqua;
+    height: 20px;
+}
+
+.footer {
+    background-color: black;
+    height: 20px;
+}
