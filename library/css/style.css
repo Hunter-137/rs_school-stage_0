@@ -183,7 +183,26 @@ h1 {
     font-weight: 700;
     line-height: normal;
     margin-top: 40px;
+    margin-left: 20px;
 }
+
+
+.main-favorites-input {
+    accent-color: #000;
+    height: 17px;
+    width: 17px;
+    margin: 40px 20px 0px 90px;
+}
+
+.main-favorites-input:checked + span {
+    font-weight: 700;
+}
+
+
+.main-favorites-input_first {
+    margin-left: 20px;
+}
+
 
 .footer {
     background-color: black;
