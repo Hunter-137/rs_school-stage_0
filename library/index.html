@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="icon" href="./icon/—Pngtree—head shape library bookshelf_5304259 (1).ico">
+    <link rel="icon" href="./icon/library_icon.ico">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -14,32 +14,32 @@
                 <h1 class="header-wrapped-nav-h1">Brooklyn Public Library</h1>
                 <nav class="header-nav">
                     <ul class="header-ul">
-                        <li class="header-ul-li">About</li>
-                        <li class="header-ul-li">Favorites</li>
-                        <li class="header-ul-li">Coffee shop</li>
-                        <li class="header-ul-li">Contacts</li>
-                        <li class="header-ul-li" class="header-ul-li-last">Library Card</li>
+                        <li class="header-ul-li"><a class="header-ul-li-a" href="#about">About</a></li>
+                        <li class="header-ul-li"><a class="header-ul-li-a" href="#favorites">Favorites</a></li>
+                        <li class="header-ul-li"><a class="header-ul-li-a" href="#coffee_shop">Coffee shop</a></li>
+                        <li class="header-ul-li"><a class="header-ul-li-a" href="#contacts">Contacts</a></li>
+                        <li class="header-ul-li header-ul-li-last"><a class="header-ul-li-a" href="#library_card">Library Card</a></li>
                         <li class="header-ul-li-img">
                             <img src="./icon/icon_profile.svg" alt="icon">
                         </li>
                     </ul>
                 </nav>
             </section>
-            <section class="header-welcome">
+            <div class="header-welcome">
                 <div class="header-welcome-p-wrapped">
                     <p class="header-welcome-paragraph">Welcome to the Brooklyn Library</p>
                 </div>
-            </section>
+            </div>
         </header>
         <main class="main">
             <section class="main-about">
-                <h2 class="main-about-title title">About</h2>
+                <h2 class="main-about-title title" id="about">About</h2>
                 <p class="main-about-description">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-                <section class="main-about-img">
+                <div class="main-about-img">
                     <img class="main-about-img_1" src="../library/img/mainAbout_1.jpg" alt="image">
                     <img class="main-about-img_2" src="../library/img/mainAbout_2.jpg" alt="image">
                     <img class="main-about-img_3" src="../library/img/mainAbout_3.jpg" alt="image">
-                </section>
+                </div>
                 <div class="main-about-circle">
                     <div class="main-about-circle_1"></div>
                     <div class="main-about-circle_2"></div>
@@ -47,7 +47,7 @@
                 </div>
             </section>
             <section class="main-favorites">
-                <h2 class="main-favorites-title title">Favorites</h2>
+                <h2 class="main-favorites-title title" id="favorites">Favorites</h2>
                 <p class="main-favorites-text">Pick favorites of season</p>
                 <label>
                     <input class="main-favorites-input main-favorites-input_first" type="radio" name="season" value="winter"><span>Winter</span>
@@ -62,6 +62,42 @@
                     <input class="main-favorites-input" type="radio" name="season" value="winter"><span>Autumn</span>
                 </label>
             </section>
+            <div class="main-favorites-staff_picks-wrapp">
+                <article class="main-favorites-staff_picks">
+                    <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                    <p class="main-favorites-staff_picks-book_name">The Book Eaters</p>
+                    <p class="main-favorites-staff_picks-book_author">By Sunyi Dean</p>
+                    <p class="main-favorites-staff_picks-book_description">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                    <button class="main-favorites-staff_picks-book_buy">Buy</button>
+                    <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_1.jpg" alt="image-1">
+                </article>
+                <article class="main-favorites-staff_picks">
+                    <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                    <p class="main-favorites-staff_picks-book_name">Cackle</p>
+                    <p class="main-favorites-staff_picks-book_author">By Rachel Harrison</p>
+                    <p class="main-favorites-staff_picks-book_description">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                    <button class="main-favorites-staff_picks-book_buy">Buy</button>
+                    <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_2.jpg" alt="image-2">
+                </article>
+            </div>
+            <div class="main-favorites-staff_picks-wrapp">
+                <article class="main-favorites-staff_picks">
+                    <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                    <p class="main-favorites-staff_picks-book_name">Dante: Poet of the Secular World</p>
+                    <p class="main-favorites-staff_picks-book_author">By Erich Auerbach</p>
+                    <p class="main-favorites-staff_picks-book_description">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+                    <button class="main-favorites-staff_picks-book_buy">Buy</button>
+                    <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_3.jpg" alt="image-3">
+                </article>
+                <article class="main-favorites-staff_picks">
+                    <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                    <p class="main-favorites-staff_picks-book_name">The Last Queen</p>
+                    <p class="main-favorites-staff_picks-book_author">By Clive Irving</p>
+                    <p class="main-favorites-staff_picks-book_description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                    <button class="main-favorites-staff_picks-book_buy_4">Own</button>
+                    <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_4.jpg" alt="image-4">
+                </article>
+            </div>
         </main>
         <footer class="footer"></footer>
     </div>
