@@ -436,6 +436,49 @@ h1 {
     margin: 40px 220px 0;
 }
 
+.main-our_contacts-wrapp {
+    display: flex;
+    margin-top: 61px;
+    justify-content: space-between;
+}
+
+.main-our_contacts-numbers-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 200% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+}
+
+.main-our_contacts-numbers-description {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 200% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.main-our_contacts-numbers-subtitle {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 200% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-top: 40px;
+    margin-bottom: 20pxgit;
+}
+
 .footer {
     background-color: black;
     height: 20px;
