@@ -440,6 +440,7 @@ h1 {
     display: flex;
     margin-top: 61px;
     justify-content: space-between;
+    padding: 20px 20px 40px 20px;
 }
 
 .main-our_contacts-numbers-title {
@@ -476,7 +477,162 @@ h1 {
     letter-spacing: 2px;
     text-transform: capitalize;
     margin-top: 40px;
-    margin-bottom: 20pxgit;
+    margin-bottom: 20px;
+}
+
+.main-cards-wrapp {
+    display: flex;
+    justify-content: space-between;
+    margin: 61px 20px 40px;
+}
+
+.main-cards-check_card-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+
+.main-cards-check_card-border {
+    width: 600px;
+    height: 386px;
+    border: 3px solid #BB945F;
+    margin-top: 30px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.main-cards-check_card-border-background {
+    width: 560px;
+    height: 272px;
+    background: #BB945F;
+    margin: 20px 20px 94px 20px;
+    position: relative;
+}
+
+.main-cards-check_card-border-background-subtitle {
+    color: #000;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 166.667% */
+    letter-spacing: 0.6px;
+    padding: 20px 0 20px 20px;
+}
+
+.main-cards-check_card-border-background-input {
+    width: 500px;
+    height: 66px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: #FFF;
+    outline: none;
+    color: #BB945F;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 166.667% */
+    letter-spacing: 0.6px;
+    padding-left: 20px;
+}
+
+.main-cards-check_card-border-background-input::placeholder {
+    color: #8E8E8E;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 166.667% */
+    letter-spacing: 0.6px;
+}
+
+.main-cards-check_card-border-button {
+    width: 242px;
+    height: 44px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    background-color: #FFF;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    transition-duration: 300ms;
+    position: absolute;
+    content: '';
+    top: 312px;
+    right: 179px;
+}
+
+.main-cards-check_card-border-button:hover {
+    background-color: #BB945F;
+}
+
+.main-cards-check_card-border-button:active {
+    border: #BB945F;
+}
+
+.main-cards-authorization-title {
+    color: #000;
+    text-align: right;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+
+.main-cards-authorization-description {
+    width: 456px;
+    margin-top: 35px;
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 200% */
+    letter-spacing: 0.4px;
+}
+
+.main-cards-authorization-button-wrapp {
+    display: flex;
+    justify-content: end;
+    margin-right: -20px;
+}
+
+.main-cards-authorization-button {
+    margin: 35px 20px 0 0;
+    width: 75px;
+    height: 30px;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    transition-duration: 300ms;
+}
+
+.main-cards-authorization-button:hover {
+    background-color: #BB945F;
+}
+
+.main-cards-authorization-button:active {
+    border: #BB945F;
 }
 
 .footer {
