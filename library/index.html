@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="icon" href="./icon/library_icon.ico">
+    <link rel="icon" href="./icon/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/index.js"></script>
 </head>
@@ -13,22 +13,26 @@
         <header class="header">
             <section class="header-wrapped-nav">
                 <h1 class="header-wrapped-nav-h1">Brooklyn Public Library</h1>
-                <nav class="header-nav">
-                    <ul class="header-ul">
-                        <li class="header-ul-li"><a class="header-ul-li-a" href="#about">About</a></li>
-                        <li class="header-ul-li"><a class="header-ul-li-a" href="#favorites">Favorites</a></li>
-                        <li class="header-ul-li"><a class="header-ul-li-a" href="#coffee_shop">Coffee shop</a></li>
-                        <li class="header-ul-li"><a class="header-ul-li-a" href="#contacts">Contacts</a></li>
-                        <li class="header-ul-li header-ul-li-last"><a class="header-ul-li-a" href="#library_card">Library Card</a></li>
-                        <li class="header-ul-li-img">
-                            <img src="./icon/icon_profile.svg" alt="icon">
-                        </li>
-                    </ul>
-                </nav>
+                <div class="header-wrapped-nav-ul">
+                    <nav class="header-nav">
+                        <ul class="header-ul">
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#about">About</a></li>
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#favorites">Favorites</a></li>
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#coffee_shop">Coffee shop</a></li>
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#contacts">Contacts</a></li>
+                            <li class="header-ul-li header-ul-li-last"><a class="header-ul-li-a" href="#library_card">Library Card</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#">
+                        <img class="header-ul-li-img" src="./icon/icon_profile.svg" alt="icon">
+                    </a>
+                </div>
             </section>
             <section class="header-welcome">
-                <div class="header-welcome-p-wrapped">
-                    <h2 class="header-welcome-paragraph">Welcome to the Brooklyn Library</h2>
+                <div class="header-welcome-overlay">
+                    <div class="header-welcome-p-wrapped">
+                        <h2 class="header-welcome-paragraph">Welcome<br>to the Brooklyn<br>Library</h2>
+                    </div>
                 </div>
             </section>
         </header>
@@ -51,7 +55,7 @@
                 <h2 class="main-favorites-title title" id="favorites">Favorites</h2>
                 <p class="main-favorites-text">Pick favorites of season</p>
                 <label>
-                    <input class="main-favorites-input main-favorites-input_first" type="radio" name="season" value="winter"><span>Winter</span>
+                    <input class="main-favorites-input main-favorites-input_first" type="radio" name="season" value="winter" checked><span>Winter</span>
                 </label>
                 <label>
                     <input class="main-favorites-input" type="radio" name="season" value="winter"><span>Spring</span>
@@ -95,7 +99,7 @@
                     <p class="main-favorites-staff_picks-book_name">The Last Queen</p>
                     <p class="main-favorites-staff_picks-book_author">By Clive Irving</p>
                     <p class="main-favorites-staff_picks-book_description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-                    <button class="main-favorites-staff_picks-book_buy_4">Own</button>
+                    <button class="main-favorites-staff_picks-book_buy_4" disabled>Own</button>
                     <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_4.jpg" alt="image-4">
                 </article>
             </div>
@@ -170,16 +174,16 @@
                         <article class="main-cards-check_card">
                             <h3 class="main-cards-check_card-title">Find your Library card</h3>
                             <div class="main-cards-check_card-border">
-                                <div class="main-cards-check_card-border-background">
+                                <form action="#" class="main-cards-check_card-border-background">
                                     <h4 class="main-cards-check_card-border-background-subtitle">Brooklyn Public Library</h4>
-                                    <label>
-                                        <input class="main-cards-check_card-border-background-input" type="text" placeholder="Reader's name">
+                                    <label title="Use only letters, numbers and hyphens.">
+                                        <input required pattern="^[0-9a-zA-Z\-]+$" class="main-cards-check_card-border-background-input" type="text" placeholder="Reader's name">
                                     </label>
-                                    <label>
-                                        <input class="main-cards-check_card-border-background-input" type="text" placeholder="Card number">
+                                    <label title="Use only letters, numbers and hyphens.">
+                                        <input required pattern="^[0-9a-zA-Z\-]+$" class="main-cards-check_card-border-background-input" type="text" placeholder="Card number">
                                     </label>
-                                    <button class="main-cards-check_card-border-button">Check the card</button>
-                                </div>
+                                    <button type="submit" class="main-cards-check_card-border-button">Check the card</button>
+                                </form>
                             </div>
                         </article>
                     </div>
