@@ -23,7 +23,7 @@ html, body {
 .header-wrapped-nav {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: #0C0C0E;
     padding: 20px 0;
 }
 
@@ -42,10 +42,15 @@ h1 {
     padding-left: 20px;
 }
 
+.header-wrapped-nav-ul {
+    display: flex;
+    margin-right: 20px;
+}
+
 .header-ul {
     list-style: none;
     display: flex;
-    margin-right: 58px;
+    /* margin-right: 58px; */
 }
 
 .header-ul-li {
@@ -73,19 +78,30 @@ h1 {
 .header-ul-li-img {
     width: 28px;
     height: 28px;
-    padding-top: 11px;
+    margin-top: 11px;
+    border-radius: 50%;
+    transition-duration: 300ms;
+}
+
+.header-ul-li-img:hover {
+    background-color: #BB945F;
 }
 
 .header-welcome {
-    background-image: url('../img/headerFix.jpg');
-    background-size: 100% 600px;
-    height: 600px;
+    background-image: url('../img/header.jpg');
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+}
+
+.header-welcome-overlay {
+    background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
+    height: 300px;
 }
 
 .header-welcome-p-wrapped {
-    padding: 220px 0 0 40px;
-    width: 350px;
+    padding-top: 185px;
 }
 
 .header-welcome-paragraph {
@@ -98,6 +114,10 @@ h1 {
     line-height: 50px; /* 125% */
     letter-spacing: 3px;
     text-transform: uppercase;
+    background-color: #0C0C0E;
+    border: 35px solid #0C0C0E;
+    width: 520px;
+    height: 150px;
 }
 
 
@@ -207,6 +227,7 @@ h1 {
 
 .main-favorites-input {
     accent-color: #000;
+    cursor: pointer;
     height: 17px;
     width: 17px;
     margin: 40px 20px 0px 90px;
@@ -215,16 +236,15 @@ h1 {
 
 .main-favorites-input + span {
     transition-duration: 300ms;
+    cursor: pointer;
 }
 
 .main-favorites-input:hover + span {
     opacity: 50%;
-    transition-duration: 300ms;
 }
 
 .main-favorites-input:checked + span {
     font-weight: 700;
-    transition-duration: 300ms;
     opacity: 100%;
 }
 
@@ -326,6 +346,7 @@ h1 {
     position: absolute;
     bottom: 15px;
     transition-duration: 500ms;
+    cursor: pointer;
 }
 
 .main-favorites-staff_picks-book_buy:hover {
@@ -366,12 +387,12 @@ h1 {
     border: 1px solid #BB945F;
     position: absolute;
     bottom: 15px;
-    transition-duration: 500ms;
+    /* transition-duration: 500ms; */
 }
 
-.main-favorites-staff_picks-book_buy_4:hover {
+/* .main-favorites-staff_picks-book_buy_4:hover {
     transform: scale(1.3);
-}
+} */
 
 .main-coffee_shop-description {
     color: #000;
@@ -515,6 +536,7 @@ h1 {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.6px;
+    text-align: center;
 }
 
 .main-cards-check_card-border {
@@ -589,8 +611,9 @@ h1 {
     transition-duration: 300ms;
     position: absolute;
     content: '';
-    top: 312px;
-    right: 179px;
+    top: 300px;
+    right: 164px;
+    cursor: pointer;
 }
 
 .main-cards-check_card-border-button:hover {
@@ -647,6 +670,7 @@ h1 {
     border: 1px solid #0C0C0E;
     transition-duration: 300ms;
     background-color: #FFF;
+    cursor: pointer;
 }
 
 .main-cards-authorization-button:hover {
@@ -659,7 +683,7 @@ h1 {
 
 
 .footer-wrapp {
-    background-color: #000;
+    background-color: #0C0C0E;
     height: 250px;
 }
 
