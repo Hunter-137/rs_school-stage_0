@@ -220,7 +220,7 @@ h1 {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-top: 40px;
+    margin: 40px 0;
     margin-left: 20px;
 }
 
@@ -230,13 +230,41 @@ h1 {
     cursor: pointer;
     height: 17px;
     width: 17px;
-    margin: 40px 20px 0px 90px;
     transition-duration: 300ms;
+    margin-right: 20px; 
+}
+
+.main-favorites-label {
+    cursor: pointer;
+}
+
+.main-favorites-input-text {
+    display: inline-block;
+    width: 80px;
+}
+
+.main-favorites-label.winter {
+    padding: 11px 0 10px 0;
+    margin-right: 77px;
+}
+
+.main-favorites-label.spring {
+    padding: 11px 0 10px 0;
+    margin-right: 77px;
+}
+
+.main-favorites-label.summer {
+    padding: 11px 0 10px 0;
+    margin-right: 89px;
+}
+
+.main-favorites-label.autumn {
+    padding: 11px 0px 10px;
 }
 
 .main-favorites-input + span {
     transition-duration: 300ms;
-    cursor: pointer;
+    font-size: 20px;
 }
 
 .main-favorites-input:hover + span {
@@ -248,8 +276,7 @@ h1 {
     opacity: 100%;
 }
 
-
-.main-favorites-input_first {
+.main-favorites-input:first-child {
     margin-left: 20px;
 }
 
