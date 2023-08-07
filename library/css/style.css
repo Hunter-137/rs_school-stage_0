@@ -12,12 +12,19 @@ html, body {
 
 .container {
     height: 100%;
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     font-family: Inter;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
+}
+
+@media (max-width: 1024px) {
+    .header-nav {
+        display: none;
+    }
 }
 
 .header-wrapped-nav {
@@ -83,6 +90,12 @@ h1 {
     transition-duration: 300ms;
 }
 
+@media (max-width: 1024px) {
+    .header-ul-li-img {
+        margin-right: 105px;
+    }
+}
+
 .header-ul-li-img:hover {
     background-color: #BB945F;
 }
@@ -120,11 +133,6 @@ h1 {
     height: 150px;
 }
 
-
-.main-about {
-    height: 837px;
-}
-
 .title {
     color: #0C0C0E;
     font-family: Forum;
@@ -144,7 +152,7 @@ h1 {
     height: 1px;
     width: 50px;
     top: 60px;
-    right: 694px;
+    right: 48%;
     background: #0C0C0E;
     position: absolute;
 }
@@ -155,24 +163,39 @@ h1 {
 }
 
 .main-about-img {
-    width: 450px;
-    height: 560px;
+    max-height: 560px;
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
-    flex-shrink: 0;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1440px;
 }
 
 .main-about-img_1 {
-    margin-left: 120px;
+    max-width: 450px;
+    /* display: none; */
 }
 
 .main-about-img_2 {
-    margin-left: 20px;
+    max-width: 450px;
+    /* display: none; */
+}
+
+@media (max-width: 962px) {
+    .main-about-img_2 {
+        display: none;
+    }
 }
 
 .main-about-img_3 {
-    margin-left: 20px;
+    max-width: 450px;
+    /* display: none; */
+}
+
+@media (max-width: 1400px) {
+    .main-about-img_3 {
+        display: none;
+    }
 }
 
 .main-about-circle {
