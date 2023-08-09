@@ -12,12 +12,13 @@ html, body {
 
 .container {
     height: 100%;
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     font-family: Inter;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .header-wrapped-nav {
@@ -45,12 +46,12 @@ h1 {
 .header-wrapped-nav-ul {
     display: flex;
     margin-right: 20px;
+    align-items: center;
 }
 
 .header-ul {
     list-style: none;
     display: flex;
-    /* margin-right: 58px; */
 }
 
 .header-ul-li {
@@ -78,13 +79,96 @@ h1 {
 .header-ul-li-img {
     width: 28px;
     height: 28px;
-    margin-top: 11px;
     border-radius: 50%;
     transition-duration: 300ms;
 }
 
 .header-ul-li-img:hover {
     background-color: #BB945F;
+}
+
+
+.header-burger_menu-button {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header-nav {
+        position: absolute;
+        top: -100%;
+        right: 0;
+        width: 100%;
+        background-color: #000;
+        transition-duration: 700ms;
+    }
+
+    .header-nav.active {
+        top: 0;
+        height: 690px;
+    }
+
+    .header-ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 100px;
+    }
+
+    .header-ul-li {
+       z-index: 1;
+    }
+    
+    .header-ul-li-img {
+        position: relative;
+        z-index: 4;
+    }
+
+    .header-burger_menu-button {
+        display: block;
+        position: relative;
+        width: 45px;
+        height: 20px;
+        margin-left: 40px;
+        z-index: 2;
+    }
+
+    .header-burger_menu-button span {
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition-duration: 300ms;
+    }
+
+    .header-burger_menu-button::before, .header-burger_menu-button::after {
+        content: '';
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition-duration: 300ms;
+    }
+    .header-burger_menu-button::before {
+        top: 0;
+    }
+    .header-burger_menu-button::after {
+        bottom: 0;
+    }
+
+    .header-burger_menu-button.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header-burger_menu-button.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+
+    .header-burger_menu-button.active span {
+        transform: scale(0);
+    }
 }
 
 .header-welcome {
@@ -120,11 +204,6 @@ h1 {
     height: 150px;
 }
 
-
-.main-about {
-    height: 837px;
-}
-
 .title {
     color: #0C0C0E;
     font-family: Forum;
@@ -144,7 +223,7 @@ h1 {
     height: 1px;
     width: 50px;
     top: 60px;
-    right: 694px;
+    right: 48%;
     background: #0C0C0E;
     position: absolute;
 }
@@ -155,24 +234,39 @@ h1 {
 }
 
 .main-about-img {
-    width: 450px;
-    height: 560px;
+    max-height: 560px;
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
-    flex-shrink: 0;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1440px;
 }
 
 .main-about-img_1 {
-    margin-left: 120px;
+    max-width: 450px;
+    /* display: none; */
 }
 
 .main-about-img_2 {
-    margin-left: 20px;
+    max-width: 450px;
+    /* display: none; */
+}
+
+@media (max-width: 962px) {
+    .main-about-img_2 {
+        display: none;
+    }
 }
 
 .main-about-img_3 {
-    margin-left: 20px;
+    max-width: 450px;
+    /* display: none; */
+}
+
+@media (max-width: 1400px) {
+    .main-about-img_3 {
+        display: none;
+    }
 }
 
 .main-about-circle {
@@ -211,6 +305,58 @@ h1 {
     width: 16px;
     border-radius: 50%;
     background-color: #0C0C0E;
+}
+
+.main-about-circle_4 {
+    display: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #0C0C0E;
+}
+
+.main-about-circle_5 {
+    display: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #0C0C0E;
+}
+
+@media (max-width: 1400px) {
+    .main-about-circle {
+        width: 92px;
+        height: 16px;
+        margin: 40px auto 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-about-circle_4 {
+        display: block;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: #0C0C0E;
+    }
+}
+
+@media (max-width: 962px) {
+    .main-about-circle {
+        width: 120px;
+        height: 16px;
+        margin: 40px auto 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-about-circle_5 {
+        display: block;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: #0C0C0E;
+    }
 }
 
 .main-favorites-text {
@@ -255,7 +401,7 @@ h1 {
 
 .main-favorites-label.summer {
     padding: 11px 0 10px 0;
-    margin-right: 89px;
+    margin-right: 77px;
 }
 
 .main-favorites-label.autumn {
@@ -280,11 +426,20 @@ h1 {
     margin-left: 20px;
 }
 
+@media (max-width: 805px) {
+    .main-favorites-input-text {
+        display: inline-block;
+        width: 40px;
+    }
+}
+
 .main-favorites-staff_picks-wrapp {
     display: flex;
     justify-content: space-between;
     margin: 40px 20px;
     margin-right: 40px;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
 .main-favorites-staff_picks {
@@ -414,12 +569,7 @@ h1 {
     border: 1px solid #BB945F;
     position: absolute;
     bottom: 15px;
-    /* transition-duration: 500ms; */
 }
-
-/* .main-favorites-staff_picks-book_buy_4:hover {
-    transform: scale(1.3);
-} */
 
 .main-coffee_shop-description {
     color: #000;
@@ -431,6 +581,7 @@ h1 {
     letter-spacing: 2px;
     text-align: center;
     margin-top: 61px;
+    padding: 0 20px;
 }
 
 .main-coffee_shop-price-title {
@@ -449,6 +600,24 @@ h1 {
     display: flex;
     justify-content: space-between;
     padding: 20px 20px 40px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+    .main-coffee_shop-price-wrapp {
+        display: block;
+    }
+
+    .main-coffee_shop-price.adaptive-tea {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-coffee_shop-price.adaptive-desserts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }
 
 .main-coffee_shop-price-product-wrapp {
@@ -499,6 +668,8 @@ h1 {
     margin-top: 61px;
     justify-content: space-between;
     padding: 20px 20px 40px 20px;
+    flex-wrap: wrap;
+    gap: 100px;
 }
 
 .main-our_contacts-numbers-title {
@@ -706,6 +877,30 @@ h1 {
 
 .main-cards-authorization-button:active {
     border: #BB945F;
+}
+
+@media (max-width: 1130px) {
+    .main-cards-wrapp {
+        display: block;
+    }
+
+    .main-cards-check_card-border {
+        margin: 30px auto 21px;
+    }
+
+    .main-cards-authorization-title {
+        text-align: center;
+    }
+
+    .main-cards-authorization-description {
+        text-align: center;
+        margin: 40px auto 0;
+    }
+
+    .main-cards-authorization-button-wrapp {
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
