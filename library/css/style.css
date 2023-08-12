@@ -2,7 +2,7 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 
 html, body {
@@ -17,7 +17,7 @@ html, body {
     font-family: Inter;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between;   
     
 }
 
@@ -200,7 +200,7 @@ h1 {
     text-transform: uppercase;
     background-color: #0C0C0E;
     border: 35px solid #0C0C0E;
-    width: 520px;
+    max-width: 520px;
     height: 150px;
 }
 
@@ -244,12 +244,10 @@ h1 {
 
 .main-about-img_1 {
     max-width: 450px;
-    /* display: none; */
 }
 
 .main-about-img_2 {
     max-width: 450px;
-    /* display: none; */
 }
 
 @media (max-width: 962px) {
@@ -260,7 +258,6 @@ h1 {
 
 .main-about-img_3 {
     max-width: 450px;
-    /* display: none; */
 }
 
 @media (max-width: 1400px) {
@@ -430,6 +427,13 @@ h1 {
     .main-favorites-input-text {
         display: inline-block;
         width: 40px;
+    }
+}
+
+@media (max-width: 680px) {
+    .main-favorites-input-text {
+        display: inline-block;
+        width: 25px;
     }
 }
 
@@ -720,6 +724,17 @@ h1 {
     margin-bottom: 20px;
 }
 
+.main-our_contacts-map_size {
+    width: 696px; 
+    height: 414px;
+}
+
+@media (max-width: 734px) {
+    .main-our_contacts-map_size {
+        width: 596px;
+    }
+}
+
 .main-cards-wrapp {
     display: flex;
     justify-content: space-between;
@@ -1003,7 +1018,7 @@ h1 {
 }
 
 .footer-line {
-    width: 1400px;
+    max-width: 1400px;
     height: 1px;
     margin: 38px 20px 44px;
     background: #FFF;
