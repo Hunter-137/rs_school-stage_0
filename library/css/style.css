@@ -240,6 +240,41 @@ h1 {
     justify-content: center;
     gap: 25px;
     max-width: 1440px;
+    position: relative;
+}
+
+.main-about-img-button {
+    border: none;
+    list-style: none;
+    background-color: rgb(255, 255, 255, 0);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 962px) {
+    .main-about-img-button {
+        display: inline-flex;
+        justify-content: space-between;
+        justify-content: center;
+    }
+
+    .main-about-img-button.left {
+        /* margin-top: 288.5px; */
+        align-self: center;
+        
+    }
+
+    .main-about-img-button.right {
+        /* margin-top: 288.5px; */
+        align-self: center;
+    }
+
+    .main-about-img-button-icon {
+        padding: 5px;
+
+    }
 }
 
 .main-about-img_1 {
@@ -444,6 +479,13 @@ h1 {
     margin-right: 40px;
     flex-wrap: wrap;
     gap: 40px;
+}
+
+@media (max-width: 1204px) {
+    .main-favorites-staff_picks-wrapp {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .main-favorites-staff_picks {
@@ -732,6 +774,13 @@ h1 {
 @media (max-width: 734px) {
     .main-our_contacts-map_size {
         width: 596px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-our_contacts-map {
+        display: block;
+        margin: 0 auto;
     }
 }
 
