@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('.header-burger_menu-button').click(function(event) {
         $('.header-burger_menu-button').toggleClass('active');
         $('.header-nav').toggleClass('active');
+        $('.header-welcome-paragraph').toggleClass('active');
     });
 });
 
