@@ -30,6 +30,8 @@ html, body {
 
 .header-wrapped-nav-h1 {
     text-align: center;
+    position: relative;
+    z-index: 5;
 }
 
 h1 {
