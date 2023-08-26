@@ -293,13 +293,11 @@ h1 {
     }
 
     .main-about-img-button.left {
-        /* margin-top: 288.5px; */
         align-self: center;
         
     }
 
     .main-about-img-button.right {
-        /* margin-top: 288.5px; */
         align-self: center;
     }
 
@@ -327,8 +325,30 @@ h1 {
     max-width: 450px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
     .main-about-img_3 {
+        display: none;
+    }
+}
+
+.main-about-img_4 {
+    display: none;
+    max-width: 450px;
+}
+
+@media (max-width: 1400px) {
+    .main-about-img_4 {
+        display: none;
+    }
+}
+
+.main-about-img_5 {
+    display: none;
+    max-width: 450px;
+}
+
+@media (max-width: 1400px) {
+    .main-about-img_5 {
         display: none;
     }
 }
@@ -387,7 +407,7 @@ h1 {
     background-color: #0C0C0E;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399gitpx) {
     .main-about-circle {
         width: 92px;
         height: 16px;
@@ -431,7 +451,6 @@ h1 {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    /* margin: 40px 0; */
     margin: 61px 0 40px 20px;
 }
 
@@ -526,6 +545,22 @@ h1 {
     height: 555px;
     border: 1px solid #000;
     position: relative;
+}
+
+.main-favorites-staff_picks.winter {
+    display: initial;
+}
+
+.main-favorites-staff_picks.spring {
+    display: none;
+}
+
+.main-favorites-staff_picks.summer {
+    display: none;
+}
+
+.main-favorites-staff_picks.autumn {
+    display: none;
 }
 
 .main-favorites-staff_picks-title {
