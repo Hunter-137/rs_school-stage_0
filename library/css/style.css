@@ -407,7 +407,7 @@ h1 {
     background-color: #0C0C0E;
 }
 
-@media (max-width: 1399gitpx) {
+@media (max-width: 1399px) {
     .main-about-circle {
         width: 92px;
         height: 16px;
