@@ -272,7 +272,7 @@ h1 {
     gap: 25px;
     max-width: 1440px;
     position: relative;
-    
+    overflow: hidden;
 }
 
 .main-about-img-button {
@@ -307,51 +307,198 @@ h1 {
     }
 }
 
+@keyframes slideAnimation {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
 .main-about-img_1 {
     max-width: 450px;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
+}
+
+.main-about-img_1.slide1 {
+    position: absolute;
+    left: -100%;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
 }
 
 .main-about-img_2 {
     max-width: 450px;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
 }
 
-@media (max-width: 962px) {
-    .main-about-img_2 {
-        display: none;
-    }
+.main-about-img_2.slide2 {
+    position: absolute;
+    left: -100%;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
 }
 
 .main-about-img_3 {
     max-width: 450px;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
+}
+
+.main-about-img_4 {
+    display: initial;
+    max-width: 450px;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
+    position: absolute;
+    right: -100%;
+}
+
+.main-about-img_4.slide4 {
+    position: static;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
+}
+
+.main-about-img_5 {
+    display: initial;
+    max-width: 450px;
+    height: 560px;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
+    position: absolute;
+    right: -100%;
+}
+
+.main-about-img_5.slide5 {
+    position: static;
+    transition-duration: 300ms;
+    animation: slideAnimation 3s ease;
 }
 
 @media (max-width: 1399px) {
     .main-about-img_3 {
-        display: none;
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_3.slide3 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_4 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_4.slide4 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_5 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_5.slide5 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
     }
 }
 
-.main-about-img_4 {
-    display: none;
-    max-width: 450px;
+@media (max-width: 962px) {
+    .main-about-img_1.slide1 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_2 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_2.slide2 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_3 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_3.slide3 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_4 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_4.slide4 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_5 {
+        position: absolute;
+        left: -100%;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
+
+    .main-about-img_5.slide5 {
+        position: static;
+        transition-duration: 300ms;
+        animation: slideAnimation 3s ease;
+    }
 }
 
-@media (max-width: 1400px) {
+
+
+
+/* @media (max-width: 1400px) {
     .main-about-img_4 {
         display: none;
+        max-width: 450px;
     }
-}
+} */
 
-.main-about-img_5 {
-    display: none;
-    max-width: 450px;
-}
 
-@media (max-width: 1400px) {
+
+
+/* @media (max-width: 1400px) {
     .main-about-img_5 {
         display: none;
     }
-}
+} */
 
 .main-about-circle {
     width: 68px;
@@ -374,7 +521,8 @@ h1 {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background-color: #BB945F;
+    background-color: #0C0C0E;
+    transition-duration: 300ms;
 }
 
 .main-about-circle_2 {
@@ -382,6 +530,7 @@ h1 {
     width: 16px;
     border-radius: 50%;
     background-color: #0C0C0E;
+    transition-duration: 300ms;
 }
 
 .main-about-circle_3 {
@@ -389,6 +538,7 @@ h1 {
     width: 16px;
     border-radius: 50%;
     background-color: #0C0C0E;
+    transition-duration: 300ms;
 }
 
 .main-about-circle_4 {
@@ -397,6 +547,7 @@ h1 {
     width: 16px;
     border-radius: 50%;
     background-color: #0C0C0E;
+    transition-duration: 300ms;
 }
 
 .main-about-circle_5 {
@@ -405,6 +556,16 @@ h1 {
     width: 16px;
     border-radius: 50%;
     background-color: #0C0C0E;
+    transition-duration: 300ms;
+}
+
+.main-about-circle_1.active,
+.main-about-circle_2.active,
+.main-about-circle_3.active,
+.main-about-circle_4.active,
+.main-about-circle_5.active {
+    background-color: #BB945F;
+    
 }
 
 @media (max-width: 1399px) {
