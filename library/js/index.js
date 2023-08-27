@@ -37,4 +37,203 @@ document.addEventListener('DOMContentLoaded', function() {
       welcomeParagraph.classList.remove('active'); // с параграфа
     }
   });
+
+  const mediaQueryMin1400 = window.matchMedia('(min-width: 1400px)');
+  const mediaQueryMax1399 = window.matchMedia('(max-width: 1399px)');
+  const mediaQueryMax962 = window.matchMedia('(max-width: 962px)');
+
+  let slide1 = document.querySelector('.main-about-img_1');
+  let slide2 = document.querySelector('.main-about-img_2');
+  let slide3 = document.querySelector('.main-about-img_3');
+  let slide4 = document.querySelector('.main-about-img_4');
+  let slide5 = document.querySelector('.main-about-img_5');
+
+  let circle1 = document.querySelector('.main-about-circle_1');
+  let circle2 = document.querySelector('.main-about-circle_2');
+  let circle3 = document.querySelector('.main-about-circle_3');
+  let circle4 = document.querySelector('.main-about-circle_4');
+  let circle5 = document.querySelector('.main-about-circle_5');
+
+  circle1.addEventListener('click', function(event) {
+
+    if (mediaQueryMin1400.matches) {
+      circle1.classList.add('active');
+      circle2.classList.remove('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.remove('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.remove('slide5');
+    }
+
+    if (mediaQueryMax1399.matches) {
+      circle1.classList.add('active');
+      circle2.classList.remove('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.remove('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.remove('slide5');
+    }
+
+    if (mediaQueryMax962.matches) {
+      circle1.classList.add('active');
+      circle2.classList.remove('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.remove('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.remove('slide5');
+    }
+  });
+
+  circle2.addEventListener('click', function(event) {
+    if (mediaQueryMin1400.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.add('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.add('slide4');
+      slide5.classList.remove('slide5');
+    }
+
+    if (mediaQueryMax1399.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.add('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.add('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.remove('slide5');
+    }
+
+    if (mediaQueryMax962.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.add('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.add('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.remove('slide5');
+    }
+  });
+
+  circle3.addEventListener('click', function(event) {
+    if (mediaQueryMin1400.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.remove('active');
+      circle3.classList.add('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.add('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.add('slide4');
+      slide5.classList.add('slide5');
+    }
+
+    if (mediaQueryMax1399.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.remove('active');
+      circle3.classList.add('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.add('slide2');
+      slide3.classList.add('slide3');
+      slide4.classList.add('slide4');
+      slide5.classList.remove('slide5');
+    }
+
+    if (mediaQueryMax962.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.remove('active');
+      circle3.classList.add('active');
+      circle4.classList.remove('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.add('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.remove('slide5');
+    }
+  });
+
+  circle4.addEventListener('click', function(event) {
+    if (mediaQueryMax1399.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.remove('active');
+      circle3.classList.remove('active');
+      circle4.classList.add('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.add('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.add('slide4');
+      slide5.classList.add('slide5');
+    }
+
+    if (mediaQueryMax962.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.remove('active');
+      circle3.classList.remove('active');
+      circle4.classList.add('active');
+      circle5.classList.remove('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.add('slide4');
+      slide5.classList.remove('slide5');
+    }
+  });
+
+  circle5.addEventListener('click', function(event) {
+    if (mediaQueryMax962.matches) {
+      circle1.classList.remove('active');
+      circle2.classList.remove('active');
+      circle3.classList.remove('active');
+      circle4.classList.remove('active');
+      circle5.classList.add('active');
+
+      slide1.classList.add('slide1');
+      slide2.classList.remove('slide2');
+      slide3.classList.remove('slide3');
+      slide4.classList.remove('slide4');
+      slide5.classList.add('slide5');
+    }
+  });
+  
+  
+
 });
+
