@@ -42,11 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const mediaQueryMax1399 = window.matchMedia('(max-width: 1399px)');
   const mediaQueryMax962 = window.matchMedia('(max-width: 962px)');
 
-  let slide1 = document.querySelector('.main-about-img_1');
-  let slide2 = document.querySelector('.main-about-img_2');
-  let slide3 = document.querySelector('.main-about-img_3');
-  let slide4 = document.querySelector('.main-about-img_4');
-  let slide5 = document.querySelector('.main-about-img_5');
+  let slide = document.querySelector('.carousel');
 
   let circle1 = document.querySelector('.main-about-circle_1');
   let circle2 = document.querySelector('.main-about-circle_2');
@@ -63,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.remove('active');
 
-      slide1.classList.remove('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.remove('slide5');
+      slide.classList.add('slide1');
+      slide.classList.remove('slide2');
+      slide.classList.remove('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.remove('slide5');
     }
 
     if (mediaQueryMax1399.matches) {
@@ -77,25 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.remove('active');
 
-      slide1.classList.remove('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.remove('slide5');
-    }
-
-    if (mediaQueryMax962.matches) {
-      circle1.classList.add('active');
-      circle2.classList.remove('active');
-      circle3.classList.remove('active');
-      circle4.classList.remove('active');
-      circle5.classList.remove('active');
-
-      slide1.classList.remove('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.remove('slide5');
+      slide.classList.add('slide1');
+      slide.classList.remove('slide2');
+      slide.classList.remove('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.remove('slide5');
     }
   });
 
@@ -107,11 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.remove('active');
 
-      slide1.classList.add('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.add('slide4');
-      slide5.classList.remove('slide5');
+      slide.classList.remove('slide1');
+      slide.classList.add('slide2');
+      slide.classList.remove('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.remove('slide5');
     }
 
     if (mediaQueryMax1399.matches) {
@@ -121,25 +103,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.remove('active');
 
-      slide1.classList.add('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.add('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.remove('slide5');
-    }
-
-    if (mediaQueryMax962.matches) {
-      circle1.classList.remove('active');
-      circle2.classList.add('active');
-      circle3.classList.remove('active');
-      circle4.classList.remove('active');
-      circle5.classList.remove('active');
-
-      slide1.classList.add('slide1');
-      slide2.classList.add('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.remove('slide5');
+      slide.classList.remove('slide1');
+      slide.classList.add('slide2');
+      slide.classList.remove('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.remove('slide5');
     }
   });
 
@@ -151,11 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.remove('active');
 
-      slide1.classList.add('slide1');
-      slide2.classList.add('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.add('slide4');
-      slide5.classList.add('slide5');
+      slide.classList.remove('slide1');
+      slide.classList.remove('slide2');
+      slide.classList.add('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.remove('slide5');
     }
 
     if (mediaQueryMax1399.matches) {
@@ -165,25 +133,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.remove('active');
 
-      slide1.classList.add('slide1');
-      slide2.classList.add('slide2');
-      slide3.classList.add('slide3');
-      slide4.classList.add('slide4');
-      slide5.classList.remove('slide5');
-    }
-
-    if (mediaQueryMax962.matches) {
-      circle1.classList.remove('active');
-      circle2.classList.remove('active');
-      circle3.classList.add('active');
-      circle4.classList.remove('active');
-      circle5.classList.remove('active');
-
-      slide1.classList.add('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.add('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.remove('slide5');
+      slide.classList.remove('slide1');
+      slide.classList.remove('slide2');
+      slide.classList.add('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.remove('slide5');
     }
   });
 
@@ -195,25 +149,11 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.add('active');
       circle5.classList.remove('active');
 
-      slide1.classList.add('slide1');
-      slide2.classList.add('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.add('slide4');
-      slide5.classList.add('slide5');
-    }
-
-    if (mediaQueryMax962.matches) {
-      circle1.classList.remove('active');
-      circle2.classList.remove('active');
-      circle3.classList.remove('active');
-      circle4.classList.add('active');
-      circle5.classList.remove('active');
-
-      slide1.classList.add('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.add('slide4');
-      slide5.classList.remove('slide5');
+      slide.classList.remove('slide1');
+      slide.classList.remove('slide2');
+      slide.classList.remove('slide3');
+      slide.classList.add('slide4');
+      slide.classList.remove('slide5');
     }
   });
 
@@ -225,14 +165,21 @@ document.addEventListener('DOMContentLoaded', function() {
       circle4.classList.remove('active');
       circle5.classList.add('active');
 
-      slide1.classList.add('slide1');
-      slide2.classList.remove('slide2');
-      slide3.classList.remove('slide3');
-      slide4.classList.remove('slide4');
-      slide5.classList.add('slide5');
+      slide.classList.remove('slide1');
+      slide.classList.remove('slide2');
+      slide.classList.remove('slide3');
+      slide.classList.remove('slide4');
+      slide.classList.add('slide5');
     }
   });
-  
+
+  // const arrowButtonPrev = document.querySelector('.main-about-img-button.left');
+  // const arrowButtonNext = document.querySelector('.main-about-img-button.right');
+  // arrowButtonNext.addEventListener('click', function(event) {
+    
+  //   let i = 0;
+  // })
+
   
 
 });
