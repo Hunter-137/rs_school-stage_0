@@ -43,13 +43,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ************************************* КАРУСЕЛЬ ************************************************
   
-  // здесь я вытащил каждый кнопку-кругляшок
+  // тут я вытащил медиазапросы, на всякий случай (3/5 пригодились)
+  const mediaQueryMin1400 = window.matchMedia('(min-width: 1400px)');
+  const mediaQueryMax1399 = window.matchMedia('(max-width: 1399px)');
+  const mediaQueryMax962 = window.matchMedia('(max-width: 962px)');
+  const mediaQueryEquals768 = window.matchMedia('(width: 768px)');
+  const mediaQueryMax670 = window.matchMedia('(max-width: 670px)');
+
+
+  // здесь я вытащил каждую кнопку-кругляшок
   const circle1 = document.querySelector('.main-about-circle_1');
   const circle2 = document.querySelector('.main-about-circle_2');
   const circle3 = document.querySelector('.main-about-circle_3');
   const circle4 = document.querySelector('.main-about-circle_4');
   const circle5 = document.querySelector('.main-about-circle_5');
-  // затем закинул их все в один массив
+  // затем закинул их всех в один массив
   const circles = [circle1, circle2, circle3, circle4, circle5];
   // также вытащил родительский блок карусельки
   const slide = document.querySelector('.carousel');
@@ -58,11 +66,61 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // и прописываю функцию на обновление карусели и кнопок кругляшок
   const updateSlideAndCircle = () => {
-    circles.forEach(function(circle, index){ // перебираю каждый элемент массива и индекс каждого элемента из массива
+    circles.forEach(function(circle, index){ // перебираю каждый элемент массива и индекс каждого элемента из массива (1 параметр circle отвечает за элементы в массиве, 2 параметр index за индексы элементов массива)
       if (currentIndex === index) { // если текущий индекс равен индексу элемента из массива*
         circle.classList.add('active'); // то добавить к кругляшку класс active (меняю цвет в css)
       } else {
         circle.classList.remove('active'); // в противном случае убрать у элемента из массива класс active
+      }
+
+      // ниже код дополнен анимацией
+      // по тз слайд должен остановиться после того как дошел до конца
+      // поэтому я убираю кнопку и возвращаю её в положение, в соответствии с размером экрана монитора
+      if (mediaQueryMax962.matches) { // если подтверждается (matches), что экран меньше чем 962px, то
+        // ПРАВАЯ СТРЕЛКА
+        // в случае, если текущий индекс кнопки дошел до конца всего массива
+        if (currentIndex >= circles.length - 1) {
+          nextArrowSlide.style.right = '-100%'; // сместить правую стрелку в право за контентную часть 
+        // но если текущий индекс меньше чем количество элементов всего массива, то
+        } else if (currentIndex < circles.length - 1) {
+          nextArrowSlide.style.right = '13%'; // вернуть кнопку обратно на место
+        }
+        
+        // ЛЕВАЯ СТРЕЛКА
+        if (currentIndex === 0) { // если текущий индекс равен началу (нулевому индексу из массива, т.е. первому элементу -- кнопки-кругляшки)
+          prevArrowSlide.style.left = '-100%'; // сместить стрелку влево за контентную часть
+        } else if (currentIndex > 0) { // если текущий индекс (активная кнопка) не нулевой, то
+          prevArrowSlide.style.left = '13%'; // вернуть на место стрелку
+        }
+      }
+
+      // ниже код идентичен, разница лишь в медиа запросах и положениях стрелок
+      if (mediaQueryEquals768.matches) {
+        if (currentIndex >= circles.length - 1) {
+          nextArrowSlide.style.right = '-100%';
+        } else if (currentIndex < circles.length - 1) {
+          nextArrowSlide.style.right = '82px';
+        }
+  
+        if (currentIndex === 0) {
+          prevArrowSlide.style.left = '-100%';
+        } else if (currentIndex > 0) {
+          prevArrowSlide.style.left = '72px';
+        }
+      }
+
+      if (mediaQueryMax670.matches) {
+        if (currentIndex >= circles.length - 1) {
+          nextArrowSlide.style.right = '-100%';
+        } else if (currentIndex < circles.length - 1) {
+          nextArrowSlide.style.right = '70px';
+        }
+  
+        if (currentIndex === 0) {
+          prevArrowSlide.style.left = '-100%';
+        } else if (currentIndex > 0) {
+          prevArrowSlide.style.left = '60px';
+        }
       }
     });
 
@@ -177,9 +235,107 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 });
 
+// *********************************БЛОК FAVOURITES СЛАЙД КНИГ***************************************
+
+document.addEventListener('DOMContentLoaded', function() {
+  const winterLabel = document.querySelector('.main-favorites-label.winter');
+  const springLabel = document.querySelector('.main-favorites-label.spring');
+  const summerLabel = document.querySelector('.main-favorites-label.summer');
+  const autumnLabel = document.querySelector('.main-favorites-label.autumn');
+
+  const seasonsLabel = [winterLabel, springLabel, summerLabel, autumnLabel];
+
+  const winterInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.winter');
+  const springInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.spring');
+  const summerInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.summer');
+  const autumnInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.autumn');
+
+  const seasonsInfoBlock = [winterInfoBlock, springInfoBlock, summerInfoBlock, autumnInfoBlock];
+
+  let currentIndex = 0;
+
+  seasonsLabel.forEach(function(label, index){
+    label.addEventListener('click', function(){
+      currentIndex = index;
+      updateSeasonDisplay();
+    });
+  });
+
+  function updateSeasonDisplay() {
+    seasonsInfoBlock.forEach(function(infoBlock, index){
+      infoBlock.forEach(function(block) {
+        if (currentIndex === index) {
+          block.style.display = 'initial';
+        } else {
+          block.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  updateSeasonDisplay();
+});
 
 
 
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+
+// const winterLabel = document.querySelector('.main-favorites-label.winter');
+// const springLabel = document.querySelector('.main-favorites-label.spring');
+// const summerLabel = document.querySelector('.main-favorites-label.summer');
+// const autumnLabel = document.querySelector('.main-favorites-label.autumn');
+
+// const seasonsLabel = [winterLabel, springLabel, summerLabel, autumnLabel];
+
+
+// const winterInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.winter');
+// const springInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.spring');
+// const summerInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.summer');
+// const autumnInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.autumn');
+
+// const seasonsInfoBlock = [winterInfoBlock, springInfoBlock, summerInfoBlock, autumnInfoBlock];
+
+// let currentIndex = 0;
+
+// seasonsInfoBlock.forEach(function(infoBlock, index){
+//   seasonsLabel.forEach(function(label, index){
+//     label.addEventListener('click', function(){
+//       currentIndex = index;
+//     })
+//   })
+//   if (currentIndex === index) {
+//     infoBlock.style.display = 'initial';
+//   } else {
+//     infoBlock.style.display = 'none';
+//   }
+// })
+
+// const updateSeason = () => {
+//   seasonsLabel.forEach(function(season, index){
+//     if (currentIndex === index) {
+//       seasonsInfoBlock[index].style.display = 'initial';
+//     } else {
+//       // seasonsInfoBlock[index].style.display = 'none';
+//     }
+//   })
+// }
+
+// seasonsLabel.forEach(function(season, index){
+//   season.addEventListener('click', function(){
+//     currentIndex = index;
+
+//   })
+// })
+
+
+
+// });
 // ********************************** МОИ ПОПЫТИ ПО КОДАМ *******************************************
 
   // самостоятельная попытка на слайд карусель

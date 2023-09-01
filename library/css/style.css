@@ -283,6 +283,8 @@ h1 {
     cursor: pointer;
     display: none;
     z-index: 10;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
 }
 
 @media (max-width: 962px) {
@@ -293,7 +295,7 @@ h1 {
 
     .main-about-img-button.left {
         top: 1194px;
-        left: 13%;
+        left: -100%; /*13% в обычном режиме, прописано в js*/
     }
 
     .main-about-img-button.right {
@@ -314,7 +316,7 @@ h1 {
 
     .main-about-img-button.left {
         top: 1194px;
-        left: 72px;
+        left: -100%; /*72px в обычном режиме, прописано в js*/
     }
 
     .main-about-img-button.right {
@@ -335,7 +337,7 @@ h1 {
 
     .main-about-img-button.left {
         top: 1194px;
-        left: 60px;
+        left: -100%; /*60px в обычном режиме, прописано в js*/
     }
 
     .main-about-img-button.right {
@@ -419,6 +421,7 @@ h1 {
     margin: 40px auto 0px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .main-about-circle-button {
@@ -518,6 +521,10 @@ h1 {
     }
 }
 
+.main-favorites-title.title {
+    margin-bottom: 61px;
+}
+
 .main-favorites-text {
     color: #000;
     font-family: Inter;
@@ -525,7 +532,7 @@ h1 {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: 61px 0 40px 20px;
+    margin: 0 0 40px 20px;
 }
 
 
@@ -607,10 +614,17 @@ h1 {
     gap: 40px;
 }
 
-@media (max-width: 1204px) {
+@media (max-width: 1203px) {
     .main-favorites-staff_picks-wrapp {
         display: flex;
         justify-content: center;
+    }
+
+    .main-favorites-item-wrapper-sticky {
+        position: sticky;
+        top: 0;
+        background-color: #FFF;
+        z-index: 1;
     }
 }
 
