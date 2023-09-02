@@ -83,12 +83,74 @@ h1 {
     height: 28px;
     border-radius: 50%;
     transition-duration: 300ms;
+    z-index: 3;
 }
 
 .header-ul-li-img:hover {
     background-color: #BB945F;
 }
 
+.header-profile-drop_menu {
+    background-color: #FFF;
+    width: 80px;
+    height: 115px;
+    position: absolute;
+    top: -100%;
+    right: 0;
+    text-align: center;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    
+}
+
+.header-profile-drop_menu.active{
+    top: 90px;
+}
+
+.header-profile-drop_menu-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 133.333% */
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.header-profile-drop_menu-title::after{
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 40px;
+    height: 1px;
+    background: #BB945F;
+}
+
+.header-profile-drop_menu-text{
+    margin-top: 20px;
+}
+
+.header-profile-drop_menu-text:last-child{
+    margin-top: 10px;
+}
+
+.header-profile-drop_menu > p > a {
+    text-decoration: none;
+    color: initial;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+
+.header-profile-drop_menu-title-a:hover{
+    color: #BB945F;
+}
+
+.header-profile-drop_menu-text-a:hover{
+    opacity: 0.5;
+}
 
 .header-burger_menu-button {
     display: none;
@@ -282,7 +344,6 @@ h1 {
     height: 24px;
     cursor: pointer;
     display: none;
-    z-index: 10;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
 }
@@ -295,7 +356,7 @@ h1 {
 
     .main-about-img-button.left {
         top: 1194px;
-        left: -100%; /*13% в обычном режиме, прописано в js*/
+        left: 50%; /*13% в обычном режиме, прописано в js*/
     }
 
     .main-about-img-button.right {
@@ -316,7 +377,7 @@ h1 {
 
     .main-about-img-button.left {
         top: 1194px;
-        left: -100%; /*72px в обычном режиме, прописано в js*/
+        left: 50%; /*72px в обычном режиме, прописано в js*/
     }
 
     .main-about-img-button.right {
@@ -337,7 +398,7 @@ h1 {
 
     .main-about-img-button.left {
         top: 1194px;
-        left: -100%; /*60px в обычном режиме, прописано в js*/
+        left: 50%; /*60px в обычном режиме, прописано в js*/
     }
 
     .main-about-img-button.right {
