@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // ПРАВАЯ СТРЕЛКА
         // в случае, если текущий индекс кнопки дошел до конца всего массива
         if (currentIndex >= circles.length - 1) {
-          nextArrowSlide.style.right = '-100%'; // сместить правую стрелку в право за контентную часть 
+          nextArrowSlide.style.right = '50%'; // сместить правую стрелку в картинку (спрятал стрелку позади картинки)
         // но если текущий индекс меньше чем количество элементов всего массива, то
         } else if (currentIndex < circles.length - 1) {
           nextArrowSlide.style.right = '13%'; // вернуть кнопку обратно на место
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // ЛЕВАЯ СТРЕЛКА
         if (currentIndex === 0) { // если текущий индекс равен началу (нулевому индексу из массива, т.е. первому элементу -- кнопки-кругляшки)
-          prevArrowSlide.style.left = '-100%'; // сместить стрелку влево за контентную часть
+          prevArrowSlide.style.left = '50%'; // спрятать стрелку в центр позади картинки
         } else if (currentIndex > 0) { // если текущий индекс (активная кнопка) не нулевой, то
           prevArrowSlide.style.left = '13%'; // вернуть на место стрелку
         }
@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // ниже код идентичен, разница лишь в медиа запросах и положениях стрелок
       if (mediaQueryEquals768.matches) {
         if (currentIndex >= circles.length - 1) {
-          nextArrowSlide.style.right = '-100%';
+          nextArrowSlide.style.right = '50%';
         } else if (currentIndex < circles.length - 1) {
           nextArrowSlide.style.right = '82px';
         }
   
         if (currentIndex === 0) {
-          prevArrowSlide.style.left = '-100%';
+          prevArrowSlide.style.left = '50%';
         } else if (currentIndex > 0) {
           prevArrowSlide.style.left = '72px';
         }
@@ -111,13 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (mediaQueryMax670.matches) {
         if (currentIndex >= circles.length - 1) {
-          nextArrowSlide.style.right = '-100%';
+          nextArrowSlide.style.right = '50%';
         } else if (currentIndex < circles.length - 1) {
           nextArrowSlide.style.right = '70px';
         }
   
         if (currentIndex === 0) {
-          prevArrowSlide.style.left = '-100%';
+          prevArrowSlide.style.left = '50%';
         } else if (currentIndex > 0) {
           prevArrowSlide.style.left = '60px';
         }
@@ -237,43 +237,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // *********************************БЛОК FAVOURITES СЛАЙД КНИГ***************************************
 
+// так как есть некоторые переменные с одинаковым наименованием из прошлых кодов, решил создать новую прослушку на всё дерево
 document.addEventListener('DOMContentLoaded', function() {
+  // вывел каждую кнопку по смене сезона
   const winterLabel = document.querySelector('.main-favorites-label.winter');
   const springLabel = document.querySelector('.main-favorites-label.spring');
   const summerLabel = document.querySelector('.main-favorites-label.summer');
   const autumnLabel = document.querySelector('.main-favorites-label.autumn');
-
+  // закинул все кнопки в один массив
   const seasonsLabel = [winterLabel, springLabel, summerLabel, autumnLabel];
-
+  // вывел каждый сезонный блок по книгам 
   const winterInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.winter');
   const springInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.spring');
   const summerInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.summer');
   const autumnInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.autumn');
-
+  // также в один массив
   const seasonsInfoBlock = [winterInfoBlock, springInfoBlock, summerInfoBlock, autumnInfoBlock];
-
+  // указал текущий индекс
   let currentIndex = 0;
 
+  // перебор массива по кнопкам
   seasonsLabel.forEach(function(label, index){
+    // ставлю событие клик на элемент из массива по кнопкам
     label.addEventListener('click', function(){
-      currentIndex = index;
-      updateSeasonDisplay();
+      // указываю, что если кликнут первая кнопка (первый элемент с индексом 0)
+      currentIndex = index; // то текущий индекс будет равен индексу элемента
+      updateSeasonDisplay(); // запускаю функцию по обновлению
     });
   });
 
+  // функция по обновлению блоков
   function updateSeasonDisplay() {
+    // перебираю КОЛЛЕКЦИИ в массиве блоков
     seasonsInfoBlock.forEach(function(infoBlock, index){
+      // внутри уже перебираю ЭЛЕМЕНТЫ в коллекциях
       infoBlock.forEach(function(block) {
-        if (currentIndex === index) {
-          block.style.display = 'initial';
-        } else {
-          block.style.display = 'none';
+        // и уже с ЭЛЕМЕНТАМИ я работаю
+        if (currentIndex === index) { // если текущий индекс равен выбранному индексу элемента
+          block.style.display = 'initial'; // показать блок
+        } else { // а у остальных
+          block.style.display = 'none'; // скрыть
         }
       });
     });
   }
 
-  updateSeasonDisplay();
+});
+
+// **************************************ДРОП-МЕНЮ НА ИКОНКЕ****************************************
+
+// в целом всё также как и в бургер меню
+document.addEventListener('DOMContentLoaded', function(){
+  const iconButton = document.querySelector('.header-ul-li-img'); // кнопка иконки профиля
+  const dropMenu = document.querySelector('.header-profile-drop_menu'); // плашка
+  const dropMenuTitle = document.querySelector('.header-profile-drop_menu-title'); // кнопка Profile
+  const dropMenuText = document.querySelectorAll('.header-profile-drop_menu-text-a'); // кнопки под Profile
+  
+  // событие клик на кнопку иконки
+  iconButton.addEventListener('click', function(event){
+    dropMenu.classList.toggle('active'); // добавь класс active (если он уже есть, то убрать)
+  });
+
+  // событие клик на всё дерево html
+  document.addEventListener('click', function(event){
+    // если произошел клик Не на плашку и Не на иконку профиля
+    if (!dropMenu.contains(event.target) && !iconButton.contains(event.target)) {
+      dropMenu.classList.remove('active'); // удалить класс active
+    }
+  });
+
+  // событие клик на кнопку Profile
+  dropMenuTitle.addEventListener('click', function(event){
+    dropMenu.classList.remove('active'); // удалить класс active
+  });
+
+  // событие клик на всё дерево html
+  document.addEventListener('click', function(event){
+    // если внутри коллекции включают в себя событие клик (если нажали на кнопку из коллекции, кнопки в коллекции находятся)
+    if (Array.from(dropMenuText).includes(event.target)) {
+      dropMenu.classList.remove('active'); // удалить класс active
+    }
+  });
+
 });
 
 
@@ -283,55 +328,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-// document.addEventListener('DOMContentLoaded', function() {
-
-// const winterLabel = document.querySelector('.main-favorites-label.winter');
-// const springLabel = document.querySelector('.main-favorites-label.spring');
-// const summerLabel = document.querySelector('.main-favorites-label.summer');
-// const autumnLabel = document.querySelector('.main-favorites-label.autumn');
-
-// const seasonsLabel = [winterLabel, springLabel, summerLabel, autumnLabel];
-
-
-// const winterInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.winter');
-// const springInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.spring');
-// const summerInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.summer');
-// const autumnInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.autumn');
-
-// const seasonsInfoBlock = [winterInfoBlock, springInfoBlock, summerInfoBlock, autumnInfoBlock];
-
-// let currentIndex = 0;
-
-// seasonsInfoBlock.forEach(function(infoBlock, index){
-//   seasonsLabel.forEach(function(label, index){
-//     label.addEventListener('click', function(){
-//       currentIndex = index;
-//     })
-//   })
-//   if (currentIndex === index) {
-//     infoBlock.style.display = 'initial';
-//   } else {
-//     infoBlock.style.display = 'none';
-//   }
-// })
-
-// const updateSeason = () => {
-//   seasonsLabel.forEach(function(season, index){
-//     if (currentIndex === index) {
-//       seasonsInfoBlock[index].style.display = 'initial';
-//     } else {
-//       // seasonsInfoBlock[index].style.display = 'none';
-//     }
-//   })
-// }
-
-// seasonsLabel.forEach(function(season, index){
-//   season.addEventListener('click', function(){
-//     currentIndex = index;
-
-//   })
-// })
 
 
 
@@ -539,3 +535,59 @@ document.addEventListener('DOMContentLoaded', function() {
 // rightArrowButton.addEventListener('click', nextSlide);
 
   // *********************************************************************************************
+
+  // попытка по слайду сезонных книг
+  // идея заключалась в проверке двух индексов: если они сходятся, то включить дисплей блок, иначе скрыть
+  // основная проблема заключалась в том, что я пытался применить стили для всей коллекций разом, а не для их элементов
+  // снова же нейросеть меня подправила и также сделала замечание, что одинаковые наименования переменных
+  //  во внешних и внутренних циклах могут конфликтовать друг с другом
+
+
+//   document.addEventListener('DOMContentLoaded', function() {
+
+// const winterLabel = document.querySelector('.main-favorites-label.winter');
+// const springLabel = document.querySelector('.main-favorites-label.spring');
+// const summerLabel = document.querySelector('.main-favorites-label.summer');
+// const autumnLabel = document.querySelector('.main-favorites-label.autumn');
+
+// const seasonsLabel = [winterLabel, springLabel, summerLabel, autumnLabel];
+
+
+// const winterInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.winter');
+// const springInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.spring');
+// const summerInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.summer');
+// const autumnInfoBlock = document.querySelectorAll('.main-favorites-staff_picks.autumn');
+
+// const seasonsInfoBlock = [winterInfoBlock, springInfoBlock, summerInfoBlock, autumnInfoBlock];
+
+// let currentIndex = 0;
+
+// seasonsInfoBlock.forEach(function(infoBlock, index){
+//   seasonsLabel.forEach(function(label, index){
+//     label.addEventListener('click', function(){
+//       currentIndex = index;
+//     })
+//   })
+//   if (currentIndex === index) {
+//     infoBlock.style.display = 'initial';
+//   } else {
+//     infoBlock.style.display = 'none';
+//   }
+// })
+
+// const updateSeason = () => {
+//   seasonsLabel.forEach(function(season, index){
+//     if (currentIndex === index) {
+//       seasonsInfoBlock[index].style.display = 'initial';
+//     } else {
+//       // seasonsInfoBlock[index].style.display = 'none';
+//     }
+//   })
+// }
+
+// seasonsLabel.forEach(function(season, index){
+//   season.addEventListener('click', function(){
+//     currentIndex = index;
+
+//   })
+// })
