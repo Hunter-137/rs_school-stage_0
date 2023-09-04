@@ -306,11 +306,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  // событие клик на кнопку Profile
-  dropMenuTitle.addEventListener('click', function(event){
-    dropMenu.classList.remove('active'); // удалить класс active
-  });
-
   // событие клик на всё дерево html
   document.addEventListener('click', function(event){
     // если внутри коллекции включают в себя событие клик (если нажали на кнопку из коллекции, кнопки в коллекции находятся)
@@ -321,7 +316,63 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 
+// ***************************** МОДАЛЬНОЕ ОКНО НА ЛОГИН И РЕГИСТР **********************************
 
+// прослушка на всё дерево
+document.addEventListener('DOMContentLoaded', function(){
+  const modalLogIn = document.querySelector('.modal-Log_In'); // модальное окно Логина
+  const openModalLogIn = document.querySelector('.header-profile-drop_menu-text-a.login'); // кнопка Login из дроп-меню
+  const closeModalLogIn = document.querySelector('.modal-login-close_btn-icon'); // кнопка крестика из модального окна
+
+  const modalRegister = document.querySelector('.modal-register'); // модальное окно регистрации
+  const openModalRegister = document.querySelector('.header-profile-drop_menu-text-a.register'); // кнопка Register из дроп-меню
+  const closeModalRegister = document.querySelector('.modal-register-close_btn-icon'); // кнопка крестика из модального окна
+
+  const registerBtn = document.querySelector('.modal-login-postscript-btn'); // в модальном окне логина кнопка register
+  const LoginBtn = document.querySelector('.modal-register-postscript-btn'); // в модальном окне регистрации кнопка login
+
+  // при клике на кнопку login из дроп меню
+  openModalLogIn.onclick = () => {
+    modalLogIn.style.display = 'block'; // показать модальное окно
+  };
+
+  // при клике на кнопку крестика из модального окна
+  closeModalLogIn.onclick = () => {
+    modalLogIn.style.display = 'none'; // скрыть модальное окно
+  };
+
+  // при клике на кнопку login из дроп меню
+  openModalRegister.onclick = () => {
+    modalRegister.style.display = 'block'; // показать модальное окно
+  };
+
+  // при клике на кнопку крестика из модального окна
+  closeModalRegister.onclick = () => {
+    modalRegister.style.display = 'none'; // скрыть модальное окно
+  };
+
+  // при клике на кнопку register в модальном окне логина
+  registerBtn.onclick = () => {
+    modalRegister.style.display = 'block'; // показать модальное окно регистрации
+    modalLogIn.style.display = 'none'; // скрыть модальное окно логина
+  }
+
+  // при клике на кнопку login в модальном окне регистрации
+  LoginBtn.onclick = () => {
+    modalLogIn.style.display = 'block'; // показать модальное окно логина
+    modalRegister.style.display = 'none'; // скрыть модальное окно регистрации
+  }
+
+  // при клике на окно браузера
+  window.onclick = (event) => {
+    if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
+      modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
+    } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
+      modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
+    };
+  };
+
+});
 
 
 
