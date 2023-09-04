@@ -28,9 +28,9 @@
                             <img class="header-ul-li-img" src="./icon/icon_profile.svg" alt="icon">
                         </a>
                         <div class="header-profile-drop_menu">
-                            <p class="header-profile-drop_menu-title"><a class="header-profile-drop_menu-title-a" href="#">Profile</a></p>
-                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a" href="#">Log In</a></p>
-                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a" href="#">Register</a></p>
+                            <p class="header-profile-drop_menu-title">Profile</p>
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a login" href="#">Log In</a></p>
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a register" href="#">Register</a></p>
                         </div>
                     </div>
                     <div class="header-burger_menu-button">
@@ -355,6 +355,110 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Модальное окно Log In -->
+        
+        <div class="modal modal-Log_In">
+            <div class="modal-login-wrapper">
+                <p class="modal-login-title">Login</p>
+                <div class="modal-login-container">
+                    <button class="modal-login-close_btn"><img class="modal-login-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                    <label>
+                        <p class="modal-login-text">E-mail or readers card</p>
+                        <input class="modal-login-text-input" type="text">
+                    </label>
+                    <label>
+                        <p class="modal-login-text">Password</p>
+                        <input class="modal-login-text-input" type="password">
+                    </label>
+                    <button class="modal-btn_login"><p class="modal-btn_login-text">Log In</p></button>
+                    <div class="modal-login-postscript-wrapper">
+                        <p class="modal-login-postscript-text">Don’t have an account?</p>
+                        <button class="modal-login-postscript-btn">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно Register -->
+
+        <div class="modal modal-register">
+            <div class="modal-register-wrapper">
+                <p class="modal-register-title">Register</p>
+                <div class="modal-register-container">
+                    <button class="modal-register-close_btn"><img class="modal-register-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                    <label>
+                        <p class="modal-register-text">First name</p>
+                        <input class="modal-register-text-input" type="text">
+                    </label>
+                    <label>
+                        <p class="modal-register-text">Last name</p>
+                        <input class="modal-register-text-input" type="text">
+                    </label>
+                    <label>
+                        <p class="modal-register-text">E-mail</p>
+                        <input class="modal-register-text-input" type="text">
+                    </label>
+                    <label>
+                        <p class="modal-register-text">Password</p>
+                        <input class="modal-register-text-input" type="password">
+                    </label>
+                    <button class="modal-btn_register"><p class="modal-btn_register-text">Sign Up</p></button>
+                    <div class="modal-register-postscript-wrapper">
+                        <p class="modal-register-postscript-text">Already have an account?</p>
+                        <button class="modal-register-postscript-btn">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно BUY A LIBRARY CARD -->
+
+        <div class="modal modal-buy_card">
+            <div class="modal-buy_card-wrapper">
+                <p class="modal-buy_card-title">Buy a library card</p>
+                <button class="modal-buy_card-close_btn"><img class="modal-buy_card-close_btn-icon" src="../library/icon/close_btn_white.svg" alt="close_btn"></button>
+                <div class="modal-buy_card-container">
+                    <div class="modal-buy_card-container-data_filling">
+                        <label>
+                            <p class="modal-buy_card-text">Bank card number</p>
+                            <input class="modal-buy_card-text-input" type="text">
+                        </label>
+                        <label>
+                            <p class="modal-buy_card-text">Expiration code</p>
+                            <input class="modal-buy_card-text-input expiration_code" type="text">
+                            <input class="modal-buy_card-text-input expiration_code" type="text">
+                        </label>
+                        <label>
+                            <p class="modal-buy_card-text">CVC</p>
+                            <input class="modal-buy_card-text-input cvc" type="text">
+                        </label>
+                        <label>
+                            <p class="modal-buy_card-text">Cardholder name</p>
+                            <input class="modal-buy_card-text-input" type="text">
+                        </label>
+                        <label>
+                            <p class="modal-buy_card-text">Postal code</p>
+                            <input class="modal-buy_card-text-input" type="text">
+                        </label>
+                        <label>
+                            <p class="modal-buy_card-text">City / Town</p>
+                            <input class="modal-buy_card-text-input" type="text">
+                        </label>
+                        <div class="modal-btn_buy_card">
+                            <button class="modal-btn_buy_card-button"><p class="modal-btn_buy_card-text">Buy</p></button>
+                            <span class="modal-btn_buy_card-price">$ 25.00</span>
+                        </div>
+                    </div>
+                    <div class="modal-buy_card-container-comment">
+                        <p class="modal-buy_card-container-comment-text">
+                            If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
