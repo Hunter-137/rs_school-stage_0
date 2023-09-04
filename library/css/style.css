@@ -98,9 +98,7 @@ h1 {
     top: -100%;
     right: 0;
     text-align: center;
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
-    
+    transition-duration: 700ms;   
 }
 
 .header-profile-drop_menu.active{
@@ -141,11 +139,6 @@ h1 {
     color: initial;
     cursor: pointer;
     transition-duration: 300ms;
-}
-
-
-.header-profile-drop_menu-title-a:hover{
-    color: #BB945F;
 }
 
 .header-profile-drop_menu-text-a:hover{
@@ -1112,7 +1105,7 @@ h1 {
 }
 
 .main-cards-check_card-border-button:active {
-    border: #BB945F;
+    border: 1px solid #BB945F;
 }
 
 .main-cards-authorization-title {
@@ -1169,7 +1162,7 @@ h1 {
 }
 
 .main-cards-authorization-button:active {
-    border: #BB945F;
+    border: 1px solid #BB945F;
 }
 
 @media (max-width: 1130px) {
@@ -1382,4 +1375,406 @@ h1 {
 
 .footer-author-github_username-link:active {
     color: #BB945F;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.modal-login-wrapper {
+    width: 250px;
+    height: 262px;
+    margin: 15% auto;
+    position: relative;
+    background-color: #FFF;
+}
+
+.modal-login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.modal-login-title {
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.modal-login-close_btn {
+    list-style: none;
+    border: none;
+    background-color: #FFF;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.modal-login-close_btn-icon{
+    transition-duration: 1s;
+}
+
+.modal-login-close_btn-icon:hover{
+    transform: scale(1.3) rotate(360deg);
+}
+
+.modal-login-text{
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 0.3px;
+}
+
+.modal-login-text-input{
+    border: 1px solid #BB945F;
+    outline: none;
+    color: #BB945F;
+    width: 200px;
+    height: 20px;
+}
+
+.modal-login-text-input:focus{
+    border: 2px solid #BB945F;
+}
+
+.modal-btn_login{
+    background-color: #FFF;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    width: 75px;
+    height: 30px;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.modal-btn_login:hover{
+    background-color: #BB945F;
+}
+
+.modal-btn_login:active{
+    border: 1px solid #BB945F;
+}
+
+.modal-btn_login-text{
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+
+.modal-login-postscript-wrapper{
+    display: flex;
+    gap: 10px;
+}
+
+.modal-login-postscript-text{
+    color: #000;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.modal-login-postscript-btn {
+    background-color: #FFF;
+    border: none;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-decoration-line: underline;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.modal-login-postscript-btn:hover{
+    color: #BB945F;
+}
+
+.modal-register-wrapper {
+    width: 250px;
+    height: 382px;
+    margin: 15% auto;
+    position: relative;
+    background-color: #FFF;
+}
+
+.modal-register-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.modal-register-title {
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.modal-register-close_btn {
+    list-style: none;
+    border: none;
+    background-color: #FFF;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.modal-register-close_btn-icon{
+    transition-duration: 1s;
+}
+
+.modal-register-close_btn-icon:hover{
+    transform: scale(1.3) rotate(360deg);
+}
+
+.modal-register-text{
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 0.3px;
+}
+
+.modal-register-text-input{
+    border: 1px solid #BB945F;
+    outline: none;
+    color: #BB945F;
+    width: 200px;
+    height: 20px;
+}
+
+.modal-register-text-input:focus{
+    border: 2px solid #BB945F;
+}
+
+.modal-btn_register{
+    background-color: #FFF;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    width: 75px;
+    height: 30px;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.modal-btn_register:hover{
+    background-color: #BB945F;
+}
+
+.modal-btn_register:active{
+    border: 1px solid #BB945F;
+}
+
+.modal-btn_register-text{
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+
+.modal-register-postscript-wrapper{
+    display: flex;
+    gap: 10px;
+}
+
+.modal-register-postscript-text{
+    color: #000;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.modal-register-postscript-btn {
+    background-color: #FFF;
+    border: none;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-decoration-line: underline;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.modal-register-postscript-btn:hover{
+    color: #BB945F;
+}
+
+.modal-buy_card-wrapper{
+    width: 650px;
+    height: 60px;
+    background: #0C0C0E;
+    position: relative;
+    margin-top: 20px;
+}
+
+.modal-buy_card-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.modal-buy_card-title{
+    color: #FFF;
+    text-align: center;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 50% */
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.modal-buy_card-close_btn{
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    background-color: #0C0C0E;
+    border: none;
+}
+
+.modal-buy_card-container-data_filling{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-buy_card-text {
+    margin-bottom: 10px;
+}
+
+.modal-buy_card-text-input{
+    border: 1px solid #BB945F;
+    outline: none;
+}
+
+.modal-buy_card-text-input:focus{
+    border: 2px solid #BB945F;
+}
+
+.modal-buy_card-text-input.expiration_code{
+    width: 45px;
+    height: 20px;
+}
+
+.modal-buy_card-text-input.cvc{
+    margin-bottom: 10px;
+    width: 45px;
+    height: 20px;
+}
+
+.modal-btn_buy_card-button{
+    width: 75px;
+    height: 30px;
+    background-color: #FFF;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    margin-top: 20px;
+    margin-right: 25px;
+    transition-duration: 300ms;
+}
+
+.modal-btn_buy_card-button:hover{
+    background-color: #BB945F;
+}
+
+.modal-btn_buy_card-button:active{
+    border: 1px solid #BB945F;
+}
+
+.modal-btn_buy_card-text{
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+
+.modal-btn_buy_card-price{
+    color: #0C0C0E;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 100% */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.modal-buy_card-container-comment{
+    width: 330px;
+}
+
+.modal-buy_card-container-comment-text{
+    color: #8E8E8E;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 2px;
 }
