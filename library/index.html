@@ -416,31 +416,29 @@
                 <button class="modal-buy_card-close_btn"><img class="modal-buy_card-close_btn-icon" src="../library/icon/close_btn_white.svg" alt="close_btn"></button>
                 <div class="modal-buy_card-container">
                     <div class="modal-buy_card-container-data_filling">
-                        <label>
-                            <p class="modal-buy_card-text">Bank card number</p>
-                            <input class="modal-buy_card-text-input" type="text">
-                        </label>
-                        <label>
-                            <p class="modal-buy_card-text">Expiration code</p>
-                            <input class="modal-buy_card-text-input expiration_code" type="text">
-                            <input class="modal-buy_card-text-input expiration_code" type="text">
-                        </label>
-                        <label>
-                            <p class="modal-buy_card-text">CVC</p>
-                            <input class="modal-buy_card-text-input cvc" type="text">
-                        </label>
-                        <label>
-                            <p class="modal-buy_card-text">Cardholder name</p>
-                            <input class="modal-buy_card-text-input" type="text">
-                        </label>
-                        <label>
-                            <p class="modal-buy_card-text">Postal code</p>
-                            <input class="modal-buy_card-text-input" type="text">
-                        </label>
-                        <label>
-                            <p class="modal-buy_card-text">City / Town</p>
-                            <input class="modal-buy_card-text-input" type="text">
-                        </label>
+                        <label for="dataCardBankNumber" class="modal-buy_card-text">Bank card number</label>
+                        <input id="dataCardBankNumber" class="modal-buy_card-text-input" type="text">
+                        
+                        <label for="dataCardExpirationCodeOne" class="modal-buy_card-text">Expiration code</label>
+                        <label for="dataCardExpirationCodeTwo"></label>
+                        <div class="expiration_code-wrapper">
+                        <input id="dataCardExpirationCodeOne" class="modal-buy_card-text-input expiration_code" type="text">
+                        <input id="dataCardExpirationCodeTwo" class="modal-buy_card-text-input expiration_code" type="text">
+                        </div>
+                        
+                        <label for="dataCardCVC" class="modal-buy_card-text">CVC</label>
+                        <input id="dataCardCVC" class="modal-buy_card-text-input cvc" type="text">
+                        
+                        <label for="dataCardCardholderName" class="modal-buy_card-text">Cardholder name</label>
+                        <input id="dataCardCardholderName" class="modal-buy_card-text-input" type="text">
+                        
+                        <label for="dataCardPostalCode" class="modal-buy_card-text">Postal code</label>
+                        <input id="dataCardPostalCode" class="modal-buy_card-text-input" type="text">
+
+                        
+                        <label for="dataCardCityTown" class="modal-buy_card-text">City / Town</label>
+                        <input id="dataCardCityTown" class="modal-buy_card-text-input" type="text">
+                        
                         <div class="modal-btn_buy_card">
                             <button class="modal-btn_buy_card-button modal-btn_buy_card-text">Buy</button>
                             <span class="modal-btn_buy_card-price">$ 25.00</span>
