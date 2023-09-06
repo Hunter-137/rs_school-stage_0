@@ -290,7 +290,6 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function(){
   const iconButton = document.querySelector('.header-ul-li-img'); // кнопка иконки профиля
   const dropMenu = document.querySelector('.header-profile-drop_menu'); // плашка
-  const dropMenuTitle = document.querySelector('.header-profile-drop_menu-title'); // кнопка Profile
   const dropMenuText = document.querySelectorAll('.header-profile-drop_menu-text-a'); // кнопки под Profile
   
   // событие клик на кнопку иконки
@@ -314,12 +313,12 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-});
+
 
 // ***************************** МОДАЛЬНОЕ ОКНО НА ЛОГИН И РЕГИСТР **********************************
 
 // прослушка на всё дерево
-document.addEventListener('DOMContentLoaded', function(){
+
   const modalLogIn = document.querySelector('.modal-Log_In'); // модальное окно Логина
   const openModalLogIn = document.querySelector('.header-profile-drop_menu-text-a.login'); // кнопка Login из дроп-меню
   const closeModalLogIn = document.querySelector('.modal-login-close_btn-icon'); // кнопка крестика из модального окна
@@ -329,7 +328,10 @@ document.addEventListener('DOMContentLoaded', function(){
   const closeModalRegister = document.querySelector('.modal-register-close_btn-icon'); // кнопка крестика из модального окна
 
   const registerBtn = document.querySelector('.modal-login-postscript-btn'); // в модальном окне логина кнопка register
-  const LoginBtn = document.querySelector('.modal-register-postscript-btn'); // в модальном окне регистрации кнопка login
+  const loginBtn = document.querySelector('.modal-register-postscript-btn'); // в модальном окне регистрации кнопка login
+
+  const registerBtnOnCardsBlock = document.querySelector('.main-cards-authorization-button.register-btn');
+  const loginBtnOnCardsBlock = document.querySelector('.main-cards-authorization-button.login-btn');
 
   // при клике на кнопку login из дроп меню
   openModalLogIn.onclick = () => {
@@ -358,65 +360,158 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   // при клике на кнопку login в модальном окне регистрации
-  LoginBtn.onclick = () => {
+  loginBtn.onclick = () => {
     modalLogIn.style.display = 'block'; // показать модальное окно логина
     modalRegister.style.display = 'none'; // скрыть модальное окно регистрации
   }
 
-  // при клике на окно браузера
-  window.onclick = (event) => {
-    if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
-      modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
-    } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
-      modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
-    };
-  };
+  registerBtnOnCardsBlock.onclick = () => {
+    modalRegister.style.display = 'block'; // показать модальное окно регистрации
+    modalLogIn.style.display = 'none'; // скрыть модальное окно логина
+  }
 
-});
+  loginBtnOnCardsBlock.onclick = () => {
+    modalLogIn.style.display = 'block'; // показать модальное окно логина
+    modalRegister.style.display = 'none'; // скрыть модальное окно регистрации
+  }
+
+  // // при клике на окно браузера
+  // window.onclick = (event) => {
+  //   if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
+  //     modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
+  //   } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
+  //     modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
+  //   };
+  // };
+
+
 
 // *************************** LOCALSTORAGE (регистрация и авторизация) ****************************/
 
-document.addEventListener('DOMContentLoaded', function(){
-  const dataRegisterFirstName = document.getElementById('dataRegisterFirstName'); // инпут по имени
+
+  const dataRegisterFirstName = document.getElementById('dataRegisterFirstName'); // инпут по имени из модального окна регистрации
   const dataRegisterLastName = document.getElementById('dataRegisterLastName'); // инпут по фамилии
   const dataRegisterEmail = document.getElementById('dataRegisterEmail'); // инпут по почте
   const dataRegisterPassword = document.getElementById('dataRegisterPassword'); // инпут по паролю
 
   const saveDataRegisterBtn = document.getElementById('saveDataRegisterBtn'); // кнопка регистрации из модального окна регистрации
 
-  // создание функции на клик
+  // создание функции на клик по кнопке регистрации
   saveDataRegisterBtn.onclick = () => {
+    // создание объекта с данными
     const dataRegisterObj = {
-      firstNameValue: dataRegisterFirstName.value,
-      lastNameValue: dataRegisterLastName.value,
-      emailValue: dataRegisterEmail.value,
-      passwordValue: dataRegisterPassword.value,
+      firstNameValue: dataRegisterFirstName.value, // значение импута имени
+      lastNameValue: dataRegisterLastName.value, // фамилии
+      emailValue: dataRegisterEmail.value, // почты
+      passwordValue: dataRegisterPassword.value, // пароля
     }
 
+    // "отправляем" наш объект в local storage, предварительно меняя объект на JSON формат
     localStorage.setItem('registerData', JSON.stringify(dataRegisterObj));
-    alert('Registration successfully completed!');
+    alert('Registration successfully completed!'); // выводим надпись, что регистрация прошла успешно
   }
 
-  const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard');
-  const dataLoginPassword = document.getElementById('dataLoginPassword');
-
-  const dataLoginAutoBtn = document.getElementById('dataLoginAutoBtn');
-
-  dataLoginAutoBtn.onclick = () => {
-    const savedDataRegisterStr = localStorage.getItem('registerData');
-    const savedDataRegister = JSON.parse(savedDataRegisterStr);
-
-    if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
-      alert('Welcome!');
-    } else {
-      alert('You entered the wrong email or password :(');
-    }
-  }
-
+  // теперь вытаскиваем данные из localStorage для модального окна авторизации
   
+  const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard'); // инпут почты из модального окна авторизации
+  const dataLoginPassword = document.getElementById('dataLoginPassword'); // инпут пароля
+
+  const dataLoginAutoBtn = document.getElementById('dataLoginAutoBtn'); // кнопка авторизации
+
+  // создание функции на клик по кнопке авторизации
+  dataLoginAutoBtn.addEventListener('click', function(event){
+    const savedDataRegisterStr = localStorage.getItem('registerData'); // вытаскиваем объект формата JSON из localStorage
+    const savedDataRegister = JSON.parse(savedDataRegisterStr); // вытащенный объект JSON обратно конвертируем в объект JavaScript
+
+    
+
+    const buyBookBtn_0 = document.querySelector('.main-favorites-staff_picks-book_buy._1');
+    const buyBookBtn_1 = document.querySelector('.main-favorites-staff_picks-book_buy._2');
+    const buyBookBtn_2 = document.querySelector('.main-favorites-staff_picks-book_buy._3');
+    const buyBookBtn_3 = document.querySelector('.main-favorites-staff_picks-book_buy._4');
+    const buyBookBtn_4 = document.querySelector('.main-favorites-staff_picks-book_buy._5');
+    const buyBookBtn_5 = document.querySelector('.main-favorites-staff_picks-book_buy._6');
+    const buyBookBtn_6 = document.querySelector('.main-favorites-staff_picks-book_buy._7');
+    const buyBookBtn_7 = document.querySelector('.main-favorites-staff_picks-book_buy._8');
+    const buyBookBtn_8 = document.querySelector('.main-favorites-staff_picks-book_buy._9');
+    const buyBookBtn_9 = document.querySelector('.main-favorites-staff_picks-book_buy._10');
+    const buyBookBtn_10 = document.querySelector('.main-favorites-staff_picks-book_buy._11');
+    const buyBookBtn_11 = document.querySelector('.main-favorites-staff_picks-book_buy._12');
+    const buyBookBtn_12 = document.querySelector('.main-favorites-staff_picks-book_buy._13');
+    const buyBookBtn_13 = document.querySelector('.main-favorites-staff_picks-book_buy._14');
+    const buyBookBtn_14 = document.querySelector('.main-favorites-staff_picks-book_buy._15');
+    const buyBookBtn_15 = document.querySelector('.main-favorites-staff_picks-book_buy._16');
+
+    const buyBookAllBtn = [buyBookBtn_0, buyBookBtn_1, buyBookBtn_2, buyBookBtn_3, buyBookBtn_4, buyBookBtn_5, buyBookBtn_6, buyBookBtn_7, buyBookBtn_8, buyBookBtn_9, buyBookBtn_10, buyBookBtn_11, buyBookBtn_12, buyBookBtn_13, buyBookBtn_14, buyBookBtn_15];
+    
+    const modalBuyCard = document.querySelector('.modal-buy_card');
+    const modalBuyCardCloseBtn = document.querySelector('.modal-buy_card-close_btn-icon');
+    
+    // если вытащенная почта И пароль из localStorage совпадают со значениями инпутов в авторизации
+    if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
+      alert('Welcome!'); // то вывести окно Добро пожаловать
+
+      buyBookAllBtn.forEach(function(buyBookBtn, index){
+        buyBookBtn.addEventListener('click', function(event){
+          modalBuyCard.style.display = 'block';
+          modalBuyCardCloseBtn.onclick = () => {
+            modalBuyCard.style.display = 'none';
+          }
+        })
+      })
+
+
+      
+    } else {
+      alert('You entered the wrong email or password :('); // иначе вывести окно с ошибкой в вводе
+    }
+
+  });
+  // Важно: при повторной регистрации, прошлая регистрация перезапишется в localStorage на новую
+  // это значит что зарегистрироваться может только один человек
+
+      // buyBookAllBtn[3].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[3].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[3].innerText = 'Own';
+      // buyBookAllBtn[3].disabled = true;
+
+      // buyBookAllBtn[7].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[7].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[7].innerText = 'Own';
+      // buyBookAllBtn[7].disabled = true;
+
+      // buyBookAllBtn[11].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[11].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[11].innerText = 'Own';
+      // buyBookAllBtn[11].disabled = true;
+
+      // buyBookAllBtn[15].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[15].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[15].innerText = 'Own';
+      // buyBookAllBtn[15].disabled = true;
+
+
+
+  //   const isUserLoggedIn = () => {
+  //   const authToken = localStorage.getItem('registerData');
+
+  //   if (authToken !== null) {
+  //     if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   } else {
+  //     return false;
+  //   }
+  // }
+  // console.log(isUserLoggedIn());
+      
 
 
 });
+
+      
 
 
 

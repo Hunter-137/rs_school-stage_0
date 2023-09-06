@@ -1658,12 +1658,20 @@ h1 {
     color: #BB945F;
 }
 
+.modal-buy_card-content{
+    width: 650px;
+    height: 540px;
+    margin: 5% auto;
+    position: relative;
+    background-color: #FFF;
+    
+}
+
 .modal-buy_card-wrapper{
     width: 650px;
     height: 60px;
     background: #0C0C0E;
     position: relative;
-    margin-top: 20px;
 }
 
 .modal-buy_card-container{
@@ -1692,12 +1700,16 @@ h1 {
     top: 25px;
     background-color: #0C0C0E;
     border: none;
+    transition-duration: 1s;
+}
+
+.modal-buy_card-close_btn:hover{
+    transform: scale(1.3) rotate(360deg);
 }
 
 .modal-buy_card-container-data_filling{
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
 }
 
 .modal-buy_card-text {
@@ -1715,9 +1727,12 @@ h1 {
 }
 
 .modal-buy_card-text-input.expiration_code{
-    position: relative;
     width: 45px;
     height: 20px;
+}
+
+.modal-buy_card-text-input.expiration_code:last-child{
+    margin-left: 5px;
 }
 
 .modal-buy_card-text-input.cvc{
