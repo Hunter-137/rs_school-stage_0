@@ -374,8 +374,49 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 
+// *************************** LOCALSTORAGE (регистрация и авторизация) ****************************/
+
+document.addEventListener('DOMContentLoaded', function(){
+  const dataRegisterFirstName = document.getElementById('dataRegisterFirstName'); // инпут по имени
+  const dataRegisterLastName = document.getElementById('dataRegisterLastName'); // инпут по фамилии
+  const dataRegisterEmail = document.getElementById('dataRegisterEmail'); // инпут по почте
+  const dataRegisterPassword = document.getElementById('dataRegisterPassword'); // инпут по паролю
+
+  const saveDataRegisterBtn = document.getElementById('saveDataRegisterBtn'); // кнопка регистрации из модального окна регистрации
+
+  // создание функции на клик
+  saveDataRegisterBtn.onclick = () => {
+    const dataRegisterObj = {
+      firstNameValue: dataRegisterFirstName.value,
+      lastNameValue: dataRegisterLastName.value,
+      emailValue: dataRegisterEmail.value,
+      passwordValue: dataRegisterPassword.value,
+    }
+
+    localStorage.setItem('registerData', JSON.stringify(dataRegisterObj));
+    alert('Registration successfully completed!');
+  }
+
+  const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard');
+  const dataLoginPassword = document.getElementById('dataLoginPassword');
+
+  const dataLoginAutoBtn = document.getElementById('dataLoginAutoBtn');
+
+  dataLoginAutoBtn.onclick = () => {
+    const savedDataRegisterStr = localStorage.getItem('registerData');
+    const savedDataRegister = JSON.parse(savedDataRegisterStr);
+
+    if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
+      alert('Welcome!');
+    } else {
+      alert('You entered the wrong email or password :(');
+    }
+  }
+
+  
 
 
+});
 
 
 
