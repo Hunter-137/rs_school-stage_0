@@ -365,13 +365,13 @@
                     <button class="modal-login-close_btn"><img class="modal-login-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
                     <label>
                         <p class="modal-login-text">E-mail or readers card</p>
-                        <input class="modal-login-text-input" type="text">
+                        <input id="dataLoginEmailOrReadersCard" class="modal-login-text-input" type="text">
                     </label>
                     <label>
                         <p class="modal-login-text">Password</p>
-                        <input class="modal-login-text-input" type="password">
+                        <input id="dataLoginPassword" class="modal-login-text-input" type="password">
                     </label>
-                    <button class="modal-btn_login"><p class="modal-btn_login-text">Log In</p></button>
+                    <button id="dataLoginAutoBtn" class="modal-btn_login modal-btn_login-text">Log In</button>
                     <div class="modal-login-postscript-wrapper">
                         <p class="modal-login-postscript-text">Don’t have an account?</p>
                         <button class="modal-login-postscript-btn">Register</button>
@@ -389,21 +389,21 @@
                     <button class="modal-register-close_btn"><img class="modal-register-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
                     <label>
                         <p class="modal-register-text">First name</p>
-                        <input class="modal-register-text-input" type="text">
+                        <input id="dataRegisterFirstName" class="modal-register-text-input" type="text">
                     </label>
                     <label>
                         <p class="modal-register-text">Last name</p>
-                        <input class="modal-register-text-input" type="text">
+                        <input id="dataRegisterLastName" class="modal-register-text-input" type="text">
                     </label>
                     <label>
                         <p class="modal-register-text">E-mail</p>
-                        <input class="modal-register-text-input" type="text">
+                        <input id="dataRegisterEmail" class="modal-register-text-input" type="text">
                     </label>
                     <label>
                         <p class="modal-register-text">Password</p>
-                        <input class="modal-register-text-input" type="password">
+                        <input id="dataRegisterPassword" class="modal-register-text-input" type="password">
                     </label>
-                    <button class="modal-btn_register"><p class="modal-btn_register-text">Sign Up</p></button>
+                    <button id="saveDataRegisterBtn" class="modal-btn_register modal-btn_register-text">Sign Up</button>
                     <div class="modal-register-postscript-wrapper">
                         <p class="modal-register-postscript-text">Already have an account?</p>
                         <button class="modal-register-postscript-btn">Login</button>
@@ -446,7 +446,7 @@
                             <input class="modal-buy_card-text-input" type="text">
                         </label>
                         <div class="modal-btn_buy_card">
-                            <button class="modal-btn_buy_card-button"><p class="modal-btn_buy_card-text">Buy</p></button>
+                            <button class="modal-btn_buy_card-button modal-btn_buy_card-text">Buy</button>
                             <span class="modal-btn_buy_card-price">$ 25.00</span>
                         </div>
                     </div>
