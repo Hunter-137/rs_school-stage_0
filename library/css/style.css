@@ -1697,7 +1697,7 @@ h1 {
 .modal-buy_card-container-data_filling{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 .modal-buy_card-text {
@@ -1707,6 +1707,7 @@ h1 {
 .modal-buy_card-text-input{
     border: 1px solid #BB945F;
     outline: none;
+    margin-bottom: 10px;
 }
 
 .modal-buy_card-text-input:focus{
@@ -1714,6 +1715,7 @@ h1 {
 }
 
 .modal-buy_card-text-input.expiration_code{
+    position: relative;
     width: 45px;
     height: 20px;
 }
