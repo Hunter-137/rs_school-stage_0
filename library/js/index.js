@@ -298,12 +298,12 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // событие клик на всё дерево html
-  document.addEventListener('click', function(event){
-    // если произошел клик Не на плашку и Не на иконку профиля
-    if (!dropMenu.contains(event.target) && !iconButton.contains(event.target)) {
-      dropMenu.classList.remove('active'); // удалить класс active
-    }
-  });
+  // document.addEventListener('click', function(event){
+  //   // если произошел клик Не на плашку и Не на иконку профиля
+  //   if (!dropMenu.contains(event.target) && !iconButton.contains(event.target)) {
+  //     dropMenu.classList.remove('active'); // удалить класс active
+  //   }
+  // });
 
   // событие клик на всё дерево html
   document.addEventListener('click', function(event){
@@ -375,14 +375,7 @@ document.addEventListener('DOMContentLoaded', function(){
     modalRegister.style.display = 'none'; // скрыть модальное окно регистрации
   }
 
-  // // при клике на окно браузера
-  // window.onclick = (event) => {
-  //   if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
-  //     modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
-  //   } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
-  //     modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
-  //   };
-  // };
+ 
 
 
 
@@ -418,52 +411,91 @@ document.addEventListener('DOMContentLoaded', function(){
 
   const dataLoginAutoBtn = document.getElementById('dataLoginAutoBtn'); // кнопка авторизации
 
+  const savedDataRegister = JSON.parse(localStorage.getItem('registerData')); // вытаскиваем объект JSON обратно конвертируем в объект JavaScript
+
+  // вытащил все кнопки Buy из блока Favorites, из каждого сезона
+  const buyBookBtn_0 = document.querySelector('.main-favorites-staff_picks-book_buy._1');
+  const buyBookBtn_1 = document.querySelector('.main-favorites-staff_picks-book_buy._2');
+  const buyBookBtn_2 = document.querySelector('.main-favorites-staff_picks-book_buy._3');
+  const buyBookBtn_3 = document.querySelector('.main-favorites-staff_picks-book_buy._4');
+  const buyBookBtn_4 = document.querySelector('.main-favorites-staff_picks-book_buy._5');
+  const buyBookBtn_5 = document.querySelector('.main-favorites-staff_picks-book_buy._6');
+  const buyBookBtn_6 = document.querySelector('.main-favorites-staff_picks-book_buy._7');
+  const buyBookBtn_7 = document.querySelector('.main-favorites-staff_picks-book_buy._8');
+  const buyBookBtn_8 = document.querySelector('.main-favorites-staff_picks-book_buy._9');
+  const buyBookBtn_9 = document.querySelector('.main-favorites-staff_picks-book_buy._10');
+  const buyBookBtn_10 = document.querySelector('.main-favorites-staff_picks-book_buy._11');
+  const buyBookBtn_11 = document.querySelector('.main-favorites-staff_picks-book_buy._12');
+  const buyBookBtn_12 = document.querySelector('.main-favorites-staff_picks-book_buy._13');
+  const buyBookBtn_13 = document.querySelector('.main-favorites-staff_picks-book_buy._14');
+  const buyBookBtn_14 = document.querySelector('.main-favorites-staff_picks-book_buy._15');
+  const buyBookBtn_15 = document.querySelector('.main-favorites-staff_picks-book_buy._16');
+
+  // закинул все кнопки в один массив
+  const buyBookAllBtn = [buyBookBtn_0, buyBookBtn_1, buyBookBtn_2, buyBookBtn_3, buyBookBtn_4, buyBookBtn_5, buyBookBtn_6, buyBookBtn_7, buyBookBtn_8, buyBookBtn_9, buyBookBtn_10, buyBookBtn_11, buyBookBtn_12, buyBookBtn_13, buyBookBtn_14, buyBookBtn_15];
+  
+  // вытащил также модальное окно покупки
+  const modalBuyCard = document.querySelector('.modal-buy_card'); // модальное окно покупки
+  const modalBuyCardCloseBtn = document.querySelector('.modal-buy_card-close_btn-icon'); // кнопка крестика в модальном окне покупки
+
+  const modalBuyCardButton = document.querySelector('.modal-btn_buy_card-button'); // кнопка Buy в модальном окне покупки книги
+
+  // здесь вытащил новую иконку и плашку, если пользователь авторизовался
+  const authIconProfile = document.querySelector('.header-ul-li-img-a.auth'); // новая иконка профиля
+  const authOpenModalMyProfile = document.querySelector('.header-profile-drop_menu-text-a.auth_login'); // кнопка в переход Мой профиль из новой плашки
+  const authLogOut = document.querySelector('.header-profile-drop_menu-text-a.auth_register'); // кнопка выхода
+
+  // перебираю массив кнопок Buy из блока Favorites
+  buyBookAllBtn.forEach(function(buyBookBtn){
+    buyBookBtn.addEventListener('click', function(event){ // событие клик по элементу, если кликнуто, то
+      modalLogIn.style.display = 'block'; // показать модальное окно логина
+    })
+  })
+
+
   // создание функции на клик по кнопке авторизации
   dataLoginAutoBtn.addEventListener('click', function(event){
-    const savedDataRegisterStr = localStorage.getItem('registerData'); // вытаскиваем объект формата JSON из localStorage
-    const savedDataRegister = JSON.parse(savedDataRegisterStr); // вытащенный объект JSON обратно конвертируем в объект JavaScript
-
-    
-
-    const buyBookBtn_0 = document.querySelector('.main-favorites-staff_picks-book_buy._1');
-    const buyBookBtn_1 = document.querySelector('.main-favorites-staff_picks-book_buy._2');
-    const buyBookBtn_2 = document.querySelector('.main-favorites-staff_picks-book_buy._3');
-    const buyBookBtn_3 = document.querySelector('.main-favorites-staff_picks-book_buy._4');
-    const buyBookBtn_4 = document.querySelector('.main-favorites-staff_picks-book_buy._5');
-    const buyBookBtn_5 = document.querySelector('.main-favorites-staff_picks-book_buy._6');
-    const buyBookBtn_6 = document.querySelector('.main-favorites-staff_picks-book_buy._7');
-    const buyBookBtn_7 = document.querySelector('.main-favorites-staff_picks-book_buy._8');
-    const buyBookBtn_8 = document.querySelector('.main-favorites-staff_picks-book_buy._9');
-    const buyBookBtn_9 = document.querySelector('.main-favorites-staff_picks-book_buy._10');
-    const buyBookBtn_10 = document.querySelector('.main-favorites-staff_picks-book_buy._11');
-    const buyBookBtn_11 = document.querySelector('.main-favorites-staff_picks-book_buy._12');
-    const buyBookBtn_12 = document.querySelector('.main-favorites-staff_picks-book_buy._13');
-    const buyBookBtn_13 = document.querySelector('.main-favorites-staff_picks-book_buy._14');
-    const buyBookBtn_14 = document.querySelector('.main-favorites-staff_picks-book_buy._15');
-    const buyBookBtn_15 = document.querySelector('.main-favorites-staff_picks-book_buy._16');
-
-    const buyBookAllBtn = [buyBookBtn_0, buyBookBtn_1, buyBookBtn_2, buyBookBtn_3, buyBookBtn_4, buyBookBtn_5, buyBookBtn_6, buyBookBtn_7, buyBookBtn_8, buyBookBtn_9, buyBookBtn_10, buyBookBtn_11, buyBookBtn_12, buyBookBtn_13, buyBookBtn_14, buyBookBtn_15];
-    
-    const modalBuyCard = document.querySelector('.modal-buy_card');
-    const modalBuyCardCloseBtn = document.querySelector('.modal-buy_card-close_btn-icon');
-    
     // если вытащенная почта И пароль из localStorage совпадают со значениями инпутов в авторизации
     if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
       alert('Welcome!'); // то вывести окно Добро пожаловать
 
-      buyBookAllBtn.forEach(function(buyBookBtn, index){
-        buyBookBtn.addEventListener('click', function(event){
-          modalBuyCard.style.display = 'block';
-          modalBuyCardCloseBtn.onclick = () => {
-            modalBuyCard.style.display = 'none';
+      iconButton.style.display = 'none'; // скрыть иконку неавторизованного пользователя
+      authIconProfile.style.display = 'block'; // показать иконку авторизованного пользователя
+
+      openModalLogIn.style.display = 'none'; // скрыть кнопки из неавторизованного пользователя Логин
+      openModalRegister.style.display = 'none'; // и Регистрации
+      authOpenModalMyProfile.style.display = 'block'; // показать кнопки из авторизованного пользователя Мой профиль
+      authLogOut.style.display = 'block'; // и кнопку Выхода
+
+      // если на новую эту иконку (после авторизации пользователя) кликнули
+      authIconProfile.onclick = () => {
+        dropMenu.classList.toggle('active'); // то добавить класс active (то есть спустить плашку с новыми кнопками)
+      }
+
+      // снова перебор массива кнопок Buy книг из блока Favorites
+      buyBookAllBtn.forEach(function(buyBookBtn){
+        buyBookBtn.addEventListener('click', function(event){ // клик по элементу из массива (по одной из кнопки массива)
+          modalLogIn.style.display = 'none'; // скрыть модальное окно Логин
+          modalBuyCard.style.display = 'block'; // показать модальное окно Покупки карты
+          modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
+            buyBookBtn.classList.remove('main-favorites-staff_picks-book_buy'); // то удалить класс ...
+            buyBookBtn.classList.add('main-favorites-staff_picks-book_buy_4');  // добавить класс ...
+            buyBookBtn.innerText = 'Own'; // заменить текст на ...
+            buyBookBtn.disabled = true; // добавить атрибут disabled
           }
-        })
-      })
+        });
+        
+      });
+
+      // при клике на крестик из модального окна покупки
+      modalBuyCardCloseBtn.onclick = () => {
+        modalBuyCard.style.display = 'none'; // скрыть модальное окно покупки
+      }
 
 
-      
+      // если логин и пароль в авторизации не совпадает с логином и паролем из регистрации 
     } else {
-      alert('You entered the wrong email or password :('); // иначе вывести окно с ошибкой в вводе
+      alert('You entered the wrong email or password :('); // то вывести окно с ошибкой в вводе
     }
 
   });
@@ -507,7 +539,16 @@ document.addEventListener('DOMContentLoaded', function(){
   // }
   // console.log(isUserLoggedIn());
       
-
+   // при клике на окно браузера
+  //  window.onclick = (event) => {
+  //   if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
+  //     modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
+  //   } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
+  //     modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
+  //   } else if (event.target === modalBuyCard){
+  //     modalBuyCard.style.display = 'none';
+  //   }
+  // };
 
 });
 

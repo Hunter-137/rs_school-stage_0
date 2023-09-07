@@ -27,10 +27,18 @@
                         <a class="header-ul-li-img-a" href="#">
                             <img class="header-ul-li-img" src="./icon/icon_profile.svg" alt="icon">
                         </a>
+                        <a class="header-ul-li-img-a auth" href="#">
+                            <div class="header-ul-li-img-a auth-wrapper">
+                                <p class="auth-text">AB</p>
+                            </div>
+                        </a>
                         <div class="header-profile-drop_menu">
                             <p class="header-profile-drop_menu-title">Profile</p>
                             <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a login" href="#">Log In</a></p>
                             <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a register" href="#">Register</a></p>
+
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a auth_login" href="#">My profile</a></p>
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a auth_register" href="#">Log Out</a></p>
                         </div>
                     </div>
                     <div class="header-burger_menu-button">
@@ -453,6 +461,53 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Модальное окно My Profile -->
+
+        <div class="modal-profile">
+
+            <aside class="modal-profile-sidebar">
+                <div class="modal-profile-sidebar-avatar">
+                    <p class="modal-profile-sidebar-avatar-text">AB</p>
+                </div>
+                <div class="modal-profile-sidebar-full_name">
+                    <p class="modal-profile-sidebar-full_name-text">John Doe</p>
+                </div>
+            </aside>
+
+            <div class="modal-profile-content">
+                <p class="modal-profile-content-title">My profile</p>
+                <button class="modal-profile-content-close_btn"><img class="modal-profile-content-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <div class="modal-profile-content-data-wrapper">
+                    <div class="modal-profile-content-data">
+                        <p class="modal-profile-content-data-subtitle">visits</p>
+                        <img class="modal-profile-content-data-icon" src="../library/icon/Union.svg" alt="human_symbol">
+                        <p class="modal-profile-content-data-count">23</p>
+                    </div>
+                    <div class="modal-profile-content-data">
+                        <p class="modal-profile-content-data-subtitle">bonuses</p>
+                        <img class="modal-profile-content-data-icon" src="../library/icon/Star 1.svg" alt="polygonal_star">
+                        <p class="modal-profile-content-data-count">1240</p>
+                    </div>
+                    <div class="modal-profile-content-data">
+                        <p class="modal-profile-content-data-subtitle">Books</p>
+                        <img class="modal-profile-content-data-icon" src="../library/icon/book.svg" alt="book_symbol">
+                        <p class="modal-profile-content-data-count">2</p>
+                    </div>
+                </div>
+                <p class="modal-profile-content-subtitle">Rented books</p>
+                <ul class="modal-profile-content-rented_books">
+                    <li class="modal-profile-content-rented_books-item">The Last Queen, Clive Irving</li>
+                    <li class="modal-profile-content-rented_books-item">Dominicana, Angie Cruz</li>
+                </ul>
+                <div class="modal-profile-content-card_number-wrapper">
+                    <p class="modal-profile-content-card_number-text">Card number</p>
+                    <p class="modal-profile-content-card_number-text-number">F00234030</p>
+                    <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon copy.svg" alt="copy_symbol">
+                </div>
+            </div>
+
         </div>
 
     </div>
