@@ -313,10 +313,10 @@
                                 <form action="#" class="main-cards-check_card-border-background">
                                     <h4 class="main-cards-check_card-border-background-subtitle">Brooklyn Public Library</h4>
                                     <label title="Use only letters, numbers and hyphens.">
-                                        <input required pattern="^[0-9a-zA-Z\-]+$" class="main-cards-check_card-border-background-input" type="text" placeholder="Reader's name">
+                                        <input required pattern="[0-9a-zA-Z\s]+" class="main-cards-check_card-border-background-input" type="text" placeholder="Reader's name" title="Use only English letters or arabiс numerals">
                                     </label>
                                     <label title="Use only letters, numbers and hyphens.">
-                                        <input required pattern="^[0-9a-zA-Z\-]+$" class="main-cards-check_card-border-background-input" type="text" placeholder="Card number">
+                                        <input required pattern="[0-9a-zA-Z\-]+" class="main-cards-check_card-border-background-input" type="text" placeholder="Card number" title="Use only English letters or arabiс numerals">
                                     </label>
                                     <button type="submit" class="main-cards-check_card-border-button">Check the card</button>
                                 </form>
@@ -333,6 +333,58 @@
                     </article>
                 </div>
             </section>
+
+            <section class="main-cards auth">
+                <h2 class="main-cards-title auth title" id="library_card">Digital Library Cards</h2>
+                <div class="main-cards-wrapp auth">
+                    <div class="main-cards-check_card-wrapp auth">
+                        <article class="main-cards-check_card auth">
+                            <h3 class="main-cards-check_card-title auth">Your Library card</h3>
+                            <div class="main-cards-check_card-border auth">
+                                <form action="#" class="main-cards-check_card-border-background auth">
+                                    <h4 class="main-cards-check_card-border-background-subtitle auth">Brooklyn Public Library</h4>
+                                    <label title="Use only English letters, numbers and hyphens.">
+                                        <input required pattern="[0-9a-zA-Z\s]+" class="main-cards-check_card-border-background-input auth" type="text" placeholder="Reader's name" value="First name" title="Use only English letters or arabiс numerals">
+                                    </label>
+                                    <label title="Use only letters, numbers and hyphens.">
+                                        <input required pattern="[0-9a-zA-Z\-]+" class="main-cards-check_card-border-background-input auth" type="text" placeholder="Card number" value="libraryCode" title="Use only English letters or arabiс numerals">
+                                    </label>
+                                    
+                                </form>
+                                <div class="main-cards-check_card-border-data_user-auth">
+                                    <div class="modal-profile-content-data-wrapper-auth">
+                                        <div class="modal-profile-content-data">
+                                            <p class="modal-profile-content-data-subtitle">visits</p>
+                                            <img class="modal-profile-content-data-icon" src="../library/icon/Union.svg" alt="human_symbol">
+                                            <p class="modal-profile-content-data-count">23</p>
+                                        </div>
+                                        <div class="modal-profile-content-data">
+                                            <p class="modal-profile-content-data-subtitle">bonuses</p>
+                                            <img class="modal-profile-content-data-icon" src="../library/icon/Star_1.svg" alt="polygonal_star">
+                                            <p class="modal-profile-content-data-count">1240</p>
+                                        </div>
+                                        <div class="modal-profile-content-data">
+                                            <p class="modal-profile-content-data-subtitle">Books</p>
+                                            <img class="modal-profile-content-data-icon" src="../library/icon/book.svg" alt="book_symbol">
+                                            <p class="modal-profile-content-data-count">2</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </article>
+                    </div>
+                    <article class="main-cards-authorization auth">
+                        <h3 class="main-cards-authorization-title auth">Visit your profile</h3>
+                        <p class="main-cards-authorization-description auth">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+                        <div class="main-cards-authorization-button-wrapp auth">
+                            <button class="main-cards-authorization-button login-btn auth">Profile</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+
         </main>
         <footer class="footer">
             <div class="footer-wrapp">
@@ -465,47 +517,50 @@
 
         <!-- Модальное окно My Profile -->
 
-        <div class="modal-profile">
+        <div class="modal modal-profile">
+            <div class="modal-profile-wrapper">
 
-            <aside class="modal-profile-sidebar">
-                <div class="modal-profile-sidebar-avatar">
-                    <p class="modal-profile-sidebar-avatar-text">AB</p>
-                </div>
-                <div class="modal-profile-sidebar-full_name">
-                    <p class="modal-profile-sidebar-full_name-text">John Doe</p>
-                </div>
-            </aside>
+                <aside class="modal-profile-sidebar">
+                    <div class="modal-profile-sidebar-avatar">
+                        <p class="modal-profile-sidebar-avatar-text">AB</p>
+                    </div>
+                    <div class="modal-profile-sidebar-full_name">
+                        <p class="modal-profile-sidebar-full_name-text">John Doe</p>
+                    </div>
+                </aside>
 
-            <div class="modal-profile-content">
-                <p class="modal-profile-content-title">My profile</p>
-                <button class="modal-profile-content-close_btn"><img class="modal-profile-content-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
-                <div class="modal-profile-content-data-wrapper">
-                    <div class="modal-profile-content-data">
-                        <p class="modal-profile-content-data-subtitle">visits</p>
-                        <img class="modal-profile-content-data-icon" src="../library/icon/Union.svg" alt="human_symbol">
-                        <p class="modal-profile-content-data-count">23</p>
+                <div class="modal-profile-content">
+                    <p class="modal-profile-content-title">My profile</p>
+                    <button class="modal-profile-content-close_btn"><img class="modal-profile-content-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                    <div class="modal-profile-content-data-wrapper">
+                        <div class="modal-profile-content-data">
+                            <p class="modal-profile-content-data-subtitle">visits</p>
+                            <img class="modal-profile-content-data-icon" src="../library/icon/Union.svg" alt="human_symbol">
+                            <p class="modal-profile-content-data-count auth-count">23</p>
+                        </div>
+                        <div class="modal-profile-content-data">
+                            <p class="modal-profile-content-data-subtitle">bonuses</p>
+                            <img class="modal-profile-content-data-icon" src="../library/icon/Star_1.svg" alt="polygonal_star">
+                            <p class="modal-profile-content-data-count">1240</p>
+                        </div>
+                        <div class="modal-profile-content-data">
+                            <p class="modal-profile-content-data-subtitle">Books</p>
+                            <img class="modal-profile-content-data-icon" src="../library/icon/book.svg" alt="book_symbol">
+                            <p class="modal-profile-content-data-count">2</p>
+                        </div>
                     </div>
-                    <div class="modal-profile-content-data">
-                        <p class="modal-profile-content-data-subtitle">bonuses</p>
-                        <img class="modal-profile-content-data-icon" src="../library/icon/Star 1.svg" alt="polygonal_star">
-                        <p class="modal-profile-content-data-count">1240</p>
-                    </div>
-                    <div class="modal-profile-content-data">
-                        <p class="modal-profile-content-data-subtitle">Books</p>
-                        <img class="modal-profile-content-data-icon" src="../library/icon/book.svg" alt="book_symbol">
-                        <p class="modal-profile-content-data-count">2</p>
+                    <p class="modal-profile-content-subtitle">Rented books</p>
+                    <ul class="modal-profile-content-rented_books">
+                        <li class="modal-profile-content-rented_books-item">The Last Queen, Clive Irving</li>
+                        <li class="modal-profile-content-rented_books-item">Dominicana, Angie Cruz</li>
+                    </ul>
+                    <div class="modal-profile-content-card_number-wrapper">
+                        <p class="modal-profile-content-card_number-text">Card number</p>
+                        <p class="modal-profile-content-card_number-text-number">F00234030</p>
+                        <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon_copy.svg" alt="copy_symbol">
                     </div>
                 </div>
-                <p class="modal-profile-content-subtitle">Rented books</p>
-                <ul class="modal-profile-content-rented_books">
-                    <li class="modal-profile-content-rented_books-item">The Last Queen, Clive Irving</li>
-                    <li class="modal-profile-content-rented_books-item">Dominicana, Angie Cruz</li>
-                </ul>
-                <div class="modal-profile-content-card_number-wrapper">
-                    <p class="modal-profile-content-card_number-text">Card number</p>
-                    <p class="modal-profile-content-card_number-text-number">F00234030</p>
-                    <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon copy.svg" alt="copy_symbol">
-                </div>
+
             </div>
 
         </div>
