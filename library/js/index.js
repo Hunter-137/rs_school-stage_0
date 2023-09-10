@@ -1,4 +1,6 @@
-console.log('блок <header> +2\nсекция Welcome +2\nсекция About +4.\nсекция Favorites +2\nСделать кнопку own, вместо buy для последней книги. +2\nсекция CoffeShop +4\nсекция Contacts +4\nсекция LibraryCard +4\nблок <footer> + 2\n\nнет полосы прокрутки при ширине страницы от 1440рх до 640рх +4.\nэлементы не выходят за пределы окна браузера при ширине страницы от 1440рх до 640рх +4.\nэлементы не наезжают друг на друга при ширине страницы от 1440рх до 640рх +4.\n\nЕсли иконка юзера не прыгает (не меняет позиции при открытии меню), независимо от величины отступа: +2\nпри нажатии на бургер-иконку плавно появляется адаптивное меню +4\nпри нажатии на крестик, или на область вне меню, адаптивное меню плавно скрывается, уезжая за экран +1 (у меня работает только по кнопке, поэтому половина балла...)\nразмеры открытого бургер-меню соответствуют макету, так же открытое бургер-меню проверяется на PixelPerfect +1 (не везде попал, ех)\n\n\nИтог: 48/50\nБольшое спасибо за ревью, Ревьювер!\nБуду очень признателен, если укажешь на мои ошибки ^-^');
+// console.log('блок <header> +2\nсекция Welcome +2\nсекция About +4.\nсекция Favorites +2\nСделать кнопку own, вместо buy для последней книги. +2\nсекция CoffeShop +4\nсекция Contacts +4\nсекция LibraryCard +4\nблок <footer> + 2\n\nнет полосы прокрутки при ширине страницы от 1440рх до 640рх +4.\nэлементы не выходят за пределы окна браузера при ширине страницы от 1440рх до 640рх +4.\nэлементы не наезжают друг на друга при ширине страницы от 1440рх до 640рх +4.\n\nЕсли иконка юзера не прыгает (не меняет позиции при открытии меню), независимо от величины отступа: +2\nпри нажатии на бургер-иконку плавно появляется адаптивное меню +4\nпри нажатии на крестик, или на область вне меню, адаптивное меню плавно скрывается, уезжая за экран +1 (у меня работает только по кнопке, поэтому половина балла...)\nразмеры открытого бургер-меню соответствуют макету, так же открытое бургер-меню проверяется на PixelPerfect +1 (не везде попал, ех)\n\n\nИтог: 48/50\nБольшое спасибо за ревью, Ревьювер!\nБуду очень признателен, если укажешь на мои ошибки ^-^');
+
+
 
 // включение dom и "прослушка" на всё дерево
 document.addEventListener('DOMContentLoaded', function() {
@@ -381,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // *************************** LOCALSTORAGE (регистрация и авторизация) ****************************/
 
-
+  
   const dataRegisterFirstName = document.getElementById('dataRegisterFirstName'); // инпут по имени из модального окна регистрации
   const dataRegisterLastName = document.getElementById('dataRegisterLastName'); // инпут по фамилии
   const dataRegisterEmail = document.getElementById('dataRegisterEmail'); // инпут по почте
@@ -391,17 +393,44 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // создание функции на клик по кнопке регистрации
   saveDataRegisterBtn.onclick = () => {
+
+    // при клике на регистрацию, убрать ключ hasLibraryCard из localStorage
+    // (подробнее на 544 строке)
+    localStorage.removeItem('hasLibraryCard');
+
+    // функция по созданию рандомного 9-значного кода карточки в 16-ричной системе счисления 
+    const randomLibraryCode = () => {
+      let result = ''; // пустая строка для присоединения новых чисел после каждой итерации
+      let i = 0; // счётчик итераций
+      while (i < 9) { // если счётчик меньше 9 (0, 1, 2, 3, 4, 5, 6, 7, 8 итог: 9 чисел)
+        // то умножить рандомное число от 0 до 1 на 16 и округлить до целых в меньшую сторону
+        const randomCount = Math.floor(Math.random() * 16);
+        // полученное число перевести в 16-ричную систему счисления
+        const readyRandomCount = randomCount.toString(16);
+        // присоединить готовое число к "пустоте"
+        result = `${result}${readyRandomCount}`;
+        // увеличить счётчик на 1
+        i = i + 1;
+      }
+      // вернуть результат
+      return result;
+    };
+
+    // сохраняем полученный результат в переменной
+    const libraryCode = randomLibraryCode();
+
     // создание объекта с данными
     const dataRegisterObj = {
       firstNameValue: dataRegisterFirstName.value, // значение импута имени
       lastNameValue: dataRegisterLastName.value, // фамилии
       emailValue: dataRegisterEmail.value, // почты
       passwordValue: dataRegisterPassword.value, // пароля
+      libraryCode: libraryCode, // сохранённое значение функции по созданию рандомного кода
     }
 
     // "отправляем" наш объект в local storage, предварительно меняя объект на JSON формат
     localStorage.setItem('registerData', JSON.stringify(dataRegisterObj));
-    location.reload();
+    location.reload(); // перезагружаем страницу
   }
 
   // теперь вытаскиваем данные из localStorage для модального окна авторизации
@@ -455,9 +484,13 @@ document.addEventListener('DOMContentLoaded', function(){
   const nameInitialsInProfileIcon = document.querySelector('.auth-text'); // инициалы имени и фамилии в иконке профиля после авторизации
   const nameInitialsInModalProfile = document.querySelector('.modal-profile-sidebar-avatar-text'); // инициалы имени и фамилии в модальном окне Мой Профиль
   const fullNameInModalProfile = document.querySelector('.modal-profile-sidebar-full_name-text'); // полное имя с фамилией в модальном окне Мой Профиль
+  const fullNameInBlockLibraryCard = document.querySelector('.main-cards-check_card-border-background-input.auth.name');
+  
+  const authLibraryCodeInModalMyProfile = document.querySelector('.modal-profile-content-card_number-text-number');
+  const authLibraryCodeInBlockLibraryCard = document.querySelector('.main-cards-check_card-border-background-input.auth.card');
+  const authLibraryCodeInIcon = document.querySelector('.header-profile-drop_menu-title');
 
-  const authCountInModalMyProfile = document.querySelector('.modal-profile-content-data-count.auth-count');
-
+  
   // перебираю массив кнопок Buy из блока Favorites
   buyBookAllBtn.forEach(function(buyBookBtn){
     buyBookBtn.addEventListener('click', function(event){ // событие клик по элементу, если кликнуто, то
@@ -470,8 +503,8 @@ document.addEventListener('DOMContentLoaded', function(){
   dataLoginAutoBtn.addEventListener('click', function(event){
     // если вытащенная почта И пароль из localStorage совпадают со значениями инпутов в авторизации
     if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
-      localStorage.setItem('isLoggedIn', 'true');
-      location.reload();
+      localStorage.setItem('isLoggedIn', 'true'); // устанавливаем в localStorage ключ isLoggedIn со значением 'true'
+      location.reload(); //перезагружаем страницу
 
       // если логин и пароль в авторизации не совпадает с логином и паролем из регистрации 
     } else {
@@ -480,9 +513,12 @@ document.addEventListener('DOMContentLoaded', function(){
     
     });
 
+    // устанавливаем событие "Загрузка" на всё окно браузера
     window.addEventListener('load', function(){
+      // вытаскиваем в переменную значение ключа isLoggedIn из localStorage 
       const isLoggedIn = localStorage.getItem('isLoggedIn');
-      if (isLoggedIn === 'true'){
+      if (isLoggedIn === 'true'){ // если ключ имеет значение 'true', то:
+
         iconButton.style.display = 'none'; // скрыть иконку неавторизованного пользователя
         authIconProfile.style.display = 'block'; // показать иконку авторизованного пользователя
 
@@ -496,12 +532,12 @@ document.addEventListener('DOMContentLoaded', function(){
           dropMenu.classList.toggle('active'); // то добавить класс active (то есть спустить плашку с новыми кнопками)
         };
 
-        authOpenModalMyProfile.onclick = () => {
-          modalMyProfile.style.display = 'block';
+        authOpenModalMyProfile.onclick = () => { // если кликнули по кнопке My Profile после авторизации
+          modalMyProfile.style.display = 'block'; // отобразить модальное окно Мой Профиль
         }
 
-        modalMyProfileCloseBtn.onclick = () => {
-          modalMyProfile.style.display = 'none';
+        modalMyProfileCloseBtn.onclick = () => { // по клику на крестик в модальном окне Мой профиль
+          modalMyProfile.style.display = 'none'; // убрать модальное окно Мой Профиль
         }
 
         // снова перебор массива кнопок Buy книг из блока Favorites
@@ -512,151 +548,81 @@ document.addEventListener('DOMContentLoaded', function(){
             modalBuyCard.style.display = 'block'; // показать модальное окно Покупки карты
 
             modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
+              localStorage.setItem('hasLibraryCard', 'true'); // установить новый ключ hasLibraryCard со значение true в localStorage
+              location.reload();
+            }
+            const hasLibraryCard = localStorage.getItem('hasLibraryCard');
+            if (hasLibraryCard === 'true') {
+              modalBuyCard.style.display = 'none';
               buyBookBtn.classList.remove('main-favorites-staff_picks-book_buy'); // то удалить класс ...
               buyBookBtn.classList.add('main-favorites-staff_picks-book_buy_4');  // добавить класс ...
               buyBookBtn.innerText = 'Own'; // заменить текст на ...
               buyBookBtn.disabled = true; // добавить атрибут disabled
             }
+            
 
           });
           
-        });
+        }); 
 
         // при клике на крестик из модального окна покупки
         modalBuyCardCloseBtn.onclick = () => {
           modalBuyCard.style.display = 'none'; // скрыть модальное окно покупки
         }
 
+        // при клике на Log Out 
         authLogOut.onclick = () => {
-          localStorage.removeItem("isLoggedIn");
-          location.reload();
+          localStorage.removeItem("isLoggedIn"); // удалить токен проверки авторизован ли пользователь или нет
+          location.reload(); // перезагрузить страницу
         }
 
-        blockMainCards.style.display = 'none';
-        blockMainCardsAuth.style.display = 'block';
+        // у меня здесь два блока: один сделан под неавторизованного, другой под авторизованного пользователя
+        blockMainCards.style.display = 'none'; // при входе в аккаунт убрать блок Digital Library Cards без авторизации
+        blockMainCardsAuth.style.display = 'block'; // и добавить блок Digital Library Cards после авторизации
 
-        blockMainCardsAuthBtnProfile.onclick = () => {
-          modalMyProfile.style.display = 'block';
+        // в блоке Digital Library Cards после авторизации появляется кнопка Profile
+        blockMainCardsAuthBtnProfile.onclick = () => { // если кликнули на неё
+          modalMyProfile.style.display = 'block'; // отобразить модальное окно Мой Профиль
         }
 
+        // код для подставки инициалов имени и фамилии указанных в регистрации
+
+        // заменить текст инициалов в иконе профиля = первая буква из объекта localStorage взятый из инпута имени + тоже самое, но взятый из инпута фамилии 
         nameInitialsInProfileIcon.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
+        
+        // заменить текст инициалов в модальном окне Мой Профиль = то же, что и сверху
         nameInitialsInModalProfile.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
+        // заменить текст полного имени в модальном окне Мой Профиль = полное имя из localStorage, пробел, полная фамилия из localStorage
         fullNameInModalProfile.innerText = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
+        // заменить значение в инпуте на полное имя и фамилию из localStorage
+        fullNameInBlockLibraryCard.value = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
 
-        // const authCount = () => {
-        //   const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard');
-        //   const dataLoginPassword = document.getElementById('dataLoginPassword');
-        //   const authCountInModalMyProfile = document.getElementById('authCountInModalMyProfile');
-        
-        //   // Проверяем, если пользователь уже авторизован
-        //   if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
-        //     let count = localStorage.getItem('authCount') || 0;
-        //     count = parseInt(count) + 1; // Увеличиваем счетчик только если пользователь авторизован
-        //     localStorage.setItem('authCount', count);
-        //     authCountInModalMyProfile.innerText = count;
-        //   }
-        // }
-        
-        // const getCount = () => {
-        //   let count = localStorage.getItem('authCount') || 0;
-        //   return count;
-        // }
-        
-        // authCountInModalMyProfile.innerText = getCount();
 
-        };
+        // заменить текст кода в модальном окне Мой Профиль на итоговое значение функции создающего 9-значный код в 16-ричной системе счисления 
+        authLibraryCodeInModalMyProfile.innerText = savedDataRegister.libraryCode;
+        // заменить значение в инпуте блока Digital Library Card после авторизации на этот код 
+        authLibraryCodeInBlockLibraryCard.value = savedDataRegister.libraryCode;
+        // в плашке иконки после авторизации изменить размер текста Profile
+        authLibraryCodeInIcon.style.fontSize  = '13px';
+        // в плашке иконки после авторизации изменить цвет текста Profile
+        authLibraryCodeInIcon.style.color = '#BB945F';
+        // заменить текст Profile в плашке иконки после авторизации на итоговое значение функции рандомного кода
+        authLibraryCodeInIcon.innerText = savedDataRegister.libraryCode;
+        
+      };
+        
     });
-
-    // const authCount = () => {
-    //   const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard');
-    //   const dataLoginPassword = document.getElementById('dataLoginPassword');
-    //   const authCountInModalMyProfile = document.querySelector('.modal-profile-content-data-count.auth-count');
-    
-    //   // Проверяем, если пользователь уже авторизован
-    //   if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
-    //     let count = localStorage.getItem('authCount') || 0;
-    //     count = parseInt(count) + 1; // Увеличиваем счетчик только если пользователь авторизован
-    //     localStorage.setItem('authCount', count);
-    //     authCountInModalMyProfile.innerText = count;
-    //   }
-    // }
-
-   
-    
-
-
- 
-
-
-
-
-
-
-
-
-
 
   // Важно: при повторной регистрации, прошлая регистрация перезапишется в localStorage на новую
   // это значит что зарегистрироваться может только один человек
 
-      // buyBookAllBtn[3].classList.remove('main-favorites-staff_picks-book_buy');
-      // buyBookAllBtn[3].classList.add('main-favorites-staff_picks-book_buy_4');
-      // buyBookAllBtn[3].innerText = 'Own';
-      // buyBookAllBtn[3].disabled = true;
-
-      // buyBookAllBtn[7].classList.remove('main-favorites-staff_picks-book_buy');
-      // buyBookAllBtn[7].classList.add('main-favorites-staff_picks-book_buy_4');
-      // buyBookAllBtn[7].innerText = 'Own';
-      // buyBookAllBtn[7].disabled = true;
-
-      // buyBookAllBtn[11].classList.remove('main-favorites-staff_picks-book_buy');
-      // buyBookAllBtn[11].classList.add('main-favorites-staff_picks-book_buy_4');
-      // buyBookAllBtn[11].innerText = 'Own';
-      // buyBookAllBtn[11].disabled = true;
-
-      // buyBookAllBtn[15].classList.remove('main-favorites-staff_picks-book_buy');
-      // buyBookAllBtn[15].classList.add('main-favorites-staff_picks-book_buy_4');
-      // buyBookAllBtn[15].innerText = 'Own';
-      // buyBookAllBtn[15].disabled = true;
-
-
-
-  //   const isUserLoggedIn = () => {
-  //   const authToken = localStorage.getItem('registerData');
-
-  //   if (authToken !== null) {
-  //     if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  // console.log(isUserLoggedIn());
-      
-   // при клике на окно браузера
-  //  window.onclick = (event) => {
-  //   if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
-  //     modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
-  //   } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
-  //     modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
-  //   } else if (event.target === modalBuyCard){
-  //     modalBuyCard.style.display = 'none';
-  //   }
-  // };
-
 });
 
-      
 
 
 
 
 
-
-// });
 // ********************************** МОИ ПОПЫТИ ПО КОДАМ *******************************************
 
   // самостоятельная попытка на слайд карусель
@@ -916,3 +882,154 @@ document.addEventListener('DOMContentLoaded', function(){
 
 //   })
 // })
+
+// **********************************************************************************************
+// была попытка по переходу в блоке с книгами: я хотел сделать так, чтобы при авторизованном пользователе
+//  первый клик по кнопке Купить Книгу открывал модальное окно по покупке карточки
+//  а после клика Купить Карту хотел сделать так, чтобы потом по кнопке Купить Книгу
+//  не открывалось больше модальное окно по карточке, а просто кнопка Купить Книгу менялась под Приобретено
+
+// buyBookAllBtn.forEach(function(buyBookBtn) {
+        //   function displayFunctionForBuyBoolBtn(event) {
+        //     modalLogIn.style.display = 'none';
+        //     modalBuyCard.style.display = 'block';
+        //   }
+        
+        //   buyBookBtn.addEventListener('click', displayFunctionForBuyBoolBtn);
+        
+        //   modalBuyCardButton.onclick = () => {
+        //     modalBuyCard.style.display = 'none';
+        //     buyBookBtn.removeEventListener('click', displayFunctionForBuyBoolBtn);
+        //     buyBookBtn.classList.remove('main-favorites-staff_picks-book_buy');
+        //     buyBookBtn.classList.add('main-favorites-staff_picks-book_buy_4');
+        //     buyBookBtn.innerText = 'Own';
+        //     buyBookBtn.disabled = true;
+        //   };
+        // });
+
+
+        
+        // function displayFunctionForBuyBoolBtn(event) {
+        //   buyBookAllBtn.forEach(function(buyBookBtn){
+        //     modalLogIn.style.display = 'none'; // скрыть модальное окно Логин
+        //     modalBuyCard.style.display = 'block'; // показать модальное окно Покупки карты
+        //   }) 
+        // };
+
+        // function notDisplayFunctionForBuyBoolBtn(event) {
+        //   buyBookAllBtn.forEach(function(buyBookBtn){
+        //     modalBuyCard.style.display = 'none';
+        //     buyBookBtn.classList.remove('main-favorites-staff_picks-book_buy'); // то удалить класс ...
+        //     buyBookBtn.classList.add('main-favorites-staff_picks-book_buy_4');  // добавить класс ...
+        //     buyBookBtn.innerText = 'Own'; // заменить текст на ...
+        //     buyBookBtn.disabled = true; // добавить атрибут disabled
+        //   })
+        // }
+        
+
+        // buyBookAllBtn.addEventListener('click', displayFunctionForBuyBoolBtn); // клик по элементу из массива (по одной из кнопки массива)
+          
+        //   buyBookAllBtn.forEach(function(buyBookBtn){
+        //     modalBuyCardButton.addEventListener('click', notDisplayFunctionForBuyBoolBtn);
+        // });
+
+        // buyBookAllBtn.forEach(function(buyBookBtn){
+
+        //   modalBuyCardButton.addEventListener('click', notDisplayFunctionForBuyBoolBtn)  // если в модальном окне Покупки карты кликнули на кнопку Buy
+            
+        //     buyBookBtn.removeEventListener('click', displayFunctionForBuyBoolBtn);
+            
+        
+
+        // });
+
+
+    // buyBookAllBtn[3].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[3].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[3].innerText = 'Own';
+      // buyBookAllBtn[3].disabled = true;
+
+      // buyBookAllBtn[7].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[7].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[7].innerText = 'Own';
+      // buyBookAllBtn[7].disabled = true;
+
+      // buyBookAllBtn[11].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[11].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[11].innerText = 'Own';
+      // buyBookAllBtn[11].disabled = true;
+
+      // buyBookAllBtn[15].classList.remove('main-favorites-staff_picks-book_buy');
+      // buyBookAllBtn[15].classList.add('main-favorites-staff_picks-book_buy_4');
+      // buyBookAllBtn[15].innerText = 'Own';
+      // buyBookAllBtn[15].disabled = true;
+
+// **********************************************************************************************
+// попытка создать счётчик по авторизации
+
+// const authCount = () => {
+        //   const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard');
+        //   const dataLoginPassword = document.getElementById('dataLoginPassword');
+        //   const authCountInModalMyProfile = document.getElementById('authCountInModalMyProfile');
+        
+        //   // Проверяем, если пользователь уже авторизован
+        //   if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
+        //     let count = localStorage.getItem('authCount') || 0;
+        //     count = parseInt(count) + 1; // Увеличиваем счетчик только если пользователь авторизован
+        //     localStorage.setItem('authCount', count);
+        //     authCountInModalMyProfile.innerText = count;
+        //   }
+        // }
+        
+        // const getCount = () => {
+        //   let count = localStorage.getItem('authCount') || 0;
+        //   return count;
+        // }
+        
+        // authCountInModalMyProfile.innerText = getCount();
+
+
+// const authCount = () => {
+    //   const dataLoginEmailOrReadersCard = document.getElementById('dataLoginEmailOrReadersCard');
+    //   const dataLoginPassword = document.getElementById('dataLoginPassword');
+    //   const authCountInModalMyProfile = document.querySelector('.modal-profile-content-data-count.auth-count');
+    
+    //   // Проверяем, если пользователь уже авторизован
+    //   if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
+    //     let count = localStorage.getItem('authCount') || 0;
+    //     count = parseInt(count) + 1; // Увеличиваем счетчик только если пользователь авторизован
+    //     localStorage.setItem('authCount', count);
+    //     authCountInModalMyProfile.innerText = count;
+    //   }
+    // }
+
+// *************************************************************************************************
+// попытка создать токен авторизации (проверять авторизован ли пользователь или нет) 
+
+//   const isUserLoggedIn = () => {
+  //   const authToken = localStorage.getItem('registerData');
+
+  //   if (authToken !== null) {
+  //     if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   } else {
+  //     return false;
+  //   }
+  // }
+  // console.log(isUserLoggedIn());
+      
+   // при клике на окно браузера
+  //  window.onclick = (event) => {
+  //   if (event.target === modalLogIn){ // является ли клик по окну браузера с модального окна логина
+  //     modalLogIn.style.display = 'none'; // если да, то скрыть модальное окно логина
+  //   } else if (event.target === modalRegister){ // является ли клик по окну браузера с модального окна регистрации
+  //     modalRegister.style.display = 'none'; // если да, то скрыть модальное окно регистрации
+  //   } else if (event.target === modalBuyCard){
+  //     modalBuyCard.style.display = 'none';
+  //   }
+  // };
+
+  // ********************************************************************************************
