@@ -344,10 +344,10 @@
                                 <form action="#" class="main-cards-check_card-border-background auth">
                                     <h4 class="main-cards-check_card-border-background-subtitle auth">Brooklyn Public Library</h4>
                                     <label title="Use only English letters, numbers and hyphens.">
-                                        <input required pattern="[0-9a-zA-Z\s]+" class="main-cards-check_card-border-background-input auth" type="text" placeholder="Reader's name" value="First name" title="Use only English letters or arabiс numerals">
+                                        <input required pattern="[0-9a-zA-Z\s]+" class="main-cards-check_card-border-background-input auth name" type="text" placeholder="Reader's name" value="First name" title="Use only English letters or arabiс numerals">
                                     </label>
                                     <label title="Use only letters, numbers and hyphens.">
-                                        <input required pattern="[0-9a-zA-Z\-]+" class="main-cards-check_card-border-background-input auth" type="text" placeholder="Card number" value="libraryCode" title="Use only English letters or arabiс numerals">
+                                        <input required pattern="[0-9a-zA-Z\-]+" class="main-cards-check_card-border-background-input auth card" type="text" placeholder="Card number" value="libraryCode" title="Use only English letters or arabiс numerals">
                                     </label>
                                     
                                 </form>
@@ -421,8 +421,8 @@
         <div class="modal modal-Log_In">
             <div class="modal-login-wrapper">
                 <p class="modal-login-title">Login</p>
-                <div class="modal-login-container">
-                    <button class="modal-login-close_btn"><img class="modal-login-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <button class="modal-login-close_btn"><img class="modal-login-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <form action="#" class="modal-login-container">
                     
                     <label for="dataLoginEmailOrReadersCard" class="modal-login-text">E-mail or readers card</label>
                     <input id="dataLoginEmailOrReadersCard" class="modal-login-text-input" type="text">
@@ -431,21 +431,21 @@
                     <input id="dataLoginPassword" class="modal-login-text-input" type="password">
 
                     <button id="dataLoginAutoBtn" class="modal-btn_login modal-btn_login-text">Log In</button>
-                    <div class="modal-login-postscript-wrapper">
-                        <p class="modal-login-postscript-text">Don’t have an account?</p>
-                        <button class="modal-login-postscript-btn">Register</button>
-                    </div>
+                </form>
+                <div class="modal-login-postscript-wrapper">
+                    <p class="modal-login-postscript-text">Don’t have an account?</p>
+                    <button class="modal-login-postscript-btn">Register</button>
                 </div>
             </div>
         </div>
 
         <!-- Модальное окно Register -->
-
+        
         <div class="modal modal-register">
             <div class="modal-register-wrapper">
                 <p class="modal-register-title">Register</p>
-                <div class="modal-register-container">
-                    <button class="modal-register-close_btn"><img class="modal-register-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <button class="modal-register-close_btn"><img class="modal-register-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <form action="#" class="modal-register-container">
                     
                     <label for="dataRegisterFirstName" class="modal-register-text">First name</label>
                     <input id="dataRegisterFirstName" class="modal-register-text-input" type="text">
@@ -457,13 +457,13 @@
                     <input id="dataRegisterEmail" class="modal-register-text-input" type="text">
                     
                     <label for="dataRegisterPassword" class="modal-register-text">Password</label>
-                    <input id="dataRegisterPassword" class="modal-register-text-input" type="password">
+                    <input minlength="8" id="dataRegisterPassword" class="modal-register-text-input" type="password">
                     
                     <button id="saveDataRegisterBtn" class="modal-btn_register modal-btn_register-text">Sign Up</button>
-                    <div class="modal-register-postscript-wrapper">
-                        <p class="modal-register-postscript-text">Already have an account?</p>
-                        <button class="modal-register-postscript-btn">Login</button>
-                    </div>
+                </form>
+                <div class="modal-register-postscript-wrapper">
+                    <p class="modal-register-postscript-text">Already have an account?</p>
+                    <button class="modal-register-postscript-btn">Login</button>
                 </div>
             </div>
         </div>
@@ -556,7 +556,7 @@
                     </ul>
                     <div class="modal-profile-content-card_number-wrapper">
                         <p class="modal-profile-content-card_number-text">Card number</p>
-                        <p class="modal-profile-content-card_number-text-number">F00234030</p>
+                        <p class="modal-profile-content-card_number-text-number">library code</p>
                         <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon_copy.svg" alt="copy_symbol">
                     </div>
                 </div>

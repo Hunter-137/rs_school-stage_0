@@ -151,13 +151,15 @@ h1 {
     background: #BB945F;
 }
 
-.header-profile-drop_menu-text{
+.header-profile-drop_menu-text:nth-child(2){
     margin-top: 20px;
 }
 
-.header-profile-drop_menu-text:last-child{
+.header-profile-drop_menu-text{
     margin-top: 10px;
 }
+
+
 
 .header-profile-drop_menu > p > a {
     text-decoration: none;
@@ -176,6 +178,7 @@ h1 {
 
 .header-profile-drop_menu-text-a.auth_register{
     display: none;
+    margin-top: 10px;
 }
 
 .header-burger_menu-button {
@@ -1527,6 +1530,8 @@ h1 {
 }
 
 .modal-login-postscript-wrapper{
+    margin-top: 10px;
+    margin-left: 25px;
     display: flex;
     gap: 10px;
 }
@@ -1662,6 +1667,8 @@ h1 {
 }
 
 .modal-register-postscript-wrapper{
+    margin-top: 10px;
+    margin-left: 25px;
     display: flex;
     gap: 10px;
 }
@@ -1697,7 +1704,7 @@ h1 {
 }
 
 .modal-buy_card-content{
-    width: 650px;
+    width: 640px;
     height: 540px;
     margin: 5% auto;
     position: relative;
@@ -1706,7 +1713,7 @@ h1 {
 }
 
 .modal-buy_card-wrapper{
-    width: 650px;
+    width: 640px;
     height: 60px;
     background: #0C0C0E;
     position: relative;
