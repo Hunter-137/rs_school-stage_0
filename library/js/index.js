@@ -392,8 +392,7 @@ document.addEventListener('DOMContentLoaded', function(){
   const saveDataRegisterBtn = document.getElementById('saveDataRegisterBtn'); // кнопка регистрации из модального окна регистрации
 
   // создание функции на клик по кнопке регистрации
-  saveDataRegisterBtn.onclick = () => {
-
+  saveDataRegisterBtn.addEventListener('click', function(event){
     // при клике на регистрацию, убрать ключ hasLibraryCard из localStorage
     // (подробнее на 544 строке)
     localStorage.removeItem('hasLibraryCard');
@@ -430,8 +429,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // "отправляем" наш объект в local storage, предварительно меняя объект на JSON формат
     localStorage.setItem('registerData', JSON.stringify(dataRegisterObj));
+    alert('Registration completed successfully!');
+
     location.reload(); // перезагружаем страницу
-  }
+  })
+
+    
+  
 
   // теперь вытаскиваем данные из localStorage для модального окна авторизации
   
@@ -504,8 +508,9 @@ document.addEventListener('DOMContentLoaded', function(){
     // если вытащенная почта И пароль из localStorage совпадают со значениями инпутов в авторизации
     if (savedDataRegister.emailValue === dataLoginEmailOrReadersCard.value && savedDataRegister.passwordValue === dataLoginPassword.value) {
       localStorage.setItem('isLoggedIn', 'true'); // устанавливаем в localStorage ключ isLoggedIn со значением 'true'
-      location.reload(); //перезагружаем страницу
-
+      event.preventDefault(); //вызывается в addEventListnener и сбрасывает действие по умолчанию (без него, почему-то, не работала перезагрузка страницы)
+      location.reload(); // перезагружаю страницу
+      
       // если логин и пароль в авторизации не совпадает с логином и паролем из регистрации 
     } else {
       alert('You entered the wrong email or password :('); // то вывести окно с ошибкой в вводе
@@ -513,105 +518,105 @@ document.addEventListener('DOMContentLoaded', function(){
     
     });
 
-    // устанавливаем событие "Загрузка" на всё окно браузера
-    window.addEventListener('load', function(){
-      // вытаскиваем в переменную значение ключа isLoggedIn из localStorage 
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      if (isLoggedIn === 'true'){ // если ключ имеет значение 'true', то:
+  // устанавливаем событие "Загрузка" на всё окно браузера
+  window.addEventListener('load', function(){
+    // вытаскиваем в переменную значение ключа isLoggedIn из localStorage 
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true'){ // если ключ имеет значение 'true', то:
 
-        iconButton.style.display = 'none'; // скрыть иконку неавторизованного пользователя
-        authIconProfile.style.display = 'block'; // показать иконку авторизованного пользователя
+      iconButton.style.display = 'none'; // скрыть иконку неавторизованного пользователя
+      authIconProfile.style.display = 'block'; // показать иконку авторизованного пользователя
 
-        openModalLogIn.style.display = 'none'; // скрыть кнопки из неавторизованного пользователя Логин
-        openModalRegister.style.display = 'none'; // и Регистрации
-        authOpenModalMyProfile.style.display = 'block'; // показать кнопку из авторизованного пользователя Мой профиль
-        authLogOut.style.display = 'block'; // и кнопку Выхода
+      openModalLogIn.style.display = 'none'; // скрыть кнопки из неавторизованного пользователя Логин
+      openModalRegister.style.display = 'none'; // и Регистрации
+      authOpenModalMyProfile.style.display = 'block'; // показать кнопку из авторизованного пользователя Мой профиль
+      authLogOut.style.display = 'block'; // и кнопку Выхода
 
-        // если на новую эту иконку (после авторизации пользователя) кликнули
-        authIconProfile.onclick = () => {
-          dropMenu.classList.toggle('active'); // то добавить класс active (то есть спустить плашку с новыми кнопками)
-        };
-
-        authOpenModalMyProfile.onclick = () => { // если кликнули по кнопке My Profile после авторизации
-          modalMyProfile.style.display = 'block'; // отобразить модальное окно Мой Профиль
-        }
-
-        modalMyProfileCloseBtn.onclick = () => { // по клику на крестик в модальном окне Мой профиль
-          modalMyProfile.style.display = 'none'; // убрать модальное окно Мой Профиль
-        }
-
-        // снова перебор массива кнопок Buy книг из блока Favorites
-        buyBookAllBtn.forEach(function(buyBookBtn){
-
-          buyBookBtn.addEventListener('click', function(event){ // клик по элементу из массива (по одной из кнопки массива)
-            modalLogIn.style.display = 'none'; // скрыть модальное окно Логин
-            modalBuyCard.style.display = 'block'; // показать модальное окно Покупки карты
-
-            modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
-              localStorage.setItem('hasLibraryCard', 'true'); // установить новый ключ hasLibraryCard со значение true в localStorage
-              location.reload();
-            }
-            const hasLibraryCard = localStorage.getItem('hasLibraryCard');
-            if (hasLibraryCard === 'true') {
-              modalBuyCard.style.display = 'none';
-              buyBookBtn.classList.remove('main-favorites-staff_picks-book_buy'); // то удалить класс ...
-              buyBookBtn.classList.add('main-favorites-staff_picks-book_buy_4');  // добавить класс ...
-              buyBookBtn.innerText = 'Own'; // заменить текст на ...
-              buyBookBtn.disabled = true; // добавить атрибут disabled
-            }
-            
-
-          });
-          
-        }); 
-
-        // при клике на крестик из модального окна покупки
-        modalBuyCardCloseBtn.onclick = () => {
-          modalBuyCard.style.display = 'none'; // скрыть модальное окно покупки
-        }
-
-        // при клике на Log Out 
-        authLogOut.onclick = () => {
-          localStorage.removeItem("isLoggedIn"); // удалить токен проверки авторизован ли пользователь или нет
-          location.reload(); // перезагрузить страницу
-        }
-
-        // у меня здесь два блока: один сделан под неавторизованного, другой под авторизованного пользователя
-        blockMainCards.style.display = 'none'; // при входе в аккаунт убрать блок Digital Library Cards без авторизации
-        blockMainCardsAuth.style.display = 'block'; // и добавить блок Digital Library Cards после авторизации
-
-        // в блоке Digital Library Cards после авторизации появляется кнопка Profile
-        blockMainCardsAuthBtnProfile.onclick = () => { // если кликнули на неё
-          modalMyProfile.style.display = 'block'; // отобразить модальное окно Мой Профиль
-        }
-
-        // код для подставки инициалов имени и фамилии указанных в регистрации
-
-        // заменить текст инициалов в иконе профиля = первая буква из объекта localStorage взятый из инпута имени + тоже самое, но взятый из инпута фамилии 
-        nameInitialsInProfileIcon.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
-        
-        // заменить текст инициалов в модальном окне Мой Профиль = то же, что и сверху
-        nameInitialsInModalProfile.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
-        // заменить текст полного имени в модальном окне Мой Профиль = полное имя из localStorage, пробел, полная фамилия из localStorage
-        fullNameInModalProfile.innerText = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
-        // заменить значение в инпуте на полное имя и фамилию из localStorage
-        fullNameInBlockLibraryCard.value = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
-
-
-        // заменить текст кода в модальном окне Мой Профиль на итоговое значение функции создающего 9-значный код в 16-ричной системе счисления 
-        authLibraryCodeInModalMyProfile.innerText = savedDataRegister.libraryCode;
-        // заменить значение в инпуте блока Digital Library Card после авторизации на этот код 
-        authLibraryCodeInBlockLibraryCard.value = savedDataRegister.libraryCode;
-        // в плашке иконки после авторизации изменить размер текста Profile
-        authLibraryCodeInIcon.style.fontSize  = '13px';
-        // в плашке иконки после авторизации изменить цвет текста Profile
-        authLibraryCodeInIcon.style.color = '#BB945F';
-        // заменить текст Profile в плашке иконки после авторизации на итоговое значение функции рандомного кода
-        authLibraryCodeInIcon.innerText = savedDataRegister.libraryCode;
-        
+      // если на новую эту иконку (после авторизации пользователя) кликнули
+      authIconProfile.onclick = () => {
+        dropMenu.classList.toggle('active'); // то добавить класс active (то есть спустить плашку с новыми кнопками)
       };
+
+      authOpenModalMyProfile.onclick = () => { // если кликнули по кнопке My Profile после авторизации
+        modalMyProfile.style.display = 'block'; // отобразить модальное окно Мой Профиль
+      }
+
+      modalMyProfileCloseBtn.onclick = () => { // по клику на крестик в модальном окне Мой профиль
+        modalMyProfile.style.display = 'none'; // убрать модальное окно Мой Профиль
+      }
+
+      // снова перебор массива кнопок Buy книг из блока Favorites
+      buyBookAllBtn.forEach(function(buyBookBtn){
+
+        buyBookBtn.addEventListener('click', function(event){ // клик по элементу из массива (по одной из кнопки массива)
+          modalLogIn.style.display = 'none'; // скрыть модальное окно Логин
+          modalBuyCard.style.display = 'block'; // показать модальное окно Покупки карты
+
+          modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
+            localStorage.setItem('hasLibraryCard', 'true'); // установить новый ключ hasLibraryCard со значение true в localStorage
+            location.reload();
+          }
+          const hasLibraryCard = localStorage.getItem('hasLibraryCard');
+          if (hasLibraryCard === 'true') {
+            modalBuyCard.style.display = 'none';
+            buyBookBtn.classList.remove('main-favorites-staff_picks-book_buy'); // то удалить класс ...
+            buyBookBtn.classList.add('main-favorites-staff_picks-book_buy_4');  // добавить класс ...
+            buyBookBtn.innerText = 'Own'; // заменить текст на ...
+            buyBookBtn.disabled = true; // добавить атрибут disabled
+          }
+          
+
+        });
         
-    });
+      }); 
+
+      // при клике на крестик из модального окна покупки
+      modalBuyCardCloseBtn.onclick = () => {
+        modalBuyCard.style.display = 'none'; // скрыть модальное окно покупки
+      }
+
+      // при клике на Log Out 
+      authLogOut.onclick = () => {
+        localStorage.removeItem("isLoggedIn"); // удалить токен проверки авторизован ли пользователь или нет
+        location.reload(); // перезагрузить страницу
+      }
+
+      // у меня здесь два блока: один сделан под неавторизованного, другой под авторизованного пользователя
+      blockMainCards.style.display = 'none'; // при входе в аккаунт убрать блок Digital Library Cards без авторизации
+      blockMainCardsAuth.style.display = 'block'; // и добавить блок Digital Library Cards после авторизации
+
+      // в блоке Digital Library Cards после авторизации появляется кнопка Profile
+      blockMainCardsAuthBtnProfile.onclick = () => { // если кликнули на неё
+        modalMyProfile.style.display = 'block'; // отобразить модальное окно Мой Профиль
+      }
+
+      // код для подставки инициалов имени и фамилии указанных в регистрации
+
+      // заменить текст инициалов в иконе профиля = первая буква из объекта localStorage взятый из инпута имени + тоже самое, но взятый из инпута фамилии 
+      nameInitialsInProfileIcon.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
+      
+      // заменить текст инициалов в модальном окне Мой Профиль = то же, что и сверху
+      nameInitialsInModalProfile.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
+      // заменить текст полного имени в модальном окне Мой Профиль = полное имя из localStorage, пробел, полная фамилия из localStorage
+      fullNameInModalProfile.innerText = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
+      // заменить значение в инпуте на полное имя и фамилию из localStorage
+      fullNameInBlockLibraryCard.value = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
+
+
+      // заменить текст кода в модальном окне Мой Профиль на итоговое значение функции создающего 9-значный код в 16-ричной системе счисления 
+      authLibraryCodeInModalMyProfile.innerText = savedDataRegister.libraryCode;
+      // заменить значение в инпуте блока Digital Library Card после авторизации на этот код 
+      authLibraryCodeInBlockLibraryCard.value = savedDataRegister.libraryCode;
+      // в плашке иконки после авторизации изменить размер текста Profile
+      authLibraryCodeInIcon.style.fontSize  = '13px';
+      // в плашке иконки после авторизации изменить цвет текста Profile
+      authLibraryCodeInIcon.style.color = '#BB945F';
+      // заменить текст Profile в плашке иконки после авторизации на итоговое значение функции рандомного кода
+      authLibraryCodeInIcon.innerText = savedDataRegister.libraryCode;
+      
+    };
+      
+  });
 
   // Важно: при повторной регистрации, прошлая регистрация перезапишется в localStorage на новую
   // это значит что зарегистрироваться может только один человек
