@@ -120,14 +120,15 @@ h1 {
     width: 80px;
     height: 115px;
     position: absolute;
-    top: -100%;
-    right: 0;
+    top: -115px;
+    right: 20px;
     text-align: center;
     transition-duration: 700ms;   
 }
 
 .header-profile-drop_menu.active{
-    top: 90px;
+    top: 60px;
+    right: 20px;
 }
 
 .header-profile-drop_menu-title {
@@ -188,7 +189,7 @@ h1 {
 @media (max-width: 1024px) {
     .header-nav {
         position: absolute;
-        top: -100%;
+        top: -570px;
         right: 0;
         width: 332px;
         height: 570px;
@@ -267,6 +268,22 @@ h1 {
 
     .header-burger_menu-button.active span {
         transform: scale(0);
+    }
+
+    .header-profile-drop_menu {
+        background-color: #FFF;
+        width: 80px;
+        height: 115px;
+        position: absolute;
+        top: -115px;
+        right: 105px;
+        text-align: center;
+        transition-duration: 700ms;   
+    }
+    
+    .header-profile-drop_menu.active{
+        top: 60px;
+        right: 105px;
     }
 }
 
@@ -707,12 +724,80 @@ h1 {
     margin-right: 40px;
     flex-wrap: wrap;
     gap: 40px;
+    height: 1150px;
 }
 
-@media (max-width: 1203px) {
+.main-favorites-staff_picks-wrapp:last-child {
+    height: 0;
+}
+
+.main-favorites-staff_picks {
+    width: 550px;
+    height: 555px;
+    border: 1px solid #000;
+    position: relative;
+    transition: opacity 1s, visibility 1s;
+}
+
+.main-favorites-staff_picks.winter {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+.main-favorites-staff_picks.spring {
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    top: -597px;
+}
+
+.main-favorites-staff_picks.summer {
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    top: -1194px;
+}
+
+.main-favorites-staff_picks.autumn {
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    top: -1791px;
+}
+
+.main-favorites-staff_picks.winter.fill-space-block {
+    position: relative;
+    top: -597px;
+    left: 0;
+  }
+
+  .main-favorites-staff_picks.spring.fill-space-block {
+    position: relative;
+    top: -1194px;
+    left: 0;
+  }
+
+  .main-favorites-staff_picks.summer.fill-space-block {
+    position: relative;
+    top: -1791px;
+    left: 0;
+  }
+
+  .main-favorites-staff_picks.autumn.fill-space-block {
+    position: relative;
+    top: -2388px;
+    left: 0;
+  }
+
+  @media (max-width: 1203px) {
     .main-favorites-staff_picks-wrapp {
         display: flex;
         justify-content: center;
+    }
+
+    .main-favorites-staff_picks-wrapp:last-child {
+        height: 1150px;;
     }
 
     .main-favorites-item-wrapper-sticky {
@@ -721,29 +806,82 @@ h1 {
         background-color: #FFF;
         z-index: 1;
     }
-}
 
-.main-favorites-staff_picks {
-    width: 550px;
-    height: 555px;
-    border: 1px solid #000;
-    position: relative;
-}
+    .main-favorites-staff_picks.winter {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        top: 0;
+    }
+    
+    .main-favorites-staff_picks.spring {
+        opacity: 0;
+        visibility: hidden;
+        position: relative;
+        top: -597px;
+    }
+    
+    .main-favorites-staff_picks.summer {
+        opacity: 0;
+        visibility: hidden;
+        position: relative;
+        top: -2388px;
+    }
+    
+    .main-favorites-staff_picks.autumn {
+        opacity: 0;
+        visibility: hidden;
+        position: relative;
+        top: -3582px;
+    }
+    
+    .main-favorites-staff_picks.winter.fill-space-block {
+        position: relative;
+        top: -595px;
+        left: 0;
+      }
 
-.main-favorites-staff_picks.winter {
-    display: initial;
-}
+      .main-favorites-staff_picks.winter.fill-space-block._3 {
+        position: relative;
+        top: 595px;
+        left: 0;
+      }
+    
+      .main-favorites-staff_picks.spring.fill-space-block {
+        position: relative;
+        top: -2981px;
+        left: 0;
+      }
 
-.main-favorites-staff_picks.spring {
-    display: none;
-}
+      .main-favorites-staff_picks.spring.fill-space-block._6 {
+        position: relative;
+        top: -599px;
+        left: 0;
+      }
+    
+      .main-favorites-staff_picks.summer.fill-space-block {
+        position: relative;
+        top: -2390px;
+        left: 0;
+      }
 
-.main-favorites-staff_picks.summer {
-    display: none;
-}
+      .main-favorites-staff_picks.summer.fill-space-block._9 {
+        position: relative;
+        top: -2386px;
+        left: 0;
+      }
+    
+      .main-favorites-staff_picks.autumn.fill-space-block {
+        position: relative;
+        top: -3585px;
+        left: 0;
+      }
 
-.main-favorites-staff_picks.autumn {
-    display: none;
+      .main-favorites-staff_picks.autumn.fill-space-block._12 {
+        position: relative;
+        top: -3570px;
+        left: 0;
+      }
 }
 
 .main-favorites-staff_picks-title {

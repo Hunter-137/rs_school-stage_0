@@ -276,13 +276,16 @@ document.addEventListener('DOMContentLoaded', function() {
       infoBlock.forEach(function(block) {
         // и уже с ЭЛЕМЕНТАМИ я работаю
         if (currentIndex === index) { // если текущий индекс равен выбранному индексу элемента
-          block.style.display = 'initial'; // показать блок
+          block.style.opacity = '1';
+          block.style.visibility = 'visible'; // показать блок
         } else { // а у остальных
-          block.style.display = 'none'; // скрыть
+          block.style.opacity = '0';
+          block.style.visibility = 'hidden'; // скрыть
         }
       });
     });
   }
+  updateSeasonDisplay();
 
 });
 
@@ -299,13 +302,28 @@ document.addEventListener('DOMContentLoaded', function(){
     dropMenu.classList.toggle('active'); // добавь класс active (если он уже есть, то убрать)
   });
 
-  // событие клик на всё дерево html
+  
   // document.addEventListener('click', function(event){
   //   // если произошел клик Не на плашку и Не на иконку профиля
   //   if (!dropMenu.contains(event.target) && !iconButton.contains(event.target)) {
   //     dropMenu.classList.remove('active'); // удалить класс active
   //   }
   // });
+
+  // событие клик на всё дерево html
+  document.addEventListener('click', function(event) {
+    const iconButton = document.querySelector('.header-ul-li-img'); // кнопка иконки профиля
+    const iconMenu = document.querySelector('.header-profile-drop_menu'); // плашка
+    const iconMenuAuth = document.querySelector('.header-ul-li-img-a.auth'); // плашка после авторизации
+    const iconMenuTitle = document.querySelector('.header-profile-drop_menu-title') // текст Profile в плашке
+    const iconButtonAuth = document.querySelector('.header-ul-li-img-a.auth');
+
+    // если кликнуто не по кнопке, не по плашке, не по тексту профиль, то закрыть меню иконки
+    if ((iconButton && event.target !== iconButton && event.target !== iconMenu && event.target !== iconMenuTitle) || (iconButtonAuth && event.target !== iconButtonAuth && event.target !== iconMenuAuth)){
+      iconButton.classList.remove('active');
+    } 
+    
+  });
 
   // событие клик на всё дерево html
   document.addEventListener('click', function(event){
@@ -319,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // ***************************** МОДАЛЬНОЕ ОКНО НА ЛОГИН И РЕГИСТР **********************************
 
-// прослушка на всё дерево
+
 
   const modalLogIn = document.querySelector('.modal-Log_In'); // модальное окно Логина
   const openModalLogIn = document.querySelector('.header-profile-drop_menu-text-a.login'); // кнопка Login из дроп-меню
@@ -390,49 +408,60 @@ document.addEventListener('DOMContentLoaded', function(){
   const dataRegisterPassword = document.getElementById('dataRegisterPassword'); // инпут по паролю
 
   const saveDataRegisterBtn = document.getElementById('saveDataRegisterBtn'); // кнопка регистрации из модального окна регистрации
-
+  
   // создание функции на клик по кнопке регистрации
   saveDataRegisterBtn.addEventListener('click', function(event){
-    // при клике на регистрацию, убрать ключ hasLibraryCard из localStorage
-    // (подробнее на 544 строке)
-    localStorage.removeItem('hasLibraryCard');
+    const dataRegisterFirstNameValue = dataRegisterFirstName.value;
+    const dataRegisterLastNameValue = dataRegisterLastName.value;
+    const dataRegisterEmailValue = dataRegisterEmail.value;
+    const dataRegisterPasswordValue = dataRegisterPassword.value;
 
-    // функция по созданию рандомного 9-значного кода карточки в 16-ричной системе счисления 
-    const randomLibraryCode = () => {
-      let result = ''; // пустая строка для присоединения новых чисел после каждой итерации
-      let i = 0; // счётчик итераций
-      while (i < 9) { // если счётчик меньше 9 (0, 1, 2, 3, 4, 5, 6, 7, 8 итог: 9 чисел)
-        // то умножить рандомное число от 0 до 1 на 16 и округлить до целых в меньшую сторону
-        const randomCount = Math.floor(Math.random() * 16);
-        // полученное число перевести в 16-ричную систему счисления
-        const readyRandomCount = randomCount.toString(16);
-        // присоединить готовое число к "пустоте"
-        result = `${result}${readyRandomCount}`;
-        // увеличить счётчик на 1
-        i = i + 1;
+    if (dataRegisterFirstNameValue.length > 0 && dataRegisterLastNameValue.length > 0 && dataRegisterEmailValue.includes('@') && dataRegisterPasswordValue.length > 7) {
+      // при клике на регистрацию, убрать ключ hasLibraryCard из localStorage
+      // (подробнее на 544 строке)
+      localStorage.removeItem('hasLibraryCard');
+
+      // функция по созданию рандомного 9-значного кода карточки в 16-ричной системе счисления 
+      const randomLibraryCode = () => {
+        let result = ''; // пустая строка для присоединения новых чисел после каждой итерации
+        let i = 0; // счётчик итераций
+        while (i < 9) { // если счётчик меньше 9 (0, 1, 2, 3, 4, 5, 6, 7, 8 итог: 9 чисел)
+          // то умножить рандомное число от 0 до 1 на 16 и округлить до целых в меньшую сторону
+          const randomCount = Math.floor(Math.random() * 16);
+          // полученное число перевести в 16-ричную систему счисления
+          const readyRandomCount = randomCount.toString(16);
+          // присоединить готовое число к "пустоте"
+          result = `${result}${readyRandomCount}`;
+          // увеличить счётчик на 1
+          i = i + 1;
+        }
+        // вернуть результат
+        return result;
+      };
+
+      // сохраняем полученный результат в переменной
+      const libraryCode = randomLibraryCode();
+
+      // создание объекта с данными
+      const dataRegisterObj = {
+        firstNameValue: dataRegisterFirstNameValue, // значение импута имени
+        lastNameValue: dataRegisterLastNameValue, // фамилии
+        emailValue: dataRegisterEmailValue, // почты
+        passwordValue: dataRegisterPasswordValue, // пароля
+        libraryCode: libraryCode, // сохранённое значение функции по созданию рандомного кода
       }
-      // вернуть результат
-      return result;
-    };
 
-    // сохраняем полученный результат в переменной
-    const libraryCode = randomLibraryCode();
-
-    // создание объекта с данными
-    const dataRegisterObj = {
-      firstNameValue: dataRegisterFirstName.value, // значение импута имени
-      lastNameValue: dataRegisterLastName.value, // фамилии
-      emailValue: dataRegisterEmail.value, // почты
-      passwordValue: dataRegisterPassword.value, // пароля
-      libraryCode: libraryCode, // сохранённое значение функции по созданию рандомного кода
+      // "отправляем" наш объект в local storage, предварительно меняя объект на JSON формат
+      localStorage.setItem('registerData', JSON.stringify(dataRegisterObj));
+      alert('Registration completed successfully!');
+      event.preventDefault();
+      location.reload(); // перезагружаем страницу
+    } else {
+      alert('Please, correct the entered data');
     }
 
-    // "отправляем" наш объект в local storage, предварительно меняя объект на JSON формат
-    localStorage.setItem('registerData', JSON.stringify(dataRegisterObj));
-    alert('Registration completed successfully!');
-
-    location.reload(); // перезагружаем страницу
-  })
+    
+  });
 
     
   
@@ -545,17 +574,44 @@ document.addEventListener('DOMContentLoaded', function(){
         modalMyProfile.style.display = 'none'; // убрать модальное окно Мой Профиль
       }
 
+      modalBuyCardButton.addEventListener('click', function(event){
+          const dataCardBankNumber = document.getElementById('dataCardBankNumber');
+          const dataCardExpirationCodeOne = document.getElementById('dataCardExpirationCodeOne');
+          const dataCardExpirationCodeTwo = document.getElementById('dataCardExpirationCodeTwo');
+          const dataCardCvc = document.getElementById('dataCardCVC');
+          const dataCardCardholderName = document.getElementById('dataCardCardholderName');
+          const dataCardPostalCode = document.getElementById('dataCardPostalCode');
+          const dataCardCityTown = document.getElementById('dataCardCardholderName');
+
+          const dataCardBankNumberValue = dataCardBankNumber.value;
+          const dataCardExpirationCodeOneValue = dataCardExpirationCodeOne.value;
+          const dataCardExpirationCodeTwoValue = dataCardExpirationCodeTwo.value;
+          const dataCardCvcValue = dataCardCvc.value;
+          const dataCardCardholderNameValue = dataCardCardholderName.value;
+          const dataCardPostalCodeValue = dataCardPostalCode.value;
+          const dataCardCityTownValue = dataCardCityTown.value;
+
+          if (dataCardBankNumberValue.length === 16 && dataCardExpirationCodeOneValue.length === 2 && dataCardExpirationCodeTwoValue.length === 2 && dataCardCvcValue.length === 3 && dataCardCardholderNameValue.length > 0 && dataCardPostalCodeValue.length > 0 && dataCardCityTownValue.length > 0) {
+            modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
+              localStorage.setItem('hasLibraryCard', 'true'); // установить новый ключ hasLibraryCard со значение true в localStorage
+              alert('Purchase successful!');
+              event.preventDefault();
+              location.reload();
+            }
+          } else {
+            alert('Please, correct the entered data');
+          }
+      })
+
       // снова перебор массива кнопок Buy книг из блока Favorites
       buyBookAllBtn.forEach(function(buyBookBtn){
-
+        
         buyBookBtn.addEventListener('click', function(event){ // клик по элементу из массива (по одной из кнопки массива)
+
           modalLogIn.style.display = 'none'; // скрыть модальное окно Логин
           modalBuyCard.style.display = 'block'; // показать модальное окно Покупки карты
 
-          modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
-            localStorage.setItem('hasLibraryCard', 'true'); // установить новый ключ hasLibraryCard со значение true в localStorage
-            location.reload();
-          }
+          
           const hasLibraryCard = localStorage.getItem('hasLibraryCard');
           if (hasLibraryCard === 'true') {
             modalBuyCard.style.display = 'none';
@@ -593,10 +649,10 @@ document.addEventListener('DOMContentLoaded', function(){
       // код для подставки инициалов имени и фамилии указанных в регистрации
 
       // заменить текст инициалов в иконе профиля = первая буква из объекта localStorage взятый из инпута имени + тоже самое, но взятый из инпута фамилии 
-      nameInitialsInProfileIcon.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
+      nameInitialsInProfileIcon.innerText = savedDataRegister.firstNameValue[0].toUpperCase() + savedDataRegister.lastNameValue[0].toUpperCase();
       
       // заменить текст инициалов в модальном окне Мой Профиль = то же, что и сверху
-      nameInitialsInModalProfile.innerText = savedDataRegister.firstNameValue[0] + savedDataRegister.lastNameValue[0];
+      nameInitialsInModalProfile.innerText = savedDataRegister.firstNameValue[0].toUpperCase() + savedDataRegister.lastNameValue[0].toUpperCase();
       // заменить текст полного имени в модальном окне Мой Профиль = полное имя из localStorage, пробел, полная фамилия из localStorage
       fullNameInModalProfile.innerText = `${savedDataRegister.firstNameValue} ${savedDataRegister.lastNameValue}`;
       // заменить значение в инпуте на полное имя и фамилию из localStorage
@@ -621,7 +677,12 @@ document.addEventListener('DOMContentLoaded', function(){
   // Важно: при повторной регистрации, прошлая регистрация перезапишется в localStorage на новую
   // это значит что зарегистрироваться может только один человек
 
+ 
+  
+
 });
+
+
 
 
 
