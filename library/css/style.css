@@ -1897,6 +1897,8 @@ h1 {
 .modal-buy_card-container-data_filling{
     display: flex;
     flex-direction: column;
+    position: relative;
+    width: 200px;
 }
 
 .modal-buy_card-text {
@@ -1928,13 +1930,20 @@ h1 {
     height: 20px;
 }
 
+.modal-btn_buy_card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: -40px;
+}
+
 .modal-btn_buy_card-button{
     width: 75px;
     height: 30px;
     background-color: #FFF;
     border-radius: 2px;
     border: 1px solid #0C0C0E;
-    margin-top: 20px;
     margin-right: 25px;
     transition-duration: 300ms;
     cursor: pointer;
@@ -1968,6 +1977,10 @@ h1 {
     line-height: 20px; /* 100% */
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+.modal-buy_card-container{
+    position: relative;
 }
 
 .modal-buy_card-container-comment{
@@ -2165,6 +2178,10 @@ h1 {
     line-height: 20px; /* 100% */
 }
 
+.modal-profile-content-card_number-text-icon{
+    cursor: pointer;
+}
+
 .modal-profile-content-card_number-text-number {
     color: #BB945F;
     text-align: center;
@@ -2173,6 +2190,7 @@ h1 {
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 100% */
+    cursor: pointer;
 }
 
 .main-cards.auth {
