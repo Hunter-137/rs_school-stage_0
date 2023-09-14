@@ -302,27 +302,35 @@ document.addEventListener('DOMContentLoaded', function(){
     dropMenu.classList.toggle('active'); // добавь класс active (если он уже есть, то убрать)
   });
 
-  
-  // document.addEventListener('click', function(event){
-  //   // если произошел клик Не на плашку и Не на иконку профиля
-  //   if (!dropMenu.contains(event.target) && !iconButton.contains(event.target)) {
-  //     dropMenu.classList.remove('active'); // удалить класс active
-  //   }
-  // });
-
   // событие клик на всё дерево html
   document.addEventListener('click', function(event) {
     const iconButton = document.querySelector('.header-ul-li-img'); // кнопка иконки профиля
     const iconMenu = document.querySelector('.header-profile-drop_menu'); // плашка
     const iconMenuAuth = document.querySelector('.header-ul-li-img-a.auth'); // плашка после авторизации
     const iconMenuTitle = document.querySelector('.header-profile-drop_menu-title') // текст Profile в плашке
-    const iconButtonAuth = document.querySelector('.header-ul-li-img-a.auth');
+    const iconButtonAuth = document.querySelector('.header-ul-li-img-a.auth'); // инициалы после авторизации внутри иконки
 
     // если кликнуто не по кнопке, не по плашке, не по тексту профиль, то закрыть меню иконки
     if ((iconButton && event.target !== iconButton && event.target !== iconMenu && event.target !== iconMenuTitle) || (iconButtonAuth && event.target !== iconButtonAuth && event.target !== iconMenuAuth)){
       iconButton.classList.remove('active');
     } 
-    
+
+    // если в дроп-меню есть класс active, то
+    if (iconMenu.classList.contains('active')){
+      // если клик был совершен не там, где есть класс 
+      if (!event.target.classList.contains('header-profile-drop_menu')  // плашки
+      && !event.target.classList.contains('header-ul-li-img') // иконки
+      && !event.target.classList.contains('auth-text') // текста в иконке после авторизации
+      ){
+        iconMenu.classList.remove('active'); // то удалить класс active
+      }
+    }
+
+    // оказывается когда кликаешь на подобное, клик срабатывает на то, что находится внутри
+    // в данном случае иконка обёрнутая в тег "a" — клик соответственно на иконку, а не на сам тег a
+    // и также, как оказалось, с дивом: клик приходится не на обёртку, а на сам текст
+    // поэтому в логику нужно было добавить сам текст из иконки (ещё раз: так как клик приходится не на див, а на текст что внутри этого дива) 
+
   });
 
   // событие клик на всё дерево html
@@ -574,6 +582,42 @@ document.addEventListener('DOMContentLoaded', function(){
         modalMyProfile.style.display = 'none'; // убрать модальное окно Мой Профиль
       }
 
+      // инпуты, требующие ограничения в наборе символов
+      const dataCardBankNumber = document.getElementById('dataCardBankNumber'); // номер банковской карточки
+      const dataCardExpirationCodeOne = document.getElementById('dataCardExpirationCodeOne'); // дата действия карты
+      const dataCardExpirationCodeTwo = document.getElementById('dataCardExpirationCodeTwo'); // дата действия карты
+      const dataCardCvc = document.getElementById('dataCardCVC'); // cvc код
+
+      // обработчик события в значении инпута
+      dataCardBankNumber.addEventListener('input', function(event){
+        // если в значении инпута количество символов больше 16
+        if (dataCardBankNumber.value.length > 16) {
+          // то обрезать строку с нуля до 16 (от начала до 16 символа)
+          dataCardBankNumber.value = dataCardBankNumber.value.slice(0, 16);
+        }
+      });
+
+      // тоже самое
+      dataCardExpirationCodeOne.addEventListener('input', function(event){
+        if (dataCardExpirationCodeOne.value.length > 2) {
+          dataCardExpirationCodeOne.value = dataCardExpirationCodeOne.value.slice(0, 2);
+        }
+      });
+
+      // тоже самое
+      dataCardExpirationCodeTwo.addEventListener('input', function(event){
+        if (dataCardExpirationCodeTwo.value.length > 2) {
+          dataCardExpirationCodeTwo.value = dataCardExpirationCodeTwo.value.slice(0, 2);
+        }
+      });
+
+      // тоже самое
+      dataCardCvc.addEventListener('input', function(event){
+        if (dataCardCvc.value.length > 3) {
+          dataCardCvc.value = dataCardCvc.value.slice(0, 3);
+        }
+      });
+
       modalBuyCardButton.addEventListener('click', function(event){
           const dataCardBankNumber = document.getElementById('dataCardBankNumber');
           const dataCardExpirationCodeOne = document.getElementById('dataCardExpirationCodeOne');
@@ -592,12 +636,12 @@ document.addEventListener('DOMContentLoaded', function(){
           const dataCardCityTownValue = dataCardCityTown.value;
 
           if (dataCardBankNumberValue.length === 16 && dataCardExpirationCodeOneValue.length === 2 && dataCardExpirationCodeTwoValue.length === 2 && dataCardCvcValue.length === 3 && dataCardCardholderNameValue.length > 0 && dataCardPostalCodeValue.length > 0 && dataCardCityTownValue.length > 0) {
-            modalBuyCardButton.onclick = () => { // если в модальном окне Покупки карты кликнули на кнопку Buy
+            modalBuyCardButton.addEventListener('click', function(){
               localStorage.setItem('hasLibraryCard', 'true'); // установить новый ключ hasLibraryCard со значение true в localStorage
               alert('Purchase successful!');
-              event.preventDefault();
               location.reload();
-            }
+            });
+
           } else {
             alert('Please, correct the entered data');
           }
@@ -677,8 +721,36 @@ document.addEventListener('DOMContentLoaded', function(){
   // Важно: при повторной регистрации, прошлая регистрация перезапишется в localStorage на новую
   // это значит что зарегистрироваться может только один человек
 
- 
-  
+
+  // прослушка на браузер, событие клик
+  // если клик произошел по модальному окну (не контентной части, а за её пределами)
+  // то скрыть окно
+  window.addEventListener('click', function(event){
+    if (event.target == modalLogIn){
+      modalLogIn.style.display = 'none';
+    }
+    if (event.target == modalRegister){
+      modalRegister.style.display = 'none';
+    }
+    if (event.target == modalMyProfile){
+      modalMyProfile.style.display = 'none';
+    }
+    if (event.target == modalBuyCard){
+      modalBuyCard.style.display = 'none';
+    }
+  })
+
+  // код для копирования текста в буфер обмена
+  const copyLibraryCode = document.querySelector('.modal-profile-content-card_number-text-number'); // сам текст
+  const copyBtn = document.querySelector('.modal-profile-content-card_number-text-icon'); // кнопка копирования
+
+  copyBtn.addEventListener('click', function(event){ // если клик по кнопке
+    navigator.clipboard.writeText(copyLibraryCode.textContent); // скопировать буфер обмена(указанный текст);
+  });
+
+  copyLibraryCode.addEventListener('click', function(event){ // если клик по тексту
+    navigator.clipboard.writeText(copyLibraryCode.textContent); // скопировать буфер обмена(указанный текст);
+  });
 
 });
 
