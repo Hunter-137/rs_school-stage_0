@@ -425,10 +425,10 @@
                 <form action="#" class="modal-login-container">
                     
                     <label for="dataLoginEmailOrReadersCard" class="modal-login-text">E-mail or readers card</label>
-                    <input id="dataLoginEmailOrReadersCard" class="modal-login-text-input" type="email">
+                    <input required id="dataLoginEmailOrReadersCard" class="modal-login-text-input" type="email">
 
                     <label for="dataLoginPassword" class="modal-login-text">Password</label>
-                    <input id="dataLoginPassword" class="modal-login-text-input" type="password">
+                    <input required id="dataLoginPassword" class="modal-login-text-input" type="password">
 
                     <button id="dataLoginAutoBtn" class="modal-btn_login modal-btn_login-text">Log In</button>
                 </form>
@@ -448,16 +448,16 @@
                 <form action="#" class="modal-register-container">
                     
                     <label for="dataRegisterFirstName" class="modal-register-text">First name</label>
-                    <input id="dataRegisterFirstName" class="modal-register-text-input" type="text">
+                    <input required id="dataRegisterFirstName" class="modal-register-text-input" type="text">
                     
                     <label for="dataRegisterLastName" class="modal-register-text">Last name</label>
-                    <input id="dataRegisterLastName" class="modal-register-text-input" type="text">
+                    <input required id="dataRegisterLastName" class="modal-register-text-input" type="text">
                     
                     <label for="dataRegisterEmail" class="modal-register-text">E-mail</label>
-                    <input id="dataRegisterEmail" class="modal-register-text-input" type="email">
+                    <input required id="dataRegisterEmail" class="modal-register-text-input" type="email">
                     
                     <label for="dataRegisterPassword" class="modal-register-text">Password</label>
-                    <input title="Enter more than 8 characters" minlength="8" id="dataRegisterPassword" class="modal-register-text-input" type="password">
+                    <input required title="Enter more than 8 characters" minlength="8" id="dataRegisterPassword" class="modal-register-text-input" type="password">
                     
                     <button id="saveDataRegisterBtn" class="modal-btn_register modal-btn_register-text btn-disabled">Sign Up</button>
                 </form>
@@ -476,35 +476,35 @@
                     <p class="modal-buy_card-title">Buy a library card</p>
                     <button class="modal-buy_card-close_btn"><img class="modal-buy_card-close_btn-icon" src="../library/icon/close_btn_white.svg" alt="close_btn"></button>
                     <div class="modal-buy_card-container">
-                        <div class="modal-buy_card-container-data_filling">
+                        <form class="modal-buy_card-container-data_filling" action="#">
                             <label for="dataCardBankNumber" class="modal-buy_card-text">Bank card number</label>
-                            <input title="Only 16 digits" maxlength="16" id="dataCardBankNumber" class="modal-buy_card-text-input" type="number">
+                            <input min="0" max="9999999999999999" required pattern="[0-9]+" title="Only 16 digits" id="dataCardBankNumber" class="modal-buy_card-text-input" type="number">
                             
                             <label for="dataCardExpirationCodeOne" class="modal-buy_card-text">Expiration code</label>
                             <label for="dataCardExpirationCodeTwo"></label>
                             <div class="expiration_code-wrapper">
-                            <input title="Only 2 digits" maxlength="2" id="dataCardExpirationCodeOne" class="modal-buy_card-text-input expiration_code" type="number">
-                            <input title="Only 2 digits" maxlength="2" id="dataCardExpirationCodeTwo" class="modal-buy_card-text-input expiration_code" type="number">
+                            <input min="0" max="99" required title="Only 2 digits" id="dataCardExpirationCodeOne" class="modal-buy_card-text-input expiration_code" type="number">
+                            <input min="0" max="99" required title="Only 2 digits" id="dataCardExpirationCodeTwo" class="modal-buy_card-text-input expiration_code" type="number">
                             </div>
                             
                             <label for="dataCardCVC" class="modal-buy_card-text">CVC</label>
-                            <input title="Only 3 digits" maxlength="3" id="dataCardCVC" class="modal-buy_card-text-input cvc" type="number">
+                            <input min="0" max="999" required title="Only 3 digits" id="dataCardCVC" class="modal-buy_card-text-input cvc" type="number">
                             
                             <label for="dataCardCardholderName" class="modal-buy_card-text">Cardholder name</label>
-                            <input title="Fill in the cardholder's name" id="dataCardCardholderName" class="modal-buy_card-text-input" type="text">
+                            <input required title="Fill in the cardholder's name" id="dataCardCardholderName" class="modal-buy_card-text-input" type="text">
                             
                             <label for="dataCardPostalCode" class="modal-buy_card-text">Postal code</label>
-                            <input title="Enter postal code" id="dataCardPostalCode" class="modal-buy_card-text-input" type="number">
+                            <input required title="Enter postal code" id="dataCardPostalCode" class="modal-buy_card-text-input" type="number">
 
                             
                             <label for="dataCardCityTown" class="modal-buy_card-text">City / Town</label>
-                            <input title="Enter your place of residence" id="dataCardCityTown" class="modal-buy_card-text-input" type="text">
+                            <input required title="Enter your place of residence" id="dataCardCityTown" class="modal-buy_card-text-input" type="text">
                             
                             <div class="modal-btn_buy_card">
-                                <button class="modal-btn_buy_card-button modal-btn_buy_card-text">Buy</button>
+                                <button title="Double click please" class="modal-btn_buy_card-button modal-btn_buy_card-text">Buy</button>
                                 <span class="modal-btn_buy_card-price">$ 25.00</span>
                             </div>
-                        </div>
+                        </form>
                         <div class="modal-buy_card-container-comment">
                             <p class="modal-buy_card-container-comment-text">
                                 If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
@@ -556,8 +556,10 @@
                     </ul>
                     <div class="modal-profile-content-card_number-wrapper">
                         <p class="modal-profile-content-card_number-text">Card number</p>
-                        <p class="modal-profile-content-card_number-text-number">library code</p>
-                        <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon_copy.svg" alt="copy_symbol">
+                        <p title="Click for copy" class="modal-profile-content-card_number-text-number">library code</p>
+                        <a>
+                            <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon_copy.svg" alt="copy_symbol">
+                        </a>
                     </div>
                 </div>
 
