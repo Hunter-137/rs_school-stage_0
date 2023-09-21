@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgb(228, 227, 227);
+}
+
+.header-background {
+    background-image: url('../img/pulsBackground.png');
+    background-size: contain;
+    background-position: center;
+    height: 10vh;
+    width: 100vw;
+}
+
+.wrapper {
+    background-image: url('../img/mainBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 75vh;
+    width: 100vw;
+    margin-top: 5vh;
+}
+
+.audio_player {
+    width: 30vw;
+    height: 50vh;
+    background-color: rgba(139, 138, 138, 0.5);
+    margin: auto;
+    position: relative;
+    border-radius: 5%;
+    box-shadow: 3vw 3vh 10vw black;
+}
+
+.audio_image-box {
+    width: 30vw;
+    height: 30vh;
+}
+
+.audio_image-box-item {
+    width: 30vw;
+    height: 30vh;
+    object-fit: contain;
+}
+
+.audio_image-box-item.second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.controls-song_name {
+    font-family: 'Besley', serif;
+    font-weight: 600;
+    font-size: 1.6vw;
+    margin-left: 10%;
+}
+
+.controls-song_author {
+    font-family: 'Besley', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.6vw;
+    margin-left: 10%;
+}
+
+.controls-progress_bar {
+    width: 80%;
+    height: 1vh;
+    margin-left: 10%;
+}
+
+.controls-wrapp {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.controls-icon.nextArrow {
+    transform: rotate(180deg);
+}
+
+.info-wrapper {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, rgb(128, 128, 185), rgb(228, 227, 227));
+}
+
+.info-wrapper-link {
+    margin: 0 2vw;
+    color: initial;
+    text-decoration: none;
+}
+
+.info-rs_link-item {
+    width: 8vw;
+    height: 8vh;
+}
+
+.info-github_link-item {
+    font-family: 'Besley', serif;
+    font-weight: 600;
+    font-size: 2vw;
+}
+
+.info-github_link-item::before {
+    content: '';
+    display: inline-block;
+    background-image: url('../icon/github-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 4vw;
+    height: 4vh;
+}
+  
+  
