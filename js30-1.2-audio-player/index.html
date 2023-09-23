@@ -9,7 +9,10 @@
     <script src="../js30-1.2-audio-player/js/index.js" defer></script>
 </head>
 <body>
-    <audio class="song_1" src="../js30-1.2-audio-player/songs/BAGEW-Heartlezz.mp3"></audio>
+    <audio class="playlist" >
+        <source class="song_1" src="../js30-1.2-audio-player/songs/BAGEW-Heartlezz.mp3" type="audio/mpeg">
+        <source class="song_2" src="../js30-1.2-audio-player/songs/Carnival_Youth-Brown_Eyes_and_All_the_Rest.mp3" type="audio/mpeg">
+    </audio>
     <audio class="song_2" src="../js30-1.2-audio-player/songs/Carnival_Youth-Brown_Eyes_and_All_the_Rest.mp3"></audio>
    <div class="container">
         <header>
@@ -23,9 +26,13 @@
                         <img class="audio_image-box-item second" src="../js30-1.2-audio-player/img/box_back_2.png" alt="song_img">
                     </div>
                     <div class="controls">
-                        <p class="controls-song_name">Song Name</p>
-                        <p class="controls-song_author">Group Name</p>
-                        <input class="controls-progress_bar" type="range" min="0" value="0">
+                        <p class="controls-song_name">Heartlezz</p>
+                        <p class="controls-song_author">Bagew</p>
+                        <div class="controls-progress_bar-wrapper">
+                            <div class="current_time">0:00</div>
+                            <input class="controls-progress_bar" type="range" min="0" value="0">
+                            <div class="end_time">2:36</div>
+                        </div>
                         <div class="controls-wrapp">
                             <img class="controls-icon prevArrow" src="../js30-1.2-audio-player/icon/prevNextArrow.png" alt="prevArrow">
                             <img class="controls-icon playIcon" src="../js30-1.2-audio-player/icon/play.png" alt="playIcon">
