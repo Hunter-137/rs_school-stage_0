@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // в противном случае (если флаг не false)
       audioPlaylist.play(); // просто воспроизвести песню (без загрузки, так песня продолжится, а не начнется заново)
     }
-    
+
     playSongBtn.style.display = "none"; // сменить кнопку play на pause
     pauseSongBtn.style.display = "block";
     headerBackground.style.animationPlayState = "running"; // запускаем анимацию фоновой картинки
@@ -167,5 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   progressBarContainer.addEventListener("click", setStatusBar); // выбор "места проигрывания песни" по статус бару
 
-  audioPlaylist.addEventListener("ended", nextSong); // как только песня закончится, то запустить функцию "следующая песня"
+  audioPlaylist.addEventListener("ended", function (event) { // как только песня закончится, то
+    nextSong(); // запускаем следующую песню
+    updateInfoSong(); // обновляем информацию о песне
+  }); 
+  
 });
