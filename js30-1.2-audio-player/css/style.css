@@ -14,9 +14,24 @@
     background-image: url('../img/pulsBackground.png');
     background-size: contain;
     background-position: center;
+    background-repeat: repeat;
     height: 10vh;
     width: 100vw;
+    animation: moveBackgroundImage 15s ease-in-out infinite;
+    animation-play-state: paused;
 }
+
+@keyframes moveBackgroundImage {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+  }
 
 .wrapper {
     background-image: url('../img/mainBackground.png');
@@ -83,17 +98,31 @@
 
 .current_time {
     margin-left: 5%;
+    font-size: 1.6vw;
 }
 
-.controls-progress_bar {
+.controls-progress_bar-container {
     width: 80%;
     height: 1vh;
     margin: 0 5%;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controls-progress_bar {
+    width: 0%;
+    height: 1vh;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3rem;
+    transition-duration: 250ms;
 }
 
 .end_time {
     margin-right: 5%;
+    font-size: 1.6vw;
 }
 
 .controls-wrapp {
@@ -106,6 +135,24 @@
     width: 50px;
     height: 50px;
     cursor: pointer;
+    transition-duration: 500ms;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controls-icon.prevArrow:hover {
+    transform: rotate(60deg) scale(1.2);
+}
+
+.controls-icon.playIcon:hover {
+    transform: scale(1.2);
+}
+
+.controls-icon.pauseIcon:hover {
+    transform: scale(1.2);
+}
+
+.controls-icon.nextArrow:hover {
+    transform: rotate(240deg) scale(1.2);
 }
 
 @media (max-width: 700px) {
@@ -174,6 +221,22 @@
     background-size: contain;
     width: 4vw;
     height: 4vh;
+}
+
+.info-wrapper-link:hover {
+    animation: moveRightLeft 600ms infinite;
+}
+
+@keyframes moveRightLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
   
   
