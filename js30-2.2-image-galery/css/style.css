@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(230, 230, 230);
+}
+
+.container {
+    width: 96vw;
+    margin: 0 2vw;
+}
+
+.header-wrapper {
+    display: flex;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-item {
+    width: 200px;
+    height: 40px;
+    padding-left: 10px;
+    background-color: #fff;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main-content-item-box {
+    margin-top: 10px;
+    border: 3px solid black;
+    width: 400px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.footer-wrapper {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: initial;
+}
+
+.footer-link-img {
+    width: 100px;
+    height: 100px;
+}
+
+.footer-link-span {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+.footer-link-span::before {
+    content: '';
+    display: inline-block;
+    background-image: url('../icon/github-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
