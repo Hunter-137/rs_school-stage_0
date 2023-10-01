@@ -2,6 +2,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // загрузка DOM
   const input = document.querySelector(".header-item"); // инпут по запросу
   const mainContentBox = document.querySelectorAll(".main-content-item-box"); // коллекция контейнеров для картинок
+  const searchIcon = document.querySelector(".header-item-icon"); // иконка по поисковику
+  const searchClearBtn = document.querySelector(".header-item-clear_button"); // кнопка крестика стирающий текст пользователя
+
+  // прослушка на браузер
+  // при загрузке DOM выполнить функцию: 
+  window.addEventListener("DOMContentLoaded", function (event) {
+    input.focus(); // установить метод фокус на инпут
+  });
+
+  input.addEventListener("input", function (event) {
+    if (input.value.length > 0) {
+      searchClearBtn.style.display = "inline-block";
+    } else {
+      searchClearBtn.style.display = "none";
+    }
+  });
+
+  searchClearBtn.addEventListener("click", function (event) {
+    input.value = '';
+    searchClearBtn.style.display = "none";
+    input.focus();
+  });
+  
 
   // функция по отображению картинок из api
   const showData = (data) => {
@@ -41,6 +64,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         query = input.value; // переменная запроса равна значению этого инпута
         getData(query); // запускаем функцию по запросу api с заданной переменной
       }
+    });
+
+    searchIcon.addEventListener("click", function (event) {
+      query = input.value;
+      getData(query);
     });
   };
   let query = "space"; // запрос по умолчанию, чтобы при загрузке страницы показывались картинки
