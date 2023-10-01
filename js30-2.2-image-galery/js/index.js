@@ -37,25 +37,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // устанавливаем цикл (пока индекс меньше количества элементов в массиве) {
     // установим соответствующему индексу стиль фоновой картинки по ссылке из массива api; обновляем индекс +1 }
     while (i < imgCount) {
-      mainContentBox[i].style.backgroundImage = `url(${data.results[i].urls.regular})`;
+      mainContentBox[
+        i
+      ].style.backgroundImage = `url(${data.results[i].urls.regular})`;
       i++;
     }
   };
 
   // запрос API getData(тематика картинки)
   async function getData(query) {
-    // Ответ = Ожидаем пока Принесут данные из (api ссылки) *query=${query} это запрос по переменной, а per_page=30 это количество запрашиваемых данных (30 картинок берем)
-    const response = await fetch(
-      `https://api.unsplash.com/search/photos?query=${query}&per_page=30&orientation=landscape&client_id=GQUt-7AxvVyv3xmNyBbhYfh3Rtsa-rVgif9xOaE4-qU`
-    );
-    // Данные = Ожидаем Ответ из json() *парсируем данные json*
-    const data = await response.json();
-    // отобразим в консоль полученные данные
-    console.log(data);
-    // ссылка на фото находится:
-    // data.results[0].urls.regular
+    try { // попробовать выполнить код ниже:
+      // Ответ = Ожидаем пока Принесут данные из (api ссылки) *query=${query} это запрос по переменной, а per_page=30 это количество запрашиваемых данных (30 картинок берем)
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos?query=${query}&per_page=30&orientation=landscape&client_id=GQUt-7AxvVyv3xmNyBbhYfh3Rtsa-rVgif9xOaE4-qU`
+      );
+      // Данные = Ожидаем Ответ из json() *парсируем данные json*
+      const data = await response.json();
+      // отобразим в консоль полученные данные
+      console.log(data);
+      // ссылка на фото находится:
+      // data.results[0].urls.regular
 
-    showData(data); // запускаем функцию по отображению данных (картинок из api)
+      showData(data); // запускаем функцию по отображению данных (картинок из api)
+    } catch (error) { // если при выполнении кода выше возникла ошибка, то:
+      alert( // вывести надпись попробовать снова через час (разрешено 50 запросов в час)
+        "An error occurred, try again in an hour. The error is most likely due to other users exceeding the request limit (50 requests per hour allowed)"
+      );
+    }
   }
 
   // функция по обновлению картинок через запрос
