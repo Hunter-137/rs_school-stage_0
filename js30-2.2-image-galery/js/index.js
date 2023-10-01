@@ -6,25 +6,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const searchClearBtn = document.querySelector(".header-item-clear_button"); // кнопка крестика стирающий текст пользователя
 
   // прослушка на браузер
-  // при загрузке DOM выполнить функцию: 
+  // при загрузке DOM выполнить функцию:
   window.addEventListener("DOMContentLoaded", function (event) {
     input.focus(); // установить метод фокус на инпут
   });
 
+  // прослушка на инпут с функцией:
   input.addEventListener("input", function (event) {
+    // если количество символов в значении инпута больше нуля
     if (input.value.length > 0) {
-      searchClearBtn.style.display = "inline-block";
+      searchClearBtn.style.display = "inline-block"; // то отобразить крестик
     } else {
-      searchClearBtn.style.display = "none";
+      // иначе
+      searchClearBtn.style.display = "none"; // убрать крестик
     }
   });
 
+  // событие клик на крестик
   searchClearBtn.addEventListener("click", function (event) {
-    input.value = '';
-    searchClearBtn.style.display = "none";
-    input.focus();
+    input.value = ""; // установить в значение инпута пустую строку
+    searchClearBtn.style.display = "none"; // убрать крестик
+    input.focus(); // установить курсор в поле инпута
   });
-  
 
   // функция по отображению картинок из api
   const showData = (data) => {
@@ -60,15 +63,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     input.addEventListener("keydown", function (event) {
       //  слушатель события "клавиатуры" по инпуту
       if (event.key === "Enter") {
-        // если кликнули по инпуту и нажали на клавишу Enter 
+        // если кликнули по инпуту и нажали на клавишу Enter
         query = input.value; // переменная запроса равна значению этого инпута
         getData(query); // запускаем функцию по запросу api с заданной переменной
       }
     });
 
+    // событие клик на иконку поисковика
     searchIcon.addEventListener("click", function (event) {
-      query = input.value;
-      getData(query);
+      query = input.value; // установить в запрос значение инпута
+      getData(query); // запустить функцию по обработке запроса пользователя
     });
   };
   let query = "space"; // запрос по умолчанию, чтобы при загрузке страницы показывались картинки
