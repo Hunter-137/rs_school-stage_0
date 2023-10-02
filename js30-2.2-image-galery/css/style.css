@@ -126,6 +126,11 @@ body {
     transform: translateX(10px);
 }
 
+.footer-year {
+    font-size: 24px;
+    line-height: 32px;
+}
+
 .footer-link.github:hover {
     transform: translateX(-10px);
 }
@@ -149,4 +154,16 @@ body {
     background-size: contain;
     width: 25px;
     height: 25px;
+}
+
+@media (max-width: 375px) {
+    .footer-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .footer-link-img {
+        height: 40px;
+    }
 }
