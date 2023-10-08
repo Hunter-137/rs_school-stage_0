@@ -1,10 +1,11 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    background-color: blanchedalmond;
+    background-color: rgb(255, 229, 189);
 }
 
 .wrapper {
@@ -13,7 +14,15 @@ body {
 }
 
 .header-wrapper {
-    height: 10vh;
+    height: 6vh;
+    text-align: center;
+    padding-top: 2vh;
+}
+
+.game-score-wrapper {
+    padding: 1vh 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-container {
@@ -36,12 +45,15 @@ body {
     width: 100px;
     height: 100px;
     background-color: rgb(63, 63, 63);
-    border: 1px solid rgb(255, 252, 252);
+    border: 1px solid rgb(160, 86, 86);
+    border-radius: 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+    font-size: 32px;
+    transition-duration: 400ms;
 }
 
 .footer-wrapper {
@@ -65,3 +77,57 @@ body {
     line-height: 48px;
 }
 
+.value-2 {
+   background-color: #90ffc0;
+   color: #000; 
+}
+
+.value-4 {
+    background-color: #f2ff79;
+    color: #000; 
+ }
+
+ .value-8 {
+    background-color: #85e079;
+    color: #000; 
+ }
+
+ .value-16 {
+    background-color: #314258;
+    color: #fff; 
+ }
+
+ .value-32 {
+    background-color: #7e2721;
+    color: #fff; 
+ }
+
+ .value-64 {
+    background-color: #7b217e;
+    color: #fff; 
+ }
+
+ .value-128 {
+    background-color: #463dbe;
+    color: #fff; 
+ }
+
+ .value-256 {
+    background-color: #4b2424;
+    color: #fff; 
+ }
+
+ .value-512 {
+    background-color: #533ec7;
+    color: #fff; 
+ }
+
+ .value-1024 {
+    background-color: #a00000;
+    color: #fff; 
+ }
+
+ .value-2048 {
+    background-color: #000000;
+    color: #fff; 
+ }

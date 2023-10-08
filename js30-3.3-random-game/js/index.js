@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
           }
           // устанавливаем в элемент счетчика значение переменной score
           scoreElement.textContent = score;
+          if (score > 2047) {
+            console.log("WINNER!");
+          }
         }
       
         // Функция для генерации новой плитки
@@ -304,9 +307,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
           generateNewTile(); // создание второй плитки
           updateBoard(); // обновление игрового поля и счетчика
           document.addEventListener("keydown", handleKeyPress); // прослушка на клавиши
+          
         }
       
         initGame(); // запуск игры
+
+        
       
 });
 
