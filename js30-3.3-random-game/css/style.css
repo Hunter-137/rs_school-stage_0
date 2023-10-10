@@ -26,6 +26,63 @@ body {
     padding-top: 5vh;
 }
 
+.FAQ-how_play-wrapper {
+    position: absolute;
+    left: 0;
+    top: -30px;
+}
+
+.FAQ-best_score-wrapper {
+    position: absolute;
+    right: 0;
+    top: -30px;
+}
+
+.FAQ-how_play {
+    width: 150px;
+    height: 30px;
+    margin: 15px auto;
+    background-color: inherit;
+    border: 1px dashed #000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    /* взято из https://cssgradient.io/ */
+    background: radial-gradient(circle, rgba(255,247,165,1) 25%, rgba(148,187,233,1) 100%);
+    transition-duration: 300ms;
+}
+
+.FAQ-best_score {
+    width: 150px;
+    height: 30px;
+    margin: 15px auto;
+    background-color: inherit;
+    border: 1px dashed #000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    /* взято из https://cssgradient.io/ */
+    background: radial-gradient(circle, rgba(255,247,165,1) 25%, rgba(148,187,233,1) 100%);
+    transition-duration: 300ms;
+}
+
+.FAQ-how_play:hover {
+    transform: scale(1.2);
+}
+
+.FAQ-best_score:hover {
+    transform: scale(1.2);
+}
+
+.FAQ-how_play:active {
+    background: radial-gradient(circle, rgba(255,247,165,1) 25%, rgba(148,187,233,0.5) 100%);
+}
+
+.FAQ-best_score:active {
+    background: radial-gradient(circle, rgba(255,247,165,1) 25%, rgba(148,187,233,0.5) 100%);
+}
+
+
 .game-score-wrapper {
     padding: 5px 0;
     display: flex;
@@ -54,6 +111,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .game-area {
@@ -78,12 +136,6 @@ body {
     color: #fff;
     font-size: 32px;
     transition-duration: 400ms;
-}
-
-.main-FAQ {
-    position: absolute;
-    left: 0;
-    top: 50%;
 }
 
 .footer-wrapper {
@@ -286,6 +338,6 @@ body {
 }
 
 .modal-game_over-restart_btn:active {
-    background-color: rgb(255, 229, 189);
+    background: radial-gradient(circle, rgba(255,247,165,1) 25%, rgba(148,187,233,0.5) 100%);
 }
  
