@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
    
         const gameBoxes = document.querySelectorAll(".game-box"); // ячейки игрового поля
         const scoreElement = document.querySelector(".game-score-user"); // счётчик очков (элемент)
-      
+        const gameOverModal = document.querySelector(".modal-game_over"); // модальное окно завершения игры
+        const gameOverModalCloseBtn = document.querySelector(".modal-game_over-close_btn"); // крестик в модальном окне завершении игры
+        const gameOverModalRestartBtn = document.querySelectorAll(".modal-game_over-restart_btn"); // кнопка рестарта в модальном окне завершении игры
+        const gameOverModalScoreElem = document.querySelector(".modal-game_over-score-item"); // элемент счётчика очков в модальном окне завершении игры
+        
         let score = 0; // счетчик очков (для подсчета)
         // создание двумерного (матричного) массива 4х4
         // 4 массива в каждом из которых по 4 элемента
@@ -41,9 +45,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
           }
           // устанавливаем в элемент счетчика значение переменной score
           scoreElement.textContent = score;
-          if (score > 2047) {
-            console.log("WINNER!");
-          }
+          
         }
       
         // Функция для генерации новой плитки
@@ -257,17 +259,39 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
           }
         }
+
+        // функция по остановке игры
+        function stopGame() {
+          return; // return не дает функциям продолжиться, соответственно останавливает
+        }
+
+        // функция по рестарту игры
+        function restartGame() {
+          // перебрал строки и столбцы
+          for (let i = 0; i < gameBoard.length; i++) {
+            for (let j = 0; j < gameBoard[i].length; j++) {
+              // установил нулевое значение ячейке
+              gameBoard[i][j] = 0;
+            }
+          }
+        }
       
         // Функция для обработки нажатия клавиш
         function handleKeyPress(event) {
           // если нажата клавиша "стрелка влево"
           if (event.key === "ArrowLeft") {
             // то запустить функции:
-            moveTilesLeft(); // движение влево
-            mergeTilesLeft(); // слияние влево
-            moveTilesLeft(); // движение влево
-            generateNewTile(); // генерация новой плитки с рандомным значением
-            updateBoard(); // обновить игровое поле и счётчик очков
+            if (score > 2047) { // если очки превысили 2047
+              gameOverModal.classList.add("active"); // то открыть модальное окно
+              gameOverModalScoreElem.textContent = score; // отобразить набранные очки в модальном окне
+              stopGame() // остановить игру
+            } else { // иначе
+              moveTilesLeft(); // движение влево
+              mergeTilesLeft(); // слияние влево
+              moveTilesLeft(); // движение влево
+              generateNewTile(); // генерация новой плитки с рандомным значением
+              updateBoard(); // обновить игровое поле и счётчик очков
+            }
           }
 
           // двойной запуск движения нужно для того, чтобы после слияния плиток
@@ -277,27 +301,45 @@ document.addEventListener('DOMContentLoaded', function (event) {
           // Добавьте обработку других клавиш для других направлений
           // (добавил)
           if (event.key === "ArrowRight") {
-            moveTilesRight(); // движение вправо
-            mergeTilesRight(); // слияние вправо
-            moveTilesRight(); // движение вправо
-            generateNewTile(); // добавление новой плитки
-            updateBoard(); // обновление игрового поля и счётчик очков
+            if (score > 2047) { // если очки превысили 2047
+              gameOverModal.classList.add("active"); // то открыть модальное окно
+              gameOverModalScoreElem.textContent = score; // отобразить набранные очки в модальном окне
+              stopGame() // остановить игру
+            } else { // иначе
+              moveTilesRight(); // движение вправо
+              mergeTilesRight(); // слияние вправо
+              moveTilesRight(); // движение вправо
+              generateNewTile(); // добавление новой плитки
+              updateBoard(); // обновление игрового поля и счётчик очков
+            }
           }
 
           if (event.key === "ArrowUp") {
-            mergeTilesUp(); // движение вверх
-            moveTilesUp(); // слияние вверх
-            mergeTilesUp(); // движение вверх
-            generateNewTile(); // добавление новой плитки
-            updateBoard(); // обновление игрового поля и счётчик очков
+            if (score > 2047) { // если очки превысили 2047
+              gameOverModal.classList.add("active"); // то открыть модальное окно
+              gameOverModalScoreElem.textContent = score; // отобразить набранные очки в модальном окне
+              stopGame() // остановить игру
+            } else { // иначе
+              mergeTilesUp(); // движение вверх
+              moveTilesUp(); // слияние вверх
+              mergeTilesUp(); // движение вверх
+              generateNewTile(); // добавление новой плитки
+              updateBoard(); // обновление игрового поля и счётчик очков
+            }
           }
 
           if (event.key === "ArrowDown") {
-            moveTilesDown(); // движение вниз
-            mergeTilesDown(); // слияние вниз
-            moveTilesDown(); // движение вниз
-            generateNewTile(); // добавление новой плитки
-            updateBoard(); // обновление игрового поля и счётчик очков
+            if (score > 2047) { // если очки превысили 2047
+              gameOverModal.classList.add("active"); // то открыть модальное окно
+              gameOverModalScoreElem.textContent = score; // отобразить набранные очки в модальном окне
+              stopGame() // остановить игру
+            } else { // иначе
+              moveTilesDown(); // движение вниз
+              mergeTilesDown(); // слияние вниз
+              moveTilesDown(); // движение вниз
+              generateNewTile(); // добавление новой плитки
+              updateBoard(); // обновление игрового поля и счётчик очков
+            }
           }
         }
       
@@ -309,6 +351,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
           document.addEventListener("keydown", handleKeyPress); // прослушка на клавиши
           
         }
+
+        // прослушка на клик: если кликнуто на крестик в модальном окне
+        gameOverModalCloseBtn.addEventListener("click", function (event) {
+          gameOverModal.classList.remove("active"); // закрыть модальное окно
+        })
+
+        // для каждого элемента из коллекции по кнопке рестарта
+        gameOverModalRestartBtn.forEach(function (btn) {
+          // если кнопка кликнута
+          btn.addEventListener("click", function (event) {
+            score = 0; // сбросить очки до нуля
+            restartGame(); // запустить рестарт
+            initGame(); // запустить игру
+            gameOverModal.classList.remove("active"); // закрыть модальное окно
+          })
+        })
+       
       
         initGame(); // запуск игры
 
@@ -454,3 +513,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
         //     }
         //   }
         // }
+
+        // функция по проверке проигрыша
+        // отработала плохо, куда бы я её не ставил: во время игры даже если ход имеется
+        // то могла всё равно сработать фраза "давай по новой?"
+
+        // function canMergeTiles(board) {
+        //   for (let i = 0; i < board.length - 1; i++) {
+        //     for (let j = 0; j < board[i].length - 1; j++) {
+        //       if (board[i][j] === board[i + 1][j] || board[i][j] === board[i][j + 1]) {
+        //         return true;
+        //       }
+        //     }
+        //   }
+        //   return false;
+        // }
+
+        // if (!canMergeTiles(gameBoard)) {
+            //   console.log("ДАВАЙ ПО НОВОЙ?");
+            // }

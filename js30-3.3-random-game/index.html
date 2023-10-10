@@ -5,55 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game 2048!</title>
     <link rel="stylesheet" href="../js30-3.3-random-game/css/style.css">
+    <link rel="shortcut icon" href="../js30-3.3-random-game/icon/favicon.ico" type="image/x-icon">
     <script src="../js30-3.3-random-game/js/index.js" defer></script>
 </head>
 <body>
-
-    <header>
-        <div class="header-wrapper">
-            <h1 class="game-name">Game 2048!</h1>
-            <div class="game-score-wrapper">
-                <p class="game-score-title">Score</p>
-                <p class="game-score-user">2048</p>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header-wrapper">
+                <h1 class="game-name">Game 2048!</h1>
+                <div class="game-score-wrapper">
+                    <p class="game-score-title">Score</p>
+                    <p class="game-score-user">2048</p>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <div class="main-container">
-            <div class="game-area">
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
-                <div class="game-box"></div>
+        <main class="main">
+            <div class="main-container">
+                <div class="game-area">
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                    <div class="game-box"></div>
+                </div>
             </div>
+            <button class="modal-game_over-restart_btn">Restart</button>
+        <div class="main-FAQ">
+                <ul>
+                    <li>How to play?</li>
+                    <li>Your Best Score!</li>
+                </ul>
+        </div> 
+        </main>
+
+        <footer class="footer">
+            <div class="footer-wrapper">
+                <a href="https://rs.school/js-stage0/" target="_blank" class="link-rs_school">
+                    <img class="rs_school_js_icon" src="../js30-3.3-random-game/icon/rs_school_js.svg" alt="rs_school_js-icon">
+                </a>
+                <span class="made_year">Made in 2023</span>
+                <a href="https://github.com/Hunter-137" target="_blank" class="link-github">
+                    <span class="github_name">Hunter-137</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal modal-game_over">
+        <div class="modal-game_over-wrapp">
+            <span class="modal-game_over-close_btn">&#10006;</span>
+            <p class="modal-game_over-title">You Win!</p>
+            <p class="modal-game_over-score">Your score:
+                <span class="modal-game_over-score-item">&nbsp;2048!</span>
+            </p>
+            <button class="modal-game_over-restart_btn">Restart</button>
         </div>
-        
-    </main>
-
-    <footer class="footer-wrapper">
-        <a href="https://rs.school/js-stage0/" target="_blank" class="link-rs_school">
-            <img class="rs_school_js_icon" src="../js30-3.3-random-game/icon/rs_school_js.svg" alt="rs_school_js-icon">
-        </a>
-        <span class="made_year">2023</span>
-        <a href="https://github.com/Hunter-137" target="_blank" class="link-rs_school">
-            <img class="github_mark" src="../js30-3.3-random-game/icon/github-mark.svg" alt="rs_school_js-icon">
-            <span class="github_name">Hunter-137</span>
-        </a>
-    </footer>
-
+    </div>
 
 </body>
 </html>
