@@ -2,10 +2,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
    
         const gameBoxes = document.querySelectorAll(".game-box"); // ячейки игрового поля
         const scoreElement = document.querySelector(".game-score-user"); // счётчик очков (элемент)
+        
         const gameOverModal = document.querySelector(".modal-game_over"); // модальное окно завершения игры
         const gameOverModalCloseBtn = document.querySelector(".modal-game_over-close_btn"); // крестик в модальном окне завершении игры
         const gameOverModalRestartBtn = document.querySelectorAll(".modal-game_over-restart_btn"); // кнопка рестарта в модальном окне завершении игры
         const gameOverModalScoreElem = document.querySelector(".modal-game_over-score-item"); // элемент счётчика очков в модальном окне завершении игры
+       
+        const howToPlayModal = document.querySelector(".modal-how_to_play"); // модальное окно "Как играть?"
+        const howToPlayModalBtn = document.querySelector(".FAQ-how_play"); // кнопка по модальному окну "Как играть?"
+        const howToPlayModalCloseBtn = document.querySelector(".modal-how_to_play-close_btn"); // крестик в модальном окне "Как играть?"
+        
+        const bestScoresModal = document.querySelector(".modal-best_scores"); // модальное окно "Как играть?"
+        const bestScoresModalBtn = document.querySelector(".FAQ-best_score"); // кнопка по модальному окну "Как играть?"
+        const bestScoresModalCloseBtn = document.querySelector(".modal-best_scores-close_btn"); // крестик в модальном окне "Как играть?"
         
         let score = 0; // счетчик очков (для подсчета)
         // создание двумерного (матричного) массива 4х4
@@ -366,6 +375,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
             initGame(); // запустить игру
             gameOverModal.classList.remove("active"); // закрыть модальное окно
           })
+        })
+
+        // при клике на кнопку "Как играть?"
+        howToPlayModalBtn.addEventListener("click", function (event) {
+          howToPlayModal.classList.add("active"); // отобразить модальное окно "Как играть?"
+        })
+
+        // при клике на крестик в модальном окне "Как играть?"
+        howToPlayModalCloseBtn.addEventListener("click", function (event) {
+          howToPlayModal.classList.remove("active"); // закрыть модальное окно "Как играть?"
+        })
+
+        // при клике на кнопку "Как играть?"
+        bestScoresModalBtn.addEventListener("click", function (event) {
+          bestScoresModal.classList.add("active"); // отобразить модальное окно "Как играть?"
+        })
+
+        // при клике на крестик в модальном окне "Лучшие очки"
+        bestScoresModalCloseBtn.addEventListener("click", function (event) {
+          bestScoresModal.classList.remove("active"); // закрыть модальное окно "Лучшие очки"
         })
        
       
