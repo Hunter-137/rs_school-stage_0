@@ -340,4 +340,93 @@ body {
 .modal-game_over-restart_btn:active {
     background: radial-gradient(circle, rgba(255,247,165,1) 25%, rgba(148,187,233,0.5) 100%);
 }
- 
+
+.modal-how_to_play-wrapp {
+    width: 400px;
+    height: 400px;
+    margin: 200px auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px 30px 0;
+    position: relative;
+}
+
+.modal-how_to_play-close_btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transform: scale(1.5);
+    transition-duration: 600ms;
+    cursor: pointer;
+ }
+
+ .modal-how_to_play-close_btn:hover {
+    transform: rotate3d(1, 1, 0, 180deg) scale(1.5);
+ }
+
+.modal-how_to_play-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-how_to_play-list {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.modal-how_to_play-item {
+    margin-bottom: 5px;
+}
+
+.modal-how_to_play-item:last-child{
+    margin-bottom: 0;
+}
+
+.modal-how_to_play-subtitle {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.modal-best_scores-wrapp {
+    width: 400px;
+    height: 500px;
+    margin: 200px auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.modal-best_scores-close_btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transform: scale(1.5);
+    transition-duration: 600ms;
+    cursor: pointer;
+ }
+
+ .modal-best_scores-close_btn:hover {
+    transform: rotate3d(1, 1, 0, 180deg) scale(1.5);
+ }
+
+ .modal-best_scores-title {
+    text-align: center;
+    margin-bottom: 30px;
+ }
+
+ .modal-best_scores-item {
+    border-bottom: 1px solid #000;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(245,252,70,1) 0%, rgba(63,94,251,1) 100%);
+    font-size: 18px;
+    font-weight: 600;
+ }
+
+ .modal-best_scores-item:last-child {
+    border-bottom: none;
+ }
