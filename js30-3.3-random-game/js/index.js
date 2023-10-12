@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const bestScoresModalCloseBtn = document.querySelector(".modal-best_scores-close_btn"); // крестик в модальном окне "Как играть?"
 
   const bestScoresTable = document.querySelectorAll(".modal-best_scores-item");
-
+  
   let score = 0; // счетчик очков (для подсчета)
   // создание двумерного (матричного) массива 4х4
   // 4 массива в каждом из которых по 4 элемента
@@ -419,6 +419,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   initGame(); // запуск игры
+
+  // прослушка на всё окно браузера
+  window.addEventListener("click", function(event) {
+    // если клик приходится на модальное окно именно по классу howToPlayModal
+    if (event.target == howToPlayModal) {
+      // то убрать у него дополнительный класс active
+      howToPlayModal.classList.remove("active");
+    } // если клик приходится на модальное окно именно по классу bestScoresModal
+    if (event.target == bestScoresModal) {
+      // то убрать у него дополнительный класс active
+      bestScoresModal.classList.remove("active");
+    }
+
+    // так как сама контентная часть модального окна имеет другие классы,
+    // то модальное окно не закроется при клике на них
+    // потому что только у затемнённой области имеются соответствующие классы howToPlayModal и bestScoresModal
+  })
+
 });
 
 // ******* Попытки по кодам + помощь ChatGPT 3.5 и мои рассуждения по работе кода нейросети *************
