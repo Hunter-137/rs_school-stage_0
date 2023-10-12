@@ -430,6 +430,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (event.target == bestScoresModal) {
       // то убрать у него дополнительный класс active
       bestScoresModal.classList.remove("active");
+    } gameOverModal
+    // если клик приходится на модальное окно именно по классу gameOverModal
+    if (event.target == gameOverModal) {
+      // то убрать у него дополнительный класс active
+      gameOverModal.classList.remove("active");
     }
 
     // так как сама контентная часть модального окна имеет другие классы,
