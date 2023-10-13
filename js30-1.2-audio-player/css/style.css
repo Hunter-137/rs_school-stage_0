@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgb(228, 227, 227);
+}
+
+.header-background {
+    background-image: url('../img/pulsBackground.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+    height: 10vh;
+    width: 100vw;
+    animation: moveBackgroundImage 15s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+@keyframes moveBackgroundImage {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+  }
+
+.wrapper {
+    background-image: url('../img/mainBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 75vh;
+    width: 100vw;
+    margin-top: 5vh;
+}
+
+.audio_player {
+    width: 30vw;
+    height: 50vh;
+    background-color: rgba(139, 138, 138, 0.5);
+    margin: auto;
+    position: relative;
+    border-radius: 5%;
+    box-shadow: 3vw 3vh 10vw black;
+}
+
+.audio_image-box {
+    width: 30vw;
+    height: 30vh;
+}
+
+.audio_image-box-item {
+    width: 30vw;
+    height: 30vh;
+    object-fit: contain;
+    transition-duration: 500ms;
+}
+
+.audio_image-box-item.first {
+    opacity: 1;
+}
+
+.audio_image-box-item.second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.controls-song_name {
+    font-family: 'Besley', serif;
+    font-weight: 600;
+    font-size: 1.6vw;
+    margin-left: 10%;
+}
+
+.controls-song_author {
+    font-family: 'Besley', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.6vw;
+    margin-left: 10%;
+}
+
+.controls-progress_bar-wrapper {
+    display: flex;
+    margin-top: 5%;
+}
+
+.current_time {
+    margin-left: 5%;
+    font-size: 1.6vw;
+}
+
+.controls-progress_bar-container {
+    width: 80%;
+    height: 1vh;
+    margin: 0 5%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controls-progress_bar {
+    width: 0%;
+    height: 1vh;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3rem;
+    transition-duration: 250ms;
+}
+
+.end_time {
+    margin-right: 5%;
+    font-size: 1.6vw;
+}
+
+.controls-wrapp {
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 10% 0;
+}
+
+.controls-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition-duration: 500ms;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controls-icon.prevArrow:hover {
+    transform: rotate(60deg) scale(1.2);
+}
+
+.controls-icon.playIcon:hover {
+    transform: scale(1.2);
+}
+
+.controls-icon.pauseIcon:hover {
+    transform: scale(1.2);
+}
+
+.controls-icon.nextArrow:hover {
+    transform: rotate(240deg) scale(1.2);
+}
+
+@media (max-width: 700px) {
+    .controls-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 580px) {
+    .controls-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .controls-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.controls-icon.playIcon {
+    display: block;
+}
+
+.controls-icon.pauseIcon {
+    display: none;
+}
+
+.controls-icon.nextArrow {
+    transform: rotate(180deg);
+}
+
+.info-wrapper {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, rgb(128, 128, 185), rgb(228, 227, 227));
+}
+
+.info-wrapper-link {
+    margin: 0 2vw;
+    color: initial;
+    text-decoration: none;
+}
+
+.info-rs_link-item {
+    width: 8vw;
+    height: 8vh;
+}
+
+.info-github_link-item {
+    font-family: 'Besley', serif;
+    font-weight: 600;
+    font-size: 2vw;
+}
+
+.info-github_link-item::before {
+    content: '';
+    display: inline-block;
+    background-image: url('../icon/github-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 4vw;
+    height: 4vh;
+}
+
+.info-wrapper-link:hover {
+    animation: moveRightLeft 600ms infinite;
+}
+
+@keyframes moveRightLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+  
+  
