@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="icon" href="./icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <section class="header-wrapped-nav">
+                <h1 class="header-wrapped-nav-h1">Brooklyn Public Library</h1>
+                <div class="header-wrapped-nav-ul">
+                    <nav class="header-nav">
+                        <ul class="header-ul">
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#about">About</a></li>
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#favorites">Favorites</a></li>
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#coffee_shop">Coffee shop</a></li>
+                            <li class="header-ul-li"><a class="header-ul-li-a" href="#contacts">Contacts</a></li>
+                            <li class="header-ul-li header-ul-li-last"><a class="header-ul-li-a" href="#library_card">Library Card</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-profile-drop_menu-wrapper">
+                        <a class="header-ul-li-img-a" href="#">
+                            <img class="header-ul-li-img" src="./icon/icon_profile.svg" alt="icon">
+                        </a>
+                        <a class="header-ul-li-img-a auth" href="#">
+                            <div class="header-ul-li-img-a auth-wrapper">
+                                <p class="auth-text">AB</p>
+                            </div>
+                        </a>
+                        <div class="header-profile-drop_menu">
+                            <p class="header-profile-drop_menu-title">Profile</p>
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a login" href="#">Log In</a></p>
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a register" href="#">Register</a></p>
+
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a auth_login" href="#">My profile</a></p>
+                            <p class="header-profile-drop_menu-text"><a class="header-profile-drop_menu-text-a auth_register" href="#">Log Out</a></p>
+                        </div>
+                    </div>
+                    <div class="header-burger_menu-button">
+                        <span></span>
+                    </div>
+                </div>
+            </section>
+            <section class="header-welcome">
+                <div class="header-welcome-overlay">
+                    <div class="header-welcome-p-wrapped">
+                        <h2 class="header-welcome-paragraph">Welcome<br>to the Brooklyn<br>Library</h2>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main class="main">
+            <section class="main-about">
+                <h2 class="main-about-title title" id="about">About</h2>
+                <p class="main-about-description">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+                <button class="main-about-img-button left">
+                    <img class="main-about-img-button-icon left" src="../library/icon/Carret_Left.svg" alt="Carret_Left">
+                </button>
+                <button class="main-about-img-button right">
+                    <img class="main-about-img-button-icon right" src="../library/icon/Carret_Right.svg" alt="Carret_Right">
+                </button>
+                <div class="main-about-img">
+                    <div class="carousel">
+                        <img class="main-about-img_1" src="../library/img/mainAbout_1.jpg" alt="image">
+                        <img class="main-about-img_2" src="../library/img/mainAbout_2.jpg" alt="image">
+                        <img class="main-about-img_3" src="../library/img/mainAbout_3.jpg" alt="image">
+                        <img class="main-about-img_4" src="../library/img/mainAbout_4.jpg" alt="image">
+                        <img class="main-about-img_5" src="../library/img/mainAbout_5.jpg" alt="image">
+                    </div>    
+                </div>
+                <div class="main-about-circle">
+                    <div class="main-about-circle_1 active"></div>
+                    <div class="main-about-circle_2"></div>
+                    <div class="main-about-circle_3"></div>
+                    <div class="main-about-circle_4"></div>
+                    <div class="main-about-circle_5"></div>
+                </div>
+            </section>
+            <section class="main-favorites">
+                <h2 class="main-favorites-title title" id="favorites">Favorites</h2>
+                <div class="main-favorites-item-wrapper">
+                    <div class="main-favorites-item-wrapper-sticky">
+                        <p class="main-favorites-text">Pick favorites of season</p>
+                        <label class="main-favorites-label winter">
+                            <input class="main-favorites-input" type="radio" name="season" value="winter" checked><span class="main-favorites-input-text">Winter</span>
+                        </label>
+                        <label class="main-favorites-label spring">
+                            <input class="main-favorites-input" type="radio" name="season" value="spring"><span class="main-favorites-input-text">Spring</span>
+                        </label>
+                        <label class="main-favorites-label summer">
+                            <input class="main-favorites-input" type="radio" name="season" value="summer"><span class="main-favorites-input-text">Summer</span>
+                        </label>
+                        <label class="main-favorites-label autumn">
+                            <input class="main-favorites-input" type="radio" name="season" value="autumn"><span class="main-favorites-input-text">Autumn</span>
+                        </label>
+                    </div>
+                    <div class="main-favorites-staff_picks-wrapp">
+                        <article class="main-favorites-staff_picks winter">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">The Book Eaters</p>
+                            <p class="main-favorites-staff_picks-book_author">By Sunyi Dean</p>
+                            <p class="main-favorites-staff_picks-book_description">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                            <button class="main-favorites-staff_picks-book_buy _1">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_1.jpg" alt="image-1">
+                        </article>
+                        <article class="main-favorites-staff_picks winter">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Cackle</p>
+                            <p class="main-favorites-staff_picks-book_author">By Rachel Harrison</p>
+                            <p class="main-favorites-staff_picks-book_description">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                            <button class="main-favorites-staff_picks-book_buy _2">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_2.jpg" alt="image-2">
+                        </article>
+
+                        <article class="main-favorites-staff_picks spring">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">The Body</p>
+                            <p class="main-favorites-staff_picks-book_author">By Stephen King</p>
+                            <p class="main-favorites-staff_picks-book_description">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</p>
+                            <button class="main-favorites-staff_picks-book_buy _5">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_5.png" alt="image-5">
+                        </article>
+                        <article class="main-favorites-staff_picks spring">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Carry: A Memoir of Survival on Stolen Land</p>
+                            <p class="main-favorites-staff_picks-book_author">By Toni Jenson</p>
+                            <p class="main-favorites-staff_picks-book_description">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
+                            <button class="main-favorites-staff_picks-book_buy _6">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_6.png" alt="image-6">
+                        </article>
+
+                        <article class="main-favorites-staff_picks summer">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Crude: A Memoir</p>
+                            <p class="main-favorites-staff_picks-book_author">By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
+                            <p class="main-favorites-staff_picks-book_description">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people.</p>
+                            <button class="main-favorites-staff_picks-book_buy _9">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_9.png" alt="image-9">
+                        </article>
+                        <article class="main-favorites-staff_picks summer">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Let My People Go Surfing</p>
+                            <p class="main-favorites-staff_picks-book_author">By Yvon Chouinard</p>
+                            <p class="main-favorites-staff_picks-book_description">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
+                            <button class="main-favorites-staff_picks-book_buy _10">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_10.png" alt="image-10">
+                        </article>
+
+                        <article class="main-favorites-staff_picks autumn">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Casual Conversation</p>
+                            <p class="main-favorites-staff_picks-book_author">By Renia White</p>
+                            <p class="main-favorites-staff_picks-book_description">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.</p>
+                            <button class="main-favorites-staff_picks-book_buy _13">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_13.png" alt="image-13">
+                        </article>
+                        <article class="main-favorites-staff_picks autumn">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">The Great Fire</p>
+                            <p class="main-favorites-staff_picks-book_author">By Lou Ureneck</p>
+                            <p class="main-favorites-staff_picks-book_description">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide.</p>
+                            <button class="main-favorites-staff_picks-book_buy _14">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_14.png" alt="image-14">
+                        </article>
+                    </div>
+                    <div class="main-favorites-staff_picks-wrapp">
+                        <article class="main-favorites-staff_picks winter fill-space-block _3">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Dante: Poet of the Secular World</p>
+                            <p class="main-favorites-staff_picks-book_author">By Erich Auerbach</p>
+                            <p class="main-favorites-staff_picks-book_description">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+                            <button class="main-favorites-staff_picks-book_buy _3">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_3.jpg" alt="image-3">
+                        </article>
+                        <article class="main-favorites-staff_picks winter fill-space-block">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">The Last Queen</p>
+                            <p class="main-favorites-staff_picks-book_author">By Clive Irving</p>
+                            <p class="main-favorites-staff_picks-book_description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                            <button class="main-favorites-staff_picks-book_buy _4">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_4.jpg" alt="image-4">
+                        </article>
+
+                        <article class="main-favorites-staff_picks spring fill-space-block _6">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Days of Distraction</p>
+                            <p class="main-favorites-staff_picks-book_author">By Alexandra Chang</p>
+                            <p class="main-favorites-staff_picks-book_description">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</p>
+                            <button class="main-favorites-staff_picks-book_buy _7">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_7.png" alt="image-7">
+                        </article>
+                        <article class="main-favorites-staff_picks spring fill-space-block">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Dominicana</p>
+                            <p class="main-favorites-staff_picks-book_author">By Angie Cruz</p>
+                            <p class="main-favorites-staff_picks-book_description">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
+                            <button class="main-favorites-staff_picks-book_buy _8">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_8.png" alt="image-8">
+                        </article>
+
+                        <article class="main-favorites-staff_picks summer fill-space-block _9">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">The Octopus Museum: Poems</p>
+                            <p class="main-favorites-staff_picks-book_author">By Brenda Shaughnessy</p>
+                            <p class="main-favorites-staff_picks-book_description">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
+                            <button class="main-favorites-staff_picks-book_buy _11">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_11.png" alt="image-11">
+                        </article>
+                        <article class="main-favorites-staff_picks summer fill-space-block">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Shark Dialogues: A Novel</p>
+                            <p class="main-favorites-staff_picks-book_author">By Kiana Davenport</p>
+                            <p class="main-favorites-staff_picks-book_description">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
+                            <button class="main-favorites-staff_picks-book_buy _12">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_12.png" alt="image-12">
+                        </article>
+
+                        <article class="main-favorites-staff_picks autumn fill-space-block _12">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Rickey: The Life and Legend</p>
+                            <p class="main-favorites-staff_picks-book_author">By Howard Bryant</p>
+                            <p class="main-favorites-staff_picks-book_description">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
+                            <button class="main-favorites-staff_picks-book_buy _15">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_15.png" alt="image-15">
+                        </article>
+                        <article class="main-favorites-staff_picks autumn fill-space-block">
+                            <h3 class="main-favorites-staff_picks-title">Staff Picks</h3>
+                            <p class="main-favorites-staff_picks-book_name">Slug: And Other Stories</p>
+                            <p class="main-favorites-staff_picks-book_author">By Megan Milks</p>
+                            <p class="main-favorites-staff_picks-book_description">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</p>
+                            <button class="main-favorites-staff_picks-book_buy _16">Buy</button>
+                            <img class="main-favorites-staff_picks-book_image" src="./img/main-favorites_16.png" alt="image-16">
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="main-coffee_shop">
+                <h2 class="main-coffee_shop-title title" id="coffee_shop">Coffee shop</h2>
+                <p class="main-coffee_shop-description">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
+                <div class="main-coffee_shop-price-wrapp">
+                    <article class="main-coffee_shop-price adaptive-tea">
+                        <h3 class="main-coffee_shop-price-title coffee">Coffee & Tea</h3>
+                        <div class="main-coffee_shop-price-product-wrapp">
+                            <div class="main-coffee_shop-price-product_name-wrapp">
+                                <p class="main-coffee_shop-price-product_name">Cold Brew Coffee</p>
+                                <p class="main-coffee_shop-price-product_name">French Press Pot</p>
+                                <p class="main-coffee_shop-price-product_name">Espresso</p>
+                                <p class="main-coffee_shop-price-product_name">Cappuccino</p>
+                                <p class="main-coffee_shop-price-product_name">Hot tea</p>
+                                <p class="main-coffee_shop-price-product_name">Cold tea</p>
+                            </div>
+                            <div class="main-coffee_shop-price-product_cost-wrapp">
+                                <p class="main-coffee_shop-price-product_cost">$3</p>
+                                <p class="main-coffee_shop-price-product_cost">$5</p>
+                                <p class="main-coffee_shop-price-product_cost">$2</p>
+                                <p class="main-coffee_shop-price-product_cost">$4</p>
+                                <p class="main-coffee_shop-price-product_cost">$2</p>
+                                <p class="main-coffee_shop-price-product_cost">$2</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="main-coffee_shop-price adaptive-desserts">
+                        <h3 class="main-coffee_shop-price-title desserts">Desserts & Cakes</h3>
+                        <div class="main-coffee_shop-price-product-wrapp">
+                            <div class="main-coffee_shop-price-product_name-wrapp">
+                                <p class="main-coffee_shop-price-product_name">Forest Gateau</p>
+                                <p class="main-coffee_shop-price-product_name">Blue Moon</p>
+                                <p class="main-coffee_shop-price-product_name">Truffle Cake</p>
+                                <p class="main-coffee_shop-price-product_name">Chocolate Cake</p>
+                                <p class="main-coffee_shop-price-product_name">Poet’s Dream Cake</p>
+                                <p class="main-coffee_shop-price-product_name">Pineapple Cake</p>
+                            </div>
+                            <div class="main-coffee_shop-price-product_cost-wrapp">
+                                <p class="main-coffee_shop-price-product_cost">$16</p>
+                                <p class="main-coffee_shop-price-product_cost">$16</p>
+                                <p class="main-coffee_shop-price-product_cost">$15</p>
+                                <p class="main-coffee_shop-price-product_cost">$18</p>
+                                <p class="main-coffee_shop-price-product_cost">$16</p>
+                                <p class="main-coffee_shop-price-product_cost">$14</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="main-our_contacts">
+                <h2 class="main-our_contacts-title title" id="contacts">Our Contacts</h2>
+                <div class="main-our_contacts-wrapp">
+                    <article class="main-our_contacts-numbers">
+                        <h3 class="main-our_contacts-numbers-title">For all Library inquiries:</h3>
+                        <p class="main-our_contacts-numbers-description">Please call <a class="main-our_contacts-numbers-description-link" href="tel:+16177302370">(617) 730-2370</a></p>
+                        <p class="main-our_contacts-numbers-description">For TTY service, please call <a class="main-our_contacts-numbers-description-link" href="tel:+16177302370">(617) 730-2370</a></p>
+                        <p class="main-our_contacts-numbers-description">Putterham Library: <a class="main-our_contacts-numbers-description-link" href="tel:+16177302385">(617) 730-2385</a></p>
+                        <h4 class="main-our_contacts-numbers-subtitle">Senior Staff</h4>
+                        <p class="main-our_contacts-numbers-description">Library Director: <strong><a class="main-our_contacts-numbers-description-link" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></strong></p>
+                    </article>
+                    <div class="main-our_contacts-map">
+                        <iframe class="main-our_contacts-map_size" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d756.2565195255023!2d-73.99157605648844!3d40.695423305900235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b6395abd%3A0x5b6c5e44eb578313!2sBrooklyn%20Public%20Library%20-%20Brooklyn%20Heights%20Branch!5e0!3m2!1sru!2s!4v1690573222074!5m2!1sru!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+            <section class="main-cards">
+                <h2 class="main-cards-title title">Digital Library Cards</h2>
+                <div class="main-cards-wrapp">
+                    <div class="main-cards-check_card-wrapp">
+                        <article class="main-cards-check_card">
+                            <h3 class="main-cards-check_card-title">Find your Library card</h3>
+                            <div class="main-cards-check_card-border">
+                                <form action="#" class="main-cards-check_card-border-background">
+                                    <h4 class="main-cards-check_card-border-background-subtitle">Brooklyn Public Library</h4>
+                                    <label title="Use only letters, numbers and hyphens.">
+                                        <input required pattern="[0-9a-zA-Z\s]+" class="main-cards-check_card-border-background-input" type="text" placeholder="Reader's name" title="Use only English letters or arabiс numerals">
+                                    </label>
+                                    <label title="Use only letters, numbers and hyphens.">
+                                        <input required pattern="[0-9a-zA-Z\-]+" class="main-cards-check_card-border-background-input" type="text" placeholder="Card number" title="Use only English letters or arabiс numerals">
+                                    </label>
+                                    <button type="submit" class="main-cards-check_card-border-button">Check the card</button>
+                                </form>
+                            </div>
+                        </article>
+                    </div>
+                    <article class="main-cards-authorization">
+                        <h3 class="main-cards-authorization-title">Get a reader card</h3>
+                        <p class="main-cards-authorization-description">You will be able to see a reader card after logging into account or you can register a new account</p>
+                        <div class="main-cards-authorization-button-wrapp">
+                            <button class="main-cards-authorization-button register-btn">Sign Up</button>
+                            <button class="main-cards-authorization-button login-btn">Log in</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="main-cards auth">
+                <h2 class="main-cards-title auth title">Digital Library Cards</h2>
+                <div class="main-cards-wrapp auth">
+                    <div class="main-cards-check_card-wrapp auth">
+                        <article class="main-cards-check_card auth">
+                            <h3 class="main-cards-check_card-title auth">Your Library card</h3>
+                            <div class="main-cards-check_card-border auth">
+                                <form action="#" class="main-cards-check_card-border-background auth">
+                                    <h4 class="main-cards-check_card-border-background-subtitle auth">Brooklyn Public Library</h4>
+                                    <label title="Use only English letters, numbers and hyphens.">
+                                        <input required pattern="[0-9a-zA-Z\s]+" class="main-cards-check_card-border-background-input auth name" type="text" placeholder="Reader's name" value="First name" title="Use only English letters or arabiс numerals">
+                                    </label>
+                                    <label title="Use only letters, numbers and hyphens.">
+                                        <input required pattern="[0-9a-zA-Z\-]+" class="main-cards-check_card-border-background-input auth card" type="text" placeholder="Card number" value="libraryCode" title="Use only English letters or arabiс numerals">
+                                    </label>
+                                    
+                                </form>
+                                <div class="main-cards-check_card-border-data_user-auth">
+                                    <div class="modal-profile-content-data-wrapper-auth">
+                                        <div class="modal-profile-content-data">
+                                            <p class="modal-profile-content-data-subtitle">visits</p>
+                                            <img class="modal-profile-content-data-icon" src="../library/icon/Union.svg" alt="human_symbol">
+                                            <p class="modal-profile-content-data-count">23</p>
+                                        </div>
+                                        <div class="modal-profile-content-data">
+                                            <p class="modal-profile-content-data-subtitle">bonuses</p>
+                                            <img class="modal-profile-content-data-icon" src="../library/icon/Star_1.svg" alt="polygonal_star">
+                                            <p class="modal-profile-content-data-count">1240</p>
+                                        </div>
+                                        <div class="modal-profile-content-data">
+                                            <p class="modal-profile-content-data-subtitle">Books</p>
+                                            <img class="modal-profile-content-data-icon" src="../library/icon/book.svg" alt="book_symbol">
+                                            <p class="modal-profile-content-data-count">2</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </article>
+                    </div>
+                    <article class="main-cards-authorization auth">
+                        <h3 class="main-cards-authorization-title auth">Visit your profile</h3>
+                        <p class="main-cards-authorization-description auth">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+                        <div class="main-cards-authorization-button-wrapp auth">
+                            <button class="main-cards-authorization-button login-btn auth">Profile</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+
+        </main>
+        <footer class="footer">
+            <div class="footer-wrapp">
+                <div class="footer-address-wrapp">
+                    <address class="footer-address">
+                        <p class="footer-address-description"><a class="footer-address-description-link" target="_blank" href="https://goo.gl/maps/HsMuvwza3bYoPnox8">286 Cadman Plaza, New York, NY 11238, United States</a></p>
+                    </address>
+                    <p class="footer-address-work_time">Mon - Fri<br>08:00 am - 07:00 pm</p>
+                </div>
+                <div class="footer-link-wrapp">
+                    <div class="footer-link">
+                        <ul class="footer-link-ul">
+                            <li class="footer-link-ul-li"><a class="footer-link-ul-li-a" target="_blank" href="https://twitter.com/Hunter_137_13"><img class="footer-link-icon" src="./icon/u_twitter-alt.svg" alt="twitter-logo"></a></li>
+                            <li class="footer-link-ul-li"><a class="footer-link-ul-li-a" target="_blank" href="https://www.instagram.com/xomyak_po_kli4ke_xoma/"><img class="footer-link-icon" src="./icon/u_instagram.svg" alt="instagram-logo"></a></li>
+                            <li class="footer-link-ul-li"><a class="footer-link-ul-li-a" target="_blank" href="https://www.facebook.com/asrarkulov"><img class="footer-link-icon" src="./icon/u_facebook-f.svg" alt="facebook-logo"></a></li>
+                        </ul>
+                    </div>
+                    <p class="footer-link-output_time">Sat - Sun<br>10:00 am - 06:00 pm</p>
+                </div>
+                <div class="footer-line"></div>
+                <div class="footer-author-wrapp">
+                    <time class="footer-author-year">2023</time>
+                    <p class="footer-author-rs_school"><a class="footer-author-rs_school-link" target="_blank" href="https://rs.school/js-stage0/">The Rolling Scopes School</a></p>
+                    <div class="footer-author-github_username-image_wrapp">
+                        <img class="footer-author-github_username-image" src="./icon/github-mark-white.svg" alt="github_logo">
+                        <p class="footer-author-github_username"><a class="footer-author-github_username-link" target="_blank" href="https://github.com/Hunter-137">Hunter-137</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Модальное окно Log In -->
+        
+        <div class="modal modal-Log_In">
+            <div class="modal-login-wrapper">
+                <p class="modal-login-title">Login</p>
+                <button class="modal-login-close_btn"><img class="modal-login-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <form action="#" class="modal-login-container">
+                    
+                    <label for="dataLoginEmailOrReadersCard" class="modal-login-text">E-mail or readers card</label>
+                    <input required id="dataLoginEmailOrReadersCard" class="modal-login-text-input" type="email">
+
+                    <label for="dataLoginPassword" class="modal-login-text">Password</label>
+                    <input required id="dataLoginPassword" class="modal-login-text-input" type="password">
+
+                    <button id="dataLoginAutoBtn" class="modal-btn_login modal-btn_login-text">Log In</button>
+                </form>
+                <div class="modal-login-postscript-wrapper">
+                    <p class="modal-login-postscript-text">Don’t have an account?</p>
+                    <button class="modal-login-postscript-btn">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно Register -->
+        
+        <div class="modal modal-register">
+            <div class="modal-register-wrapper">
+                <p class="modal-register-title">Register</p>
+                <button class="modal-register-close_btn"><img class="modal-register-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                <form action="#" class="modal-register-container">
+                    
+                    <label for="dataRegisterFirstName" class="modal-register-text">First name</label>
+                    <input required id="dataRegisterFirstName" class="modal-register-text-input" type="text">
+                    
+                    <label for="dataRegisterLastName" class="modal-register-text">Last name</label>
+                    <input required id="dataRegisterLastName" class="modal-register-text-input" type="text">
+                    
+                    <label for="dataRegisterEmail" class="modal-register-text">E-mail</label>
+                    <input required id="dataRegisterEmail" class="modal-register-text-input" type="email">
+                    
+                    <label for="dataRegisterPassword" class="modal-register-text">Password</label>
+                    <input required title="Enter more than 8 characters" minlength="8" id="dataRegisterPassword" class="modal-register-text-input" type="password">
+                    
+                    <button id="saveDataRegisterBtn" class="modal-btn_register modal-btn_register-text btn-disabled">Sign Up</button>
+                </form>
+                <div class="modal-register-postscript-wrapper">
+                    <p class="modal-register-postscript-text">Already have an account?</p>
+                    <button class="modal-register-postscript-btn">Login</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно BUY A LIBRARY CARD -->
+
+        <div class="modal modal-buy_card">
+            <div class="modal-buy_card-content">
+                <div class="modal-buy_card-wrapper">
+                    <p class="modal-buy_card-title">Buy a library card</p>
+                    <button class="modal-buy_card-close_btn"><img class="modal-buy_card-close_btn-icon" src="../library/icon/close_btn_white.svg" alt="close_btn"></button>
+                    <div class="modal-buy_card-container">
+                        <form class="modal-buy_card-container-data_filling" action="#">
+                            <label for="dataCardBankNumber" class="modal-buy_card-text">Bank card number</label>
+                            <input min="0" max="9999999999999999" required pattern="[0-9]+" title="Only 16 digits" id="dataCardBankNumber" class="modal-buy_card-text-input" type="number">
+                            
+                            <label for="dataCardExpirationCodeOne" class="modal-buy_card-text">Expiration code</label>
+                            <label for="dataCardExpirationCodeTwo"></label>
+                            <div class="expiration_code-wrapper">
+                            <input min="0" max="99" required title="Only 2 digits" id="dataCardExpirationCodeOne" class="modal-buy_card-text-input expiration_code" type="number">
+                            <input min="0" max="99" required title="Only 2 digits" id="dataCardExpirationCodeTwo" class="modal-buy_card-text-input expiration_code" type="number">
+                            </div>
+                            
+                            <label for="dataCardCVC" class="modal-buy_card-text">CVC</label>
+                            <input min="0" max="999" required title="Only 3 digits" id="dataCardCVC" class="modal-buy_card-text-input cvc" type="number">
+                            
+                            <label for="dataCardCardholderName" class="modal-buy_card-text">Cardholder name</label>
+                            <input required title="Fill in the cardholder's name" id="dataCardCardholderName" class="modal-buy_card-text-input" type="text">
+                            
+                            <label for="dataCardPostalCode" class="modal-buy_card-text">Postal code</label>
+                            <input required title="Enter postal code" id="dataCardPostalCode" class="modal-buy_card-text-input" type="number">
+
+                            
+                            <label for="dataCardCityTown" class="modal-buy_card-text">City / Town</label>
+                            <input required title="Enter your place of residence" id="dataCardCityTown" class="modal-buy_card-text-input" type="text">
+                            
+                            <div class="modal-btn_buy_card">
+                                <button title="Double click please" class="modal-btn_buy_card-button modal-btn_buy_card-text">Buy</button>
+                                <span class="modal-btn_buy_card-price">$ 25.00</span>
+                            </div>
+                        </form>
+                        <div class="modal-buy_card-container-comment">
+                            <p class="modal-buy_card-container-comment-text">
+                                If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно My Profile -->
+
+        <div class="modal modal-profile">
+            <div class="modal-profile-wrapper">
+
+                <aside class="modal-profile-sidebar">
+                    <div class="modal-profile-sidebar-avatar">
+                        <p class="modal-profile-sidebar-avatar-text">AB</p>
+                    </div>
+                    <div class="modal-profile-sidebar-full_name">
+                        <p class="modal-profile-sidebar-full_name-text">John Doe</p>
+                    </div>
+                </aside>
+
+                <div class="modal-profile-content">
+                    <p class="modal-profile-content-title">My profile</p>
+                    <button class="modal-profile-content-close_btn"><img class="modal-profile-content-close_btn-icon" src="../library/icon/close_btn.svg" alt="close_btn"></button>
+                    <div class="modal-profile-content-data-wrapper">
+                        <div class="modal-profile-content-data">
+                            <p class="modal-profile-content-data-subtitle">visits</p>
+                            <img class="modal-profile-content-data-icon" src="../library/icon/Union.svg" alt="human_symbol">
+                            <p class="modal-profile-content-data-count auth-count">23</p>
+                        </div>
+                        <div class="modal-profile-content-data">
+                            <p class="modal-profile-content-data-subtitle">bonuses</p>
+                            <img class="modal-profile-content-data-icon" src="../library/icon/Star_1.svg" alt="polygonal_star">
+                            <p class="modal-profile-content-data-count">1240</p>
+                        </div>
+                        <div class="modal-profile-content-data">
+                            <p class="modal-profile-content-data-subtitle">Books</p>
+                            <img class="modal-profile-content-data-icon" src="../library/icon/book.svg" alt="book_symbol">
+                            <p class="modal-profile-content-data-count">2</p>
+                        </div>
+                    </div>
+                    <p class="modal-profile-content-subtitle">Rented books</p>
+                    <ul class="modal-profile-content-rented_books">
+                        <li class="modal-profile-content-rented_books-item">The Last Queen, Clive Irving</li>
+                        <li class="modal-profile-content-rented_books-item">Dominicana, Angie Cruz</li>
+                    </ul>
+                    <div class="modal-profile-content-card_number-wrapper">
+                        <p class="modal-profile-content-card_number-text">Card number</p>
+                        <p title="Click for copy" class="modal-profile-content-card_number-text-number">library code</p>
+                        <a>
+                            <img class="modal-profile-content-card_number-text-icon" src="../library/icon/icon_copy.svg" alt="copy_symbol">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
